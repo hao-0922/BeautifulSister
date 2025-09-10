@@ -1,390 +1,410 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>全职招聘信息</title>
-		<link rel="stylesheet" type="text/css" href="css/jd.css"/>
-		<link rel="stylesheet" type="text/css" href="css/home.css"/>
-		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
-		<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(function() {
-					var btns = $(".video1");
-					$(btns).click(function() {
-						var myVideo = $(this).parent().parent().children(".video")[0];
-						console.log($(this).parent().parent().children(".video"));
-						if(myVideo.paused)
-						myVideo.play();
-						else
-						myVideo.pause();
-					});
-					
-				showHide();
-				function showHide() {
-					//找到name=hide的元素
-					$('[name=show_hide]').hover(function() {
-						//获取当前li的id
-						var id = $(this).attr("id");
-						var subId = id + "_items";
-						$('#' + subId).show();
-					}, function() {
-						//获取当前li的id
-						var id = $(this).attr("id");
-						var subId = id + "_items";
-						$('#' + subId).hide();
-					});
-				}
-				
-				 new ZouMa().Start();
-				 
-				 //鼠标跟随
-				 function dotMove(e) {
-				     var obj = $("#c-followDot");
-				     var aA = $("a");
-				     var bW = $("body").width() - 25;
-				     $(document).mousemove(function(e) {
-				         var endx = e.clientX;
-				         var endy = e.clientY;
-				         if (endx > bW) {
-				             endx = bW;
-				         }
-				         obj.css({ "left": endx + "px", "top": endy + "px" });
-				     });
-				     aA.hover(function() {
-				         obj.addClass("c-active");
-				     }, function() {
-				         obj.removeClass("c-active");
-				     });
-				 }
-				 dotMove();
-				 $(".boss").click(function(){
-				 	alert("请登录您的招聘官账户");
-				 });
+
+<head>
+	<meta charset="utf-8">
+	<title>全职招聘信息</title>
+	<link rel="stylesheet" type="text/css" href="css/jd.css" />
+	<link rel="stylesheet" type="text/css" href="css/home.css" />
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+	<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+			var btns = $(".video1");
+			$(btns).click(function () {
+				var myVideo = $(this).parent().parent().children(".video")[0];
+				console.log($(this).parent().parent().children(".video"));
+				if (myVideo.paused)
+					myVideo.play();
+				else
+					myVideo.pause();
 			});
-			function ZouMa() {
-			    this.maxLength = 3;           
-			    this.Timer = 2000;
-			    this.Ul = $(".box ul");
-					
-			    var handId;
-			    var self = this;
-			    this.Start = function () {
-			        if (self.Ul.children().length < this.maxLength) {
-			            self.Ul.append(self.Ul.children().clone());
-			        }
-			        handId = setInterval(self.Play, self.Timer);
-			    }
-			    this.Play = function () {
-			        var img = self.Ul.children().eq(0);
-			        var left = img.children().eq(0).width();
-			        img.animate({ "marginLeft": (-1 * left) + "px" }, 600, function () {
-			            $(this).css("margin-left", "auto").appendTo(self.Ul);
-			        });
-			    }
-				$("#boxdiv").hover(function(){
-					handId = clearInterval(handId);
-				},function(){
-					handId = setInterval(self.Play,self.Timer);
+
+			showHide();
+			function showHide() {
+				//找到name=hide的元素
+				$('[name=show_hide]').hover(function () {
+					//获取当前li的id
+					var id = $(this).attr("id");
+					var subId = id + "_items";
+					$('#' + subId).show();
+				}, function () {
+					//获取当前li的id
+					var id = $(this).attr("id");
+					var subId = id + "_items";
+					$('#' + subId).hide();
 				});
 			}
-		</script>
-	</head>
-	<body>
-		<!--鼠标跟随-->
-		<div id="c-followDot" class style="ledft: 467px; top: 576px;">
-			<div class="c-default"></div>
-			<div class="c-hover"></div>
+
+			new ZouMa().Start();
+
+			//鼠标跟随
+			function dotMove(e) {
+				var obj = $("#c-followDot");
+				var aA = $("a");
+				var bW = $("body").width() - 25;
+				$(document).mousemove(function (e) {
+					var endx = e.clientX;
+					var endy = e.clientY;
+					if (endx > bW) {
+						endx = bW;
+					}
+					obj.css({ "left": endx + "px", "top": endy + "px" });
+				});
+				aA.hover(function () {
+					obj.addClass("c-active");
+				}, function () {
+					obj.removeClass("c-active");
+				});
+			}
+			dotMove();
+			$(".boss").click(function () {
+				alert("请登录您的招聘官账户");
+			});
+		});
+		function ZouMa() {
+			this.maxLength = 3;
+			this.Timer = 2000;
+			this.Ul = $(".box ul");
+
+			var handId;
+			var self = this;
+			this.Start = function () {
+				if (self.Ul.children().length < this.maxLength) {
+					self.Ul.append(self.Ul.children().clone());
+				}
+				handId = setInterval(self.Play, self.Timer);
+			}
+			this.Play = function () {
+				var img = self.Ul.children().eq(0);
+				var left = img.children().eq(0).width();
+				img.animate({ "marginLeft": (-1 * left) + "px" }, 600, function () {
+					$(this).css("margin-left", "auto").appendTo(self.Ul);
+				});
+			}
+			$("#boxdiv").hover(function () {
+				handId = clearInterval(handId);
+			}, function () {
+				handId = setInterval(self.Play, self.Timer);
+			});
+		}
+	</script>
+</head>
+
+<body>
+	<!--鼠标跟随-->
+	<div id="c-followDot" class style="ledft: 467px; top: 576px;">
+		<div class="c-default"></div>
+		<div class="c-hover"></div>
+	</div>
+	<div class="top">
+		<div class="top_left">
+			<img src="images/logo(2).jpg">
+			<a>找工作上答灵</a>
+			<p>Multifunctional toolbox | China</p>
 		</div>
-		<div class="top">
-			<div class="top_left">
-				<img src="images/logo(2).jpg" >
-				<a>找工作上答灵</a>
-				<p>Multifunctional toolbox | China</p>
+		<div class="top_right">
+			<div class="top_input">
+				<input type="search" class="" placeholder="请输入搜索内容">
+				<img src="images/搜索.png">
 			</div>
-			<div class="top_right">
-				<div class="top_input">
-					<input type="search" class="" placeholder="请输入搜索内容">
-					<img src="images/搜索.png" >
-				</div>
 			<div id="my_jd" class="lf" name='show_hide'>
 				<div class="my_jd_mt">
-				  <a style="color: black;" href="people.html">个人中心</a><b></b>
+					<a style="color: black;" href="people.html">个人中心</a><b></b>
 				</div>
 				<div id="my_jd_items">
-				  <p>您好，请<a href="denglu.html">登录</a></p>
-				  <div class="my_jd_div">
-				  <ul class="lf">
-				    <li><a href="people.html">待处理面试</a></li>
-				    <li><a href="people.html">咨询回复</a></li>
-				    <li><a href="people.html">我的证书</a></li>
-				    <li><a href="people.html">过去履历</a></li>
-				    <li><a href="people.html">会员卡</a></li>
-				  </ul>
-				  <ul class="lf">
-				    <li><a href="people.html">我的关注 &gt;</a></li>
-				    <li><a href="people.html">我的工具 &gt;</a></li>
-				    <li><a href="people.html">我的理财 &gt;</a></li>
-				    <li><a href="people.html">我的钱包 &gt;</a></li>
-				  </ul>
-				  </div>
+					<p>您好，请<a href="denglu.html">登录</a></p>
+					<div class="my_jd_div">
+						<ul class="lf">
+							<li><a href="people.html">待处理面试</a></li>
+							<li><a href="people.html">咨询回复</a></li>
+							<li><a href="people.html">我的证书</a></li>
+							<li><a href="people.html">过去履历</a></li>
+							<li><a href="people.html">会员卡</a></li>
+						</ul>
+						<ul class="lf">
+							<li><a href="people.html">我的关注 &gt;</a></li>
+							<li><a href="people.html">我的工具 &gt;</a></li>
+							<li><a href="people.html">我的理财 &gt;</a></li>
+							<li><a href="people.html">我的钱包 &gt;</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 			<div id="settle_up" class="lf" name='show_hide'>
-			  <div class="settle_up_mt">
-			    查看新信息
-			    <b></b>
-			  </div>
-			  <div id="settle_up_items">
-			    <div id="no_goods">
-			      <b></b>
-			     您还没有面试邀请，请继续努力！
-			    </div>
-			  </div>
-			</div>
-		</div>
-		</div>
-		<header class="hd">
-			<ul class="hd_ul">
-				<li><a href="index.html">首页</a></li>
-					<li><a href="home.html">全职招聘信息</a></li>
-					<li><a href="work.html">行业分类</a></li>
-					<li><a href="surf.html">线上互动</a></li>
-					<li><a href="self.html">自助服务</a></li>
-					<li id="service" class="service" name="show_hide">
-					  <b></b>
-					  <label class="rt">
-					    <a href="customer.html">客户服务</a>
-					  </label>
-					  <ul id="service_items">
-					    <li><a href="customer.html">帮助中心</a></li>
-					    <li><a href="customer.html">咨询服务</a></li>
-					    <li><a href="customer.html">在线客服</a></li>
-					    <li><a href="customer.html">投诉中心</a></li>
-					    <li><a href="customer.html">客服邮箱</a></li>
-					  </ul>
-					</li>
-					<li><a href="denglu.html">登录/</a><a href="zhuce.html">注册</a></li>
-				</ul>
-		</header>
-		<div class="main1">
-			<div class="main1_left">
-				<img src="images/self/l_bg1.png" >
-			</div>
-			<div class="main1_right">
-				<div class="main1_right_top">
-					<h1>求职找答灵</h1>
+				<div class="settle_up_mt">
+					查看新信息
+					<b></b>
 				</div>
-				<ul class="header-totaldata">
-				    <li>
-						<div class="num-totaldata timer" id="count-number" data-from="1" data-to="1312064" data-speed="800">1312064</div>
-				            <p>在线职位</p>
-				    </li>                   
-				    <li><em class="dash-totaldata"></em>
-				        <div class="num-totaldata timer" id="count-number" data-from="1" data-to="19846" data-speed="800">19846</div>
-				            <p>在线企业</p>
-				    </li>
-				    <li><em class="dash-totaldata"></em>
-				        <div class="num-totaldata timer" id="count-number" data-from="1" data-to="918444.8" data-speed="800">918445</div>
-				            <p>人才搜索</p>
-				    </li>
-				</ul>
-				<ul class="main1_right_ul">
-					<li><a href="customer.html"><img src="images/家用工具/jy.png" ></a></li>
-					<li><a href="home.html"><img src="images/家用工具/mdd.png" ></a></li>
-					<li><a href="work.html"><img src="images/家用工具/yjs.png" ></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="main2">
-			<div class="main2_left">
-				<ul class="main2_left_ul">
-					<li class="main2_left_ul_li"><h3><span class="main2_left_ul_li_span"></span>互联网/电子商务</h3>
-						<p class="main2_left_ul_li_p"><span>产品经理</span>(14,164)</p>
-						<p class="main2_left_ul_li_p"><span>软件工程师</span>(12,186)</p>
-						<p class="main2_left_ul_li_p"><span>UI设计师</span>(1,632)</p>
-					</li>
-					<li class="main2_left_ul_li"><h3><span class="main2_left_ul_li_span"></span>金融/投资/证券</h3>
-						<p class="main2_left_ul_li_p"><span>证券分析</span>(1,282)</p>
-						<p class="main2_left_ul_li_p"><span>金融销售</span>(1,982)</p>
-						<p class="main2_left_ul_li_p"><span>投资顾问</span>(4,216)</p>
-					</li>
-					<li class="main2_left_ul_li"><h3><span class="main2_left_ul_li_span"></span>汽车</h3>
-						<p class="main2_left_ul_li_p"><span>汽车销售</span>(38,116)</p>
-						<p class="main2_left_ul_li_p"><span>项目管理</span>(8,484)</p>
-						<p class="main2_left_ul_li_p"><span>电子工程师</span>(2,353)</p>
-					</li>
-					<li class="main2_left_ul_li"><h3><span class="main2_left_ul_li_span"></span>房地产</h3>
-						<p class="main2_left_ul_li_p"><span>室内设计</span>(2,913)</p>
-						<p class="main2_left_ul_li_p"><span>工程项目</span>(6,929)</p>
-						<p class="main2_left_ul_li_p"><span>土建工程师</span>(3,137)</p>
-					</li>
-				</ul>
-			</div>
-			<div class="main2_right">
-				<h2>我要招聘</h2>
-				<p><span>人事外包</span><span>调研中心</span></p>
-				<p><span>企业培训</span><span>典范雇主</span></p>
-				<p><span>在线测评</span><span>薪酬调查</span></p>
-				<a href="denglu.html" class="boss">招聘官入口</a>
-			</div>
-		</div>
-		<section class="main">
-				<h1>公司推荐</h1>
-				<div class="box">        
-			        <div style="width: 1300px; overflow: hidden;" id="boxdiv">
-			            <ul style="width: 7800px;">
-			                <li><img src="images/家用工具/big/01.jpg"/></li>
-			                <li><img src="images/家用工具/big/02.jpg"/></li>
-			                <li><img src="images/家用工具/big/03.jpg"/></li> 
-			                <li><img src="images/家用工具/big/04.jpg"/></li>
-							<li><img src="images/家用工具/big/05.jpg"/></li>
-							<li><img src="images/家用工具/big/06.jpg"/></li>
-							<li><img src="images/家用工具/big/07.jpg"/></li>
-							<li><img src="images/家用工具/big/08.jpg"/></li>
-							<li><img src="images/家用工具/big/09.jpg"/></li>
-							<li><img src="images/家用工具/big/010.jpg"/></li>
-							<li><img src="images/家用工具/big/011.jpg"/></li>
-			            </ul>
-			        </div>	
-			    </div>
-				<div class="home-section">
-				    <div class="title-section">
-			            最新动态 与好机会不期而遇
-			        </div>
-			        <ul class="homeact-list">
-			            <li><a href="surf.html">
-			                    <img src="images/家用工具/botten/2017061610272694650.jpg" title="全民实习季">
-			                </a>
-					    </li>
-			            <li><a href="work.html">
-			                    <img src="images/家用工具/botten/2017080917025679202.jpg" title="奋斗在此">
-			                </a>
-					    </li>
-			            <li><a href="customer.html">
-			                    <img src="images/家用工具/botten/2017080916372020627.jpg" title="拥抱未来">
-			                </a>
-					    </li>
-			        </ul>
-			    </div>
-				<ul class="prolist-homejob">
-				    <li><a href="self.html" class="link-prolist link-cvpro"><i class="icon-prolist"></i>
-		                <div class="name-prolist">简历服务</div>
-			            <div class="txt-prolist">
-				            <p>简历出类拔萃</p>
-	                        <p>不再石沉大海</p>
-				        </div>                    
-		                <em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em>
-						</a>
-					</li>
-				    <li><a href="work.html" class="link-prolist link-srchpro"><i class="icon-prolist"></i>
-		                <div class="name-prolist">工作机会</div>
-				        <div class="txt-prolist">
-				            <p>新机会 新平台</p>
-				            <p>你可以做得更好</p>
-				        </div>
-				        <em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em>
-				        </a>
-				    </li>
-				    <li><a href="customer.html" class="link-prolist link-asscesspro"><i class="icon-prolist"></i>
-				        <div class="name-prolist">职业测评</div>
-				        <div class="txt-prolist">
-				            <p>天赋异禀 成功人生</p>
-				            <p>从发现自己开始</p>
-				        </div>
-				        <em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em> 
-						</a>
-					</li>
-				    <li><a href="people.html" class="link-prolist link-learnpro"><i class="icon-prolist"></i>
-				        <div class="name-prolist">教育培训</div>
-				        <div class="txt-prolist">
-				            <p>你可以拒绝学习</p>
-				            <p>但你的竞争对手不会</p>                
-				        </div>
-				        <em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em> 
-						</a>
-					</li>                
-				    <li><a href="qb.html" class="link-prolist link-salarypro"><i class="icon-prolist"></i>
-				        <div class="name-prolist">薪酬查询</div>
-				        <div class="txt-prolist">
-				            <p>了解你的市场价值</p>
-				            <p>竞争力 以及更多</p>        	    
-				        </div>
-				        <em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em>
-				        </a>
-				    </li>
-				    <li><a href="https://policy.cjol.com" class="link-prolist link-policepro"><i class="icon-prolist"></i>
-				        <div class="name-prolist">人才政策</div>
-				        <div class="txt-prolist">
-				            <p>与你相关的深圳人才补贴</p>
-				            <p>全在这里</p>            
-				        </div>
-				        <em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></a></em> 
-						</a>
-					</li>
-				</ul>
-				<div class="ft_img">
-					<P><img src="images/家用工具/zh4_02.jpg" ></P>
+				<div id="settle_up_items">
+					<div id="no_goods">
+						<b></b>
+						您还没有面试邀请，请继续努力！
+					</div>
 				</div>
-				<footer class="ft">
-					<ul>
-						<li><span>优</span><p><a class="a1" href="">就业保障</a><a class="a2">保障护航 就业无忧</a></p></li>
-						<li><span>帮</span><p><a class="a1" href="customer.html">帮助中心</a><a class="a2">您的找工作寻找指南</a></p></li>
-						<li><span>全</span><p><a class="a1" href="surf.html">全民咨询</a><a class="a2">大家一起找工作</a></p></li>
-						<li><span>联</span><p><a class="a1" href="">全国联保</a><a class="a2">保护您的合法权益</a></p></li>
-						<li><span>试</span><p><a class="a1" href="">视频面试</a><a class="a2">视频面试 方便快捷</a></p></li>
-					</ul>
-				</footer>
-			</section>
-			<!--右侧悬浮-->
-						<div class="new_right_pendant">
-							<div class="new_right_list">
-								<a title="电话咨询">
-									<div class="ysUtilIco">
-										<span class="iconfont icon-dianhua"></span>
-									</div>
-									<span class="txt1">13548809860</span>
-								</a>
-							</div>
-							<div class="new_right_list">
-								<a target="_blank" href="https://www.baidu.com" title="百度一下">
-									<div class="ysUtilIco">
-										<span class="iconfont icon-wangzhan1"></span>
-									</div>
-								</a>
-							</div>
-							<div class="new_right_list">
-								<a target="_blank" href="#" title="刷新页面">
-									<div class="ysUtilIco">
-										<span class="iconfont icon-keji1"></span>
-									</div>
-								</a>
-							</div>
-							<div class="new_right_list">
-								<a target="_blank" href="customer.html" title="客户服务">
-									<div class="ysUtilIco">
-										<span class="iconfont icon-ziyuan"></span>
-									</div>
-								</a>
-							</div>
-							<div class="new_right_list">
-								<a>
-									<div class="ysUtilIco">
-										<span class="iconfont icon-haipaikeicon-"></span>
-									</div>
-									<span class="txt1 txt2">
-										<img src="./images/wx.jpg" alt="微信咨询">
-									</span>
-								</a>
-							</div>
-							<div class="new_right_list">
-								<a href="" class="totop" title="回到顶部">
-									<div class="ysUtilIco">
-										<span class="iconfont icon-fanhuidingbu1"></span>
-									</div>
-								</a>
-							</div>
-						</div>
-						
-<script src="js/digitalRoll.js" type="text/javascript"></script>
-	</body>
+			</div>
+		</div>
+	</div>
+	<header class="hd">
+		<ul class="hd_ul">
+			<li><a href="index.html">首页</a></li>
+			<li><a href="home.html">全职招聘信息</a></li>
+			<li><a href="work.html">行业分类</a></li>
+			<li><a href="surf.html">线上互动</a></li>
+			<li><a href="self.html">自助服务</a></li>
+			<li id="service" class="service" name="show_hide">
+				<b></b>
+				<label class="rt">
+					<a href="customer.html">客户服务</a>
+				</label>
+				<ul id="service_items">
+					<li><a href="customer.html">帮助中心</a></li>
+					<li><a href="customer.html">咨询服务</a></li>
+					<li><a href="customer.html">在线客服</a></li>
+					<li><a href="customer.html">投诉中心</a></li>
+					<li><a href="customer.html">客服邮箱</a></li>
+				</ul>
+			</li>
+			<li><a href="denglu.html">登录/</a><a href="zhuce.html">注册</a></li>
+		</ul>
+	</header>
+	<div class="main1">
+		<div class="main1_left">
+			<img src="images/self/l_bg1.png">
+		</div>
+		<div class="main1_right">
+			<div class="main1_right_top">
+				<h1>求职找答灵</h1>
+			</div>
+			<ul class="header-totaldata">
+				<li>
+					<div class="num-totaldata timer" id="count-number" data-from="1" data-to="1312064" data-speed="800">1312064
+					</div>
+					<p>在线职位</p>
+				</li>
+				<li><em class="dash-totaldata"></em>
+					<div class="num-totaldata timer" id="count-number" data-from="1" data-to="19846" data-speed="800">19846</div>
+					<p>在线企业</p>
+				</li>
+				<li><em class="dash-totaldata"></em>
+					<div class="num-totaldata timer" id="count-number" data-from="1" data-to="918444.8" data-speed="800">918445
+					</div>
+					<p>人才搜索</p>
+				</li>
+			</ul>
+			<ul class="main1_right_ul">
+				<li><a href="customer.html"><img src="images/家用工具/jy.png"></a></li>
+				<li><a href="home.html"><img src="images/家用工具/mdd.png"></a></li>
+				<li><a href="work.html"><img src="images/家用工具/yjs.png"></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="main2">
+		<div class="main2_left">
+			<ul class="main2_left_ul">
+				<li class="main2_left_ul_li">
+					<h3><span class="main2_left_ul_li_span"></span>互联网/电子商务</h3>
+					<p class="main2_left_ul_li_p"><span>产品经理</span>(14,164)</p>
+					<p class="main2_left_ul_li_p"><span>软件工程师</span>(12,186)</p>
+					<p class="main2_left_ul_li_p"><span>UI设计师</span>(1,632)</p>
+				</li>
+				<li class="main2_left_ul_li">
+					<h3><span class="main2_left_ul_li_span"></span>金融/投资/证券</h3>
+					<p class="main2_left_ul_li_p"><span>证券分析</span>(1,282)</p>
+					<p class="main2_left_ul_li_p"><span>金融销售</span>(1,982)</p>
+					<p class="main2_left_ul_li_p"><span>投资顾问</span>(4,216)</p>
+				</li>
+				<li class="main2_left_ul_li">
+					<h3><span class="main2_left_ul_li_span"></span>汽车</h3>
+					<p class="main2_left_ul_li_p"><span>汽车销售</span>(38,116)</p>
+					<p class="main2_left_ul_li_p"><span>项目管理</span>(8,484)</p>
+					<p class="main2_left_ul_li_p"><span>电子工程师</span>(2,353)</p>
+				</li>
+				<li class="main2_left_ul_li">
+					<h3><span class="main2_left_ul_li_span"></span>房地产</h3>
+					<p class="main2_left_ul_li_p"><span>室内设计</span>(2,913)</p>
+					<p class="main2_left_ul_li_p"><span>工程项目</span>(6,929)</p>
+					<p class="main2_left_ul_li_p"><span>土建工程师</span>(3,137)</p>
+				</li>
+			</ul>
+		</div>
+		<div class="main2_right">
+			<h2>我要招聘</h2>
+			<p><span>人事外包</span><span>调研中心</span></p>
+			<p><span>企业培训</span><span>典范雇主</span></p>
+			<p><span>在线测评</span><span>薪酬调查</span></p>
+			<a href="denglu.html" class="boss">招聘官入口</a>
+		</div>
+	</div>
+	<section class="main">
+		<h1>公司推荐</h1>
+		<div class="box">
+			<div style="width: 1300px; overflow: hidden;" id="boxdiv">
+				<ul style="width: 7800px;">
+					<li><img src="images/家用工具/big/01.jpg" /></li>
+					<li><img src="images/家用工具/big/02.jpg" /></li>
+					<li><img src="images/家用工具/big/03.jpg" /></li>
+					<li><img src="images/家用工具/big/04.jpg" /></li>
+					<li><img src="images/家用工具/big/05.jpg" /></li>
+					<li><img src="images/家用工具/big/06.jpg" /></li>
+					<li><img src="images/家用工具/big/07.jpg" /></li>
+					<li><img src="images/家用工具/big/08.jpg" /></li>
+					<li><img src="images/家用工具/big/09.jpg" /></li>
+					<li><img src="images/家用工具/big/010.jpg" /></li>
+					<li><img src="images/家用工具/big/011.jpg" /></li>
+				</ul>
+			</div>
+		</div>
+		<div class="home-section">
+			<div class="title-section">
+				最新动态 与好机会不期而遇
+			</div>
+			<ul class="homeact-list">
+				<li><a href="surf.html">
+						<img src="images/家用工具/botten/2017061610272694650.jpg" title="全民实习季">
+					</a>
+				</li>
+				<li><a href="work.html">
+						<img src="images/家用工具/botten/2017080917025679202.jpg" title="奋斗在此">
+					</a>
+				</li>
+				<li><a href="customer.html">
+						<img src="images/家用工具/botten/2017080916372020627.jpg" title="拥抱未来">
+					</a>
+				</li>
+			</ul>
+		</div>
+		<ul class="prolist-homejob">
+			<li><a href="self.html" class="link-prolist link-cvpro"><i class="icon-prolist"></i>
+					<div class="name-prolist">简历服务</div>
+					<div class="txt-prolist">
+						<p>简历出类拔萃</p>
+						<p>不再石沉大海</p>
+					</div>
+					<em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em>
+				</a>
+			</li>
+			<li><a href="work.html" class="link-prolist link-srchpro"><i class="icon-prolist"></i>
+					<div class="name-prolist">工作机会</div>
+					<div class="txt-prolist">
+						<p>新机会 新平台</p>
+						<p>你可以做得更好</p>
+					</div>
+					<em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em>
+				</a>
+			</li>
+			<li><a href="customer.html" class="link-prolist link-asscesspro"><i class="icon-prolist"></i>
+					<div class="name-prolist">职业测评</div>
+					<div class="txt-prolist">
+						<p>天赋异禀 成功人生</p>
+						<p>从发现自己开始</p>
+					</div>
+					<em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em>
+				</a>
+			</li>
+			<li><a href="people.html" class="link-prolist link-learnpro"><i class="icon-prolist"></i>
+					<div class="name-prolist">教育培训</div>
+					<div class="txt-prolist">
+						<p>你可以拒绝学习</p>
+						<p>但你的竞争对手不会</p>
+					</div>
+					<em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em>
+				</a>
+			</li>
+			<li><a href="qb.html" class="link-prolist link-salarypro"><i class="icon-prolist"></i>
+					<div class="name-prolist">薪酬查询</div>
+					<div class="txt-prolist">
+						<p>了解你的市场价值</p>
+						<p>竞争力 以及更多</p>
+					</div>
+					<em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a></em>
+				</a>
+			</li>
+			<li><a href="https://policy.cjol.com" class="link-prolist link-policepro"><i class="icon-prolist"></i>
+					<div class="name-prolist">人才政策</div>
+					<div class="txt-prolist">
+						<p>与你相关的深圳人才补贴</p>
+						<p>全在这里</p>
+					</div>
+					<em class="more-prolist"><a href="more.html" style="position: relative;top: -79px;left: 175px;">more</a>
+				</a></em>
+				</a>
+			</li>
+		</ul>
+		<div class="ft_img">
+			<P><img src="images/家用工具/zh4_02.jpg"></P>
+		</div>
+		<footer class="ft">
+			<ul>
+				<li><span>优</span>
+					<p><a class="a1" href="">就业保障</a><a class="a2">保障护航 就业无忧</a></p>
+				</li>
+				<li><span>帮</span>
+					<p><a class="a1" href="customer.html">帮助中心</a><a class="a2">您的找工作寻找指南</a></p>
+				</li>
+				<li><span>全</span>
+					<p><a class="a1" href="surf.html">全民咨询</a><a class="a2">大家一起找工作</a></p>
+				</li>
+				<li><span>联</span>
+					<p><a class="a1" href="">全国联保</a><a class="a2">保护您的合法权益</a></p>
+				</li>
+				<li><span>试</span>
+					<p><a class="a1" href="">视频面试</a><a class="a2">视频面试 方便快捷</a></p>
+				</li>
+			</ul>
+		</footer>
+	</section>
+	<!--右侧悬浮-->
+	<div class="new_right_pendant">
+		<div class="new_right_list">
+			<a title="电话咨询">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-dianhua"></span>
+				</div>
+				<span class="txt1">13548809860</span>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a target="_blank" href="https://www.baidu.com" title="百度一下">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-wangzhan1"></span>
+				</div>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a target="_blank" href="#" title="刷新页面">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-keji1"></span>
+				</div>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a target="_blank" href="customer.html" title="客户服务">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-ziyuan"></span>
+				</div>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a>
+				<div class="ysUtilIco">
+					<span class="iconfont icon-haipaikeicon-"></span>
+				</div>
+				<span class="txt1 txt2">
+					<img src="./images/wx.jpg" alt="微信咨询">
+				</span>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a href="" class="totop" title="回到顶部">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-fanhuidingbu1"></span>
+				</div>
+			</a>
+		</div>
+	</div>
+
+	<script src="js/digitalRoll.js" type="text/javascript"></script>
+</body>
+
 </html>

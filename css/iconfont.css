@@ -1,13 +1,7 @@
 @font-face {
   font-family: "iconfont"; /* Project id 2537371 */
-  src: url('../iconfont/iconfont.eot?t='); /* IE9 */
-  src: url('../iconfont/iconfont.eot?t=1626680339985#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../iconfont/iconfont.woff2?t=1626680339985') format('woff2'),
-       url('../iconfont/iconfont.woff?t=1626680339985') format('woff'),
-       url('../iconfont/iconfont.ttf?t=1626680339985') format('truetype'),
-       url('../iconfont/iconfont.svg?t=1626680339985#iconfont') format('svg');
+  src: url("../iconfont/iconfont.woff2") format("woff2");
 }
-
 
 .iconfont {
   font-family: "iconfont" !important;
