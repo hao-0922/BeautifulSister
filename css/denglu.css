@@ -1,0 +1,150 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.all{
+	width: 900px;
+	height: 700px;
+	margin: 100px auto;
+	background-image: url(../images/bg4.jpg);
+	background-size: 900px 700px;
+}
+.top{
+	width: 300px;
+	margin: auto;
+	padding-top: 100px;
+	display: flex;
+}
+.top img{
+	width: 100px;
+	height: 100px;
+	position: relative;
+	top: -10px;
+	left: 0px;
+	background-color: #ffffff;
+}
+.top p{
+	color: #ffffff;
+	text-align: center;
+	font-family: Cursive;
+	font-size: 23px;
+	text-shadow: 4px 5px 8px #C0C0C0;
+}
+.main{
+	width: 300px;
+	margin: auto;
+	padding-top: 20px;
+}
+.main_p{
+	margin-top: 15px;
+	position: relative;
+}
+.main_p span{
+	display: block;
+	background-image: url(../images/dl.png);
+	background-size: 45px;
+	background-repeat: no-repeat;
+	height: 45px;
+	width: 45px;
+	background-position: 6px 3px;
+	cursor: pointer;
+	position: absolute;
+	
+}
+.main_p:nth-child(2) span{
+	background-position: 6px -56px;
+}
+.main_p input{
+	background-color: transparent;
+	width: 270px;
+	height: 40px;
+	color: #ffffff;
+	padding-left: 45px;
+	border-radius: 10px;
+	font-size: 16px;
+}
+.main .p{
+	margin-top: 10px;
+	display: flex;
+	width: 300px;
+	justify-content: space-between;
+}
+.main .p input{
+	background-color: transparent;
+	width: 130px;
+	height: 40px;
+	padding-left: 10px;
+	border-radius: 10px;
+	font-size: 16px;
+}
+.main .p a{
+	background-color: rgba(255,255,255,0.3);
+	width: 160px;
+	height: 45px;
+	color: red;
+	text-align: center;
+	line-height: 45px;
+	border-radius: 10px;
+	font-size: 20px;
+	    margin-right: -18px;
+	font-weight: 600;
+}
+.main .input{
+	background-color: red;
+	border: none;
+	width: 316px;
+	height: 45px;
+	margin-top: 10px;
+	padding-left: 10px;
+	border-radius: 10px;
+	font-size: 18px;
+	color: #ffffff;
+}
+.bottem{
+	width: 210px;
+	margin: 10px auto;
+}
+.bottem ul{
+	list-style: none;
+	display: flex;
+}
+.bottem ul li{
+	color: #999999;
+	margin: auto;
+}
+.bottem ul li a{
+	text-decoration: none;
+	color: #999999;
+}
+.bottem_ul{
+	width: 500px;
+	margin: 40px auto;
+	list-style: none;
+	display: flex;
+}
+.bottem_ul li{
+	width: 300px;
+	height: 170px;
+	position: relative;
+	left: -130px;
+}
+.bottem_ul li .a{
+	color: #ffffff;
+	width: 150px;
+	cursor: pointer;
+	position: absolute;
+	top: 0px;
+	
+}
+.bottem_ul li .a img{
+	position: relative;
+	left: -5px;
+	width: 30px;
+	vertical-align: middle;
+}
+.bottem_ul .img{
+	position: relative;
+	top: 58px;
+	display: none;
+}
+

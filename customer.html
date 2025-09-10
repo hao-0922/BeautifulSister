@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>客户服务</title>
+		<link rel="stylesheet" type="text/css" href="css/customer.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/txtcss.css" />
+		<link rel="stylesheet" type="text/css" href="css/shenqing.css" />
+		<link rel="stylesheet" type="text/css" href="css/ytx.css"/>
+		<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var btns = $(".video1");
+				$(btns).click(function() {
+					var myVideo = $(this).parent().parent().children(".video")[0];
+					console.log($(this).parent().parent().children(".video"));
+					if (myVideo.paused)
+						myVideo.play();
+					else
+						myVideo.pause();
+				});
+
+				showHide();
+
+				function showHide() {
+					//找到name=hide的元素
+					$('[name=show_hide]').hover(function() {
+						//获取当前li的id
+						var id = $(this).attr("id");
+						var subId = id + "_items";
+						$('#' + subId).show();
+					}, function() {
+						//获取当前li的id
+						var id = $(this).attr("id");
+						var subId = id + "_items";
+						$('#' + subId).hide();
+					});
+				}
+				//鼠标跟随
+				function dotMove(e) {
+					var obj = $("#c-followDot");
+					var aA = $("a");
+					var bW = $("body").width() - 25;
+					$(document).mousemove(function(e) {
+						var endx = e.clientX;
+						var endy = e.clientY;
+						if (endx > bW) {
+							endx = bW;
+						}
+						obj.css({
+							"left": endx + "px",
+							"top": endy + "px"
+						});
+					});
+					aA.hover(function() {
+						obj.addClass("c-active");
+					}, function() {
+						obj.removeClass("c-active");
+					});
+				}
+				dotMove();
+				//切换图片
+				var index = 0;
+				var width = $(".show_box").width();
+				var len = $(".pic_list").children().length;
+				var time = 2000;
+
+				fn2();
+
+				function fn1() {
+					$(".pic_list").children().hide().css("opacity", 0).eq(index).show().css("opacity", 1);
+				}
+
+				function fn2() {
+					fn1();
+					index++;
+					if (index == len) {
+						index = 0;
+					}
+					setTimeout(fn2, time);
+				}
+
+				$(".select").hover(function() {
+					index = $(this).index();
+					fn1();
+					// $(this).CSS("background", "rgba(118,107,122,0.3)");
+				}, function() {
+					// $(this).CSS("background", "rgba(160,107,122,0.3)");
+				});
+				
+				//咨询
+				$(".test_btn_cgcg").click(function(){
+					if($(".wrap_content").is(':hidden')){
+						$(".wrap_content").show();
+					}else{
+						$(".wrap_content").hide();
+					}
+				});
+				$(".close").click(function(){
+					$(".wrap_content").hide();
+				});
+				
+				//视频
+				$(".test_btn_voide").click(function(){
+					if($(".wrap_video").is(':hidden')){
+						$(".wrap_video").show();
+					}else{
+						$(".wrap_video").hide();
+					}
+				});
+				$(".voide_close").click(function(){
+					$(".wrap_video").hide();
+				});
+				
+				//中间悬浮窗口
+				$(".main2_help").click(function() {
+					if ($("#nb_invite_wrap").is(':hidden')) {
+						$("#nb_invite_wrap").show();
+					} else {
+						$("#nb_invite_wrap").hide();
+					}
+				});
+				$(".zaixiankefu").click(function() {
+					if ($("#nb_invite_wrap").is(':hidden')) {
+						$("#nb_invite_wrap").show();
+					} else {
+						$("#nb_invite_wrap").hide();
+					}
+				});
+				$(".zj2").click(function() {
+					$("#nb_invite_wrap").hide();
+				});
+				$(".base").click(function() {
+					$("#nb_invite_wrap").hide();
+				});
+				//留言板
+				$(".liuyan").click(function() {
+					if ($(".nb-nodeboard-base").is(':hidden')) {
+						$(".nb-nodeboard-base").show();
+					} else {
+						$(".nb-nodeboard-base").hide();
+					}
+				});
+				$(".nb-nodeboard-close").click(function() {
+					$(".nb-nodeboard-base").hide();
+				});
+				$(".nb-sucess-close").click(function() {
+					$(".nb-nodeboard-base").hide();
+				});
+				//右下窗口
+				$(".ok").click(function() {
+					if ($(".maxMessageContainer").is(':hidden')) {
+						$(".maxMessageContainer").show();
+					} else {
+						$(".maxMessageContainer").hide();
+					}
+				});
+				$(".nb-webim-light-status-bar-toggle").click(function() {
+					$(".maxMessageContainer").hide();
+				});
+				//发送
+				$(".select-span").click(function() {
+					if ($(".nb-webim-light-toolbar-send-select-layer").is(':hidden')) {
+						$(".nb-webim-light-toolbar-send-select-layer").show();
+					} else {
+						$(".nb-webim-light-toolbar-send-select-layer").hide();
+					}
+				});
+				//表情
+				$(".nb-webim-light-toolbar-face").click(function() {
+					if ($(".nb-webim-light-face-container").is(':hidden')) {
+						$(".nb-webim-light-face-container").show();
+					} else {
+						$(".nb-webim-light-face-container").hide();
+					}
+				});
+				//投诉
+				$(function(){
+					$(".tousu").click(function(){
+						alert("登录之后才能进行此操作");
+					});
+				});
+				
+				//返回顶部
+				$(".totop").click(function() {
+					$('html,body').animate({
+						scrollTop: 0
+					}, 600);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<body>
+			<!--鼠标跟随-->
+			<div id="c-followDot" class style="ledft: 467px; top: 576px;">
+				<div class="c-default"></div>
+				<div class="c-hover"></div>
+			</div>
+			<!--右侧悬浮-->
+			<div class="new_right_pendant">
+				<div class="new_right_list">
+					<a title="电话咨询">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-dianhua"></span>
+						</div>
+						<span class="txt1">13548809860</span>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="https://www.baidu.com" title="百度一下">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-wangzhan1"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="#" title="刷新页面">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-keji1"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="self.html" title="自助服务">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-ziyuan"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a>
+						<div class="ysUtilIco">
+							<span class="iconfont icon-haipaikeicon-"></span>
+						</div>
+						<span class="txt1 txt2">
+							<img src="./images/wx.jpg" alt="微信咨询">
+						</span>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a href="" class="totop" title="回到顶部">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-fanhuidingbu1"></span>
+						</div>
+					</a>
+				</div>
+			</div>
+			<div class="top">
+				<div class="top_left">
+					<img src="images/logo(2).jpg">
+					<a>找工作上答灵</a>
+					<p>Multifunctional toolbox | China</p>
+				</div>
+				<div class="top_right">
+					<div class="top_input">
+						<input type="search" class="" placeholder="请输入搜索内容">
+						<img src="images/搜索.png">
+					</div>
+					<div id="my_jd" class="lf" name='show_hide'>
+						<div class="my_jd_mt">
+							<a style="color: black;" href="people.html">个人中心</a><b></b>
+						</div>
+						<div id="my_jd_items">
+							<p>您好，请<a href="denglu.html">登录</a></p>
+							<div class="my_jd_div">
+								<ul class="lf">
+									<li><a href="people.html">待处理面试</a></li>
+									<li><a href="people.html">咨询回复</a></li>
+									<li><a href="people.html">我的证书</a></li>
+									<li><a href="people.html">过去履历</a></li>
+									<li><a href="people.html">会员卡</a></li>
+								</ul>
+								<ul class="lf">
+									<li><a href="people.html">我的关注 &gt;</a></li>
+									<li><a href="people.html">我的工具 &gt;</a></li>
+									<li><a href="people.html">我的理财 &gt;</a></li>
+									<li><a href="people.html">我的钱包 &gt;</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="settle_up" class="lf" name='show_hide'>
+						<div class="settle_up_mt">
+							查看新消息
+							<b></b>
+						</div>
+						<div id="settle_up_items">
+							<div id="no_goods">
+								<b></b>
+								您还没有面试邀请，请继续努力~
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<header class="hd">
+				<ul class="hd_ul">
+					<li><a href="index.html">首页</a></li>
+					<li><a href="home.html">全职招聘信息</a></li>
+					<li><a href="work.html">行业分类</a></li>
+					<li><a href="surf.html">线上互动</a></li>
+					<li><a href="self.html">自助服务</a></li>
+					<li id="service" class="service" name="show_hide">
+						<b></b>
+						<label class="rt">
+							<a href="#"> 客户服务</a>
+						</label>
+						<ul id="service_items">
+							<li><a href="#">帮助中心</a></li>
+							<li><a href="#">咨询服务</a></li>
+							<li><a href="#">在线客服</a></li>
+							<li><a href="#">投诉中心</a></li>
+							<li><a href="#">客服邮箱</a></li>
+						</ul>
+					</li>
+					<li><a href="denglu.html">登录/</a><a href="zhuce.html">注册</a></li>
+				</ul>
+			</header>
+			<!--图片-->
+			<div class="show_box">
+				<ul class="pic_list">
+					<li><a href=""><img src="images/customer/01.jpg" alt="2"></a></li>
+					<li><a href=""><img src="images/customer/02.jpg" alt="1"></a></li>
+					<li><a href=""><img src="images/customer/03.jpg" alt="2"></a></li>
+					<li><a href=""><img src="images/customer/04.jpg" alt="2"></a></li>
+				</ul>
+				<div class="title_nav">
+					<a href="#" class="select">1</a>
+					<a href="#" class="select">2</a>
+					<a href="http://www.ehutong.net/html-website/home" class="select">3</a>
+					<a href="http://bd.hnjing.com/" class="select">4</a>
+				</div>
+			</div>
+			<!--客户服务-->
+			<div id="leeindexPage">
+				<!-- #region 视频弹窗 -->
+				<div class="wrap_video">
+					<div class="wrap_sm">
+						<span class="voide_close"></span>
+						<video poster="https://www.7moor.com/wp-content/uploads/2020/04/video_pro.jpg" id="video_cons"
+							src="https://fs-video.7moor.com/promotional.mp4" controls=""
+							controlslist="nodownload"></video>
+					</div>
+				</div>
+				<!-- test -->
+				<div class="test_body">
+					<div class="test_one" style="display: block;">
+						<div class="test_one_cont">
+							<div class="test_one_left" style="width: 650px;">
+								<h4>客户服务-答灵求职中心智能客户服务</h4>
+								<h5>帮助中心-咨询服务-在线客服-投诉中心-客服邮箱一站式解决方案<br>让顾客更容易，让服务更简单</h5>
+								<span class="test_btn_cgcg">免费咨询</span>
+								<span class="test_btn_voide" style="margin-left: 20px;">观看视频</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 测试 -->
+			<div class="wrap_content">
+				<div class="top_content">
+					<div class="wrap_bg"></div>
+					<div class="close"></div>
+					<div class="wrap_logo">
+						<div class="logo_img"></div>
+					</div>
+				</div>
+				<div class="wrap_explain">
+					<h4>免费咨询</h4>
+					<p class="slogan">好客服 用答灵</p>
+				</div>
+				<div class="wrap_form">
+					<form class="first">
+						<div class="mr60">
+							<input type="text" oninput="testVal(this)" name="phone" id="kf_try_out_tel" class="phone"
+								placeholder="请输入手机号" autocomplete="off">
+							<span class="iconfont icon-shoujihao"></span>
+							<p class="erro_tip">请输入正确的手机号码</p>
+						</div>
+						<div class="wrap_code mr60">
+							<input type="text" oninput="testVal(this)" name="phon_code" class="after_con"
+								id="kf_phone_Code" placeholder="请输入短信验证码" autocomplete="off">
+							<span class="iconfont icon-yanzhengma"></span>
+							<span class="get_code">获取验证码</span>
+							<p class="erro_tip">请输入短信验证码</p>
+						</div>
+						<div class="interest">
+							<p class="intit">想咨询的问题</p>
+							<div class="wrap_type">
+								<div class="pr_tab">
+									<h6 class="cur">帮助中心</h6>
+									<h6>咨询服务</h6>
+									<h6>在线客服</h6>
+									<h6>投诉中心</h6>
+								</div>
+								<div class="pr_warp cur">
+									<span class="col8" data_url="cloudservicer">智能客服</span>
+									<span class="col8" data_url="callcenter">云呼叫中心</span>
+									<span class="col8" data_url="worksheet">协同工单</span>
+								</div>
+								<div class="pr_warp">
+									<span class="col8" data_url="">营销在线客服</span>
+									<span class="col8" data_url="dianxiao">智能电销</span>
+									<span class="col8" data_url="crmsystem">CRM</span>
+									<span class="col8" data_url="salecrm">SCRM</span>
+									<span class="col8" data_url="phonework">工作手机</span>
+								</div>
+								<div class="pr_warp">
+									<span class="col12" data_url="airobot">客服机器人</span>
+									<span class="col12" data_url="aicall">语音机器人</span>
+									<span class="col12" data_url="hotline">热线机器人</span>
+									<span class="col12" data_url="sale">营销机器人</span>
+								</div>
+								<div class="pr_warp">
+									<span class="col12" data_url="zerocode_main">零代码平台</span>
+									<span class="col12" data_url="aPaaS">业务定制平台</span>
+									<span class="col12" data_url="BI">商业智能平台</span>
+									<span class="col12" data_url="OpenAPI">开放平台</span>
+								</div>
+							</div>
+							<p class="erro_tip">请选择感兴趣的产品</p>
+						</div>
+						<span class="btn next_step dised">
+							下一步
+						</span>
+						<div class="clearfix policy-wrap">
+							<span class="policy-text">
+								我已阅读并同意 <a style="color: #00AE83;text-decoration: none;"
+									href="//m.7moor.com/static/m7ServiceTerms.html" target="_blank">《服务协议》</a>和<a
+									style="color: #00AE83;text-decoration: none;"
+									href="//m.7moor.com/static/m7PrivacyPolicy.html" target="_blank">《隐私政策》</a>
+							</span>
+							<p class="erro_tip">请阅读并同意《服务协议》和《隐私政策》</p>
+						</div>
+					</form>
+					<!-- <form class="next">
+						<div class="mr60">
+							<input type="text" oninput="testVal(this)" name="phon_code" class="after_con"
+								id="try_out_name" placeholder="请输入姓名" autocomplete="off">
+							<span class="iconfont icon-xingming"></span>
+							<p class="erro_tip">请输入姓名</p>
+						</div>
+						<div class="mr60">
+							<input type="text" oninput="testVal(this)" name="try_out_company" id="try_out_company"
+								class="company" placeholder="请输入企业名称" autocomplete="off">
+							<span class="iconfont icon-gongsimingcheng"></span>
+							<p class="erro_tip">请输入企业名称</p>
+						</div>
+						<span class="btn comm">
+							提 交
+						</span>
+						<p class="explain">请保持手机畅通，我们将在30分钟内联系您</p>
+					</form> -->
+				</div>
+			</div>
+			<!-- test -->
+			<div class="main">
+				<h1>解決客戶问题，提升客户满意度</h1>
+				<ul class="main_ul">
+					<li>
+						<span></span>
+						<h3 class="zaixiankefu">帮助中心</h3>
+					</li>
+					<li>
+						<span></span>
+						<h3 class="zaixiankefu">咨询服务</h3>
+					</li>
+					<li><span></span>
+						<h3 class="zaixiankefu">在线客服</h3>
+					</li>
+					<li><span></span>
+						<h3 class="tousu">投诉中心</h3>
+					</li>
+					<li><span></span>
+						<h3 class="zaixiankefu">客服邮箱</h3>
+					</li>
+				</ul>
+				<div class="main_help test_btn_cgcg">免费咨询</div>
+			</div>
+			<div class="main2">
+				<h1>更少的服务成本，更多的用户满意</h1>
+				<div class="main2-div">
+					<div class="main2_left">
+						<img src="images/customer/bg/bg1.png">
+					</div>
+					<div class="main2_right">
+						<h2>帮助中心，您有任何疑惑都能替您解答</h2>
+						<p><img src="images/customer/bg/bg2.png"></p>
+						<p><img src="images/customer/bg/bg3.png"></p>
+						<div class="main2_help">帮助中心</div>
+					</div>
+				</div>
+			</div>
+			<div class="main2">
+				<h1>保证求职服务，让您用的放心</h1>
+				<div class="main2-div">
+					<div class="main3_right">
+						<h2>服务是保持顾客满意度的有效措举</h2>
+						<p>服务是企业摆脱价格大战的一剂良方。在产品同质化日益严重的今天，服务作为销售的一部分已经成为众多厂家和商家争夺消费者的重要领地，售后服务是买房市场条件下企业参与市场竞争的尖锐利器。
+						</p><br /><br /><br />
+						<p>良好的服务是下一次销售前最好的促销。良好的服务带来良好的口碑，带来更多的消费者，现在营销中，谁将拥有更多的消费者谁就是胜者。</p>
+						<div class="main3_help">咨询服务</div>
+					</div>
+					<div class="main2_left">
+						<img src="images/customer/bg/bg4.png">
+					</div>
+				</div>
+			</div>
+			<div class="main4">
+				<img src="images/customer/bg/bg5.png">
+				<h1>对接客户信息，更懂客户</h1>
+				<p class="main4_p">内置轻量级的CRM对接，接口方式深度对接。根据客户信息、咨询入口，智能分配客服，提升30%人效，提升20%满意度，让服务更懂客户。</p>
+			</div>
+			<br />
+			<div class="main4">
+				<img src="images/customer/bg/bg6.png">
+				<h1>服务过程监控，高效管理</h1>
+				<p class="main4_p">实时监控，数据报表细致全面，服务过程100%掌握，助理现场调配，会话指标、客服表现一目了然。</p>
+			</div>
+			<div class="main4">
+				<img src="images/customer/bg/zh5_02.jpg">
+				<h1>高级顾问，全程指导</h1>
+				<p class="main4_p">内置轻量级的CRM对接，接口方式深度对接。根据客户信息、咨询入口，智能分配客服，提升30%人效，提升20%满意度，让服务更懂客户。</p>
+			</div>
+			<div class="main5">
+				<h1>他们都在用答灵求职网</h1>
+				<p><img src="images/customer/bg/bg7.png"></p>
+			</div>
+			<footer class="ft">
+				<p>湖南财经工业职业技术学院电子信息系19软件2班出版</p>
+				<p>咨询电话:0738-520285</p>
+			</footer>
+		</body>
+</html>
+<ins id="newBridge">
+						<ins class="nb-nodeboard-base" id="nb_nodeboard">
+							<ins class="nb-nodeboard-contain-base">
+								<ins id="nb_nodeboard_top" class="nb-nodeboard-top nb-nodeboard-top-0"
+									style="background-color: blue;">
+									<ins class="nb-head-title">留言板</ins>
+									<ins class="nb-nodeboard-close" id="nb_nodeboard_close" data-type="min"></ins>
+								</ins>
+								<form id="" autocomplete="off" class="nb-board-form"
+									action="https://p.qiao.baidu.com/cps4//bookmanage/saveBook.action?userId=29208617"
+									method="post" accept-charset="utf-8">
+									<ins id="nb_nodeboard_set" class="nb-nodeboard-set">
+										<ins class="nb-nodeboard-content">
+											<textarea name="content"
+												data-ph="请在此输入留言内容，我们会尽快与您联系。（必填）"
+												placeholder="请在此输入留言内容，我们会尽快与您联系。（必填）"
+												class="nb-nodeboard-set-content nb-nodeboard-param"></textarea>
+										</ins>
+										<ins class="nb-nodeboard-name" style="z-index:4;">
+											<ins class="nb-nodeboard-icon nodeName"></ins>
+											<input id="nb_nodeboard_set_name" data-write="0" name="visitorName"
+												maxlength="30" class="nb-nodeboard-input nb-nodeboard-param" type="text"
+												data-ph="姓名" placeholder="姓名">
+										</ins>
+										<ins class="nb-nodeboard-name" id="nb_nodeboard_phone" style="z-index:3;">
+											<ins class="nb-nodeboard-icon nodePhone"></ins>
+											<input id="nb_nodeboard_set_phone" name="visitorPhone" maxlength="30"
+												class="nb-nodeboard-input nb-nodeboard-param" data-write="1" type="text"
+												data-ph="电话（必填）" placeholder="电话（必填）">
+										</ins>
+										<ins class="nb-nodeboard-name" id="nb_nodeboard_mail" style="z-index:2;">
+											<ins class="nb-nodeboard-icon nodeMail"></ins>
+											<input id="nb_nodeboard_set_email" name="visitorEmail" maxlength="50"
+												class="nb-nodeboard-input nb-nodeboard-param" type="text" data-write="0"
+												data-ph="邮箱" placeholder="邮箱">
+										</ins>
+										<ins class="nb-nodeboard-name" style="z-index:1;">
+											<ins class="nb-nodeboard-icon nodeAddress"></ins>
+											<input id="nb_nodeboard_set_address" name="visitorAddress"
+												class="nb-nodeboard-input nb-nodeboard-param" maxlength="50" type="text"
+												data-write="0" data-ph="地址" placeholder="地址">
+										</ins>
+									</ins>
+								</form>
+								<ins class="nb-nodeboard-success" id="nb_nodeboard_success">
+									<ins class="nb-success-box">
+										<ins class="nb-success-icon"></ins>
+										<ins class="nb-success-title" id="nb_node_messagetitle">感谢留言</ins>
+										<ins class="nb-success-content" id="nb_node_messagecontent">我们会尽快与您联系</ins>
+										<ins id="nb_nodeboard_return" needverifycode="1"
+											class="nb-sucess-close">关闭</ins>
+									</ins>
+								</ins>
+								<ins class="nb-nodeboard-send" id="nb_node_contain">
+									<ins id="nb_nodeboard_send" needverifycode="1"
+										class="nb-nodeboard-send-btn nb-nodeboard-send-btn-0">发送</ins>
+								</ins>
+							</ins>
+						</ins>
+						<ins class="nb-icon-wrap nb-icon-base icon-left-center nb-icon-skin-xc-0 nb-icon-group"
+							id="nb_icon_wrap" style="margin-top:-241px;width:190px;display: none;">
+							<ins class="nb-icon-group">
+								<ins class="nb-icon-inner-wrap" style="height:151px;width:190px;;border-radius:0;">
+									<ins class="nb-icon-bridge0 nb-icon-bridge-base" data-type="iconInvite"></ins>
+								</ins>
+								<ins class="nb-icon-groups nb-show" style="margin-left:0;" id="nb_icon_groups">
+									<ins class="nb-icon-groups-item1" id="nb-icon-groups-item" data-id="772128">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">教师教学</ins>
+									</ins>
+									<ins class="nb-icon-groups-item2" id="nb-icon-groups-item" data-id="880447">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">运动健身</ins>
+									</ins>
+									<ins class="nb-icon-groups-item3" id="nb-icon-groups-item" data-id="772129">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">医学护士</ins>
+									</ins>
+									<ins class="nb-icon-groups-item4" id="nb-icon-groups-item" data-id="880448">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">互联网业</ins>
+									</ins>
+									<ins class="nb-icon-groups-item5" id="nb-icon-groups-item" data-id="880449">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">艺术手工</ins>
+									</ins>
+									<ins class="nb-icon-groups-item6" id="nb-icon-groups-item" data-id="772130">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">电器维修</ins>
+									</ins>
+									<ins class="nb-icon-groups-item7" id="nb-icon-groups-item" data-id="772131">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">建筑工程</ins>
+									</ins>
+								</ins>
+							</ins>
+						</ins>
+						<ins class="nb-invite-wrap nb-invite-wrap-base nb-position-base nb-middle customer-invite-style "
+							id="nb_invite_wrap" style="width: 400px; margin-left: -200px; margin-top: -141px;">
+							<ins class="nb-invite-body zj1" style="height:282px;">
+								<ins class="zj2" id="nb_invite_tool" style=""></ins>
+								<ins class="nb-invite-text zj3">
+									<ins class="nb-invite-welcome nb-invite-welcome-base nb-show"
+										id="nb_invite_welcome">
+										<p>您好，欢迎来到本站，请问需要什么帮助呢？</p>
+									</ins>
+								</ins>
+								<ins class="nb-invite-btn-base nb-invte-btns-0">
+									<ins class="base" id="nb_invite_cancel">稍后再说</ins>
+									<ins class="ok" id="nb_invite_ok">现在咨询</ins>
+									<ins class="liuyan" id="nb_invite_liuyan">留言板</ins>
+								</ins>
+							</ins>
+						</ins>
+						<ins id="nbWebImLightContainer" class="maxMessageContainer"
+							style="right: 54px; bottom: 10px;display: none;">
+							<ins id="nbwlStatusBar">
+								<ins id="nbwlToggle" class="nb-webim-light-status-bar-toggle">
+									<ins class="nb-webim-light-toggle-icon"></ins>
+								</ins>
+								<ins class="nb-webim-light-status-bar-title">在线咨询</ins>
+								<ins id="nbwlUnreadCount" style="display: none;">1</ins>
+							</ins>
+							<ins id="nbwlMessageContainer">
+								<ins id="nbwlStatusMessage">
+									<ins class="nb-webim-light-status-message">
+										<ins class="nb-webim-light-status-message-container">2021-11-02 17:18:54
+											开始沟通</ins>
+									</ins>
+								</ins>
+								<ins class="nb-webim-light-message nb-webim-light-message-1">
+									<ins class="nb-webim-light-message-title">
+										<ins class="nb-webim-light-message-name">玉婷</ins>
+										<ins class="nb-webim-light-message-time">今天 16:18:51</ins>
+									</ins>
+									<ins class="nb-webim-light-message-content">
+										<ins class="nb-webim-light-message-arrow"></ins>
+										<ins>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none; color: rgb(79, 79, 79);">
+												<span
+													style="margin: 0px; padding: 0px; list-style: none; font-size: 10pt;"></span>
+											</p>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none; color: rgb(79, 79, 79);">
+												<span
+													style="margin: 0px; padding: 0px; list-style: none; font-size: 10pt;">您好，欢迎您光临本站！</span>
+											</p>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none;">
+												<span
+													style="color: rgb(79, 79, 79); margin: 0px; padding: 0px; list-style: none; font-size: 16px !important;">
+													<strong style="">多功能</strong>
+												</span>
+												<span style="font-size: 10pt;">
+													<span
+														style="color: rgb(79, 79, 79); font-size: 10pt; margin: 0px; padding: 0px; list-style: none;">专业为企业提供</span>
+													<span
+														style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none;">
+														<strong style="color: rgb(254, 1, 0);">SEO优化</strong>
+														<span style="color: rgb(79, 79, 79);">、</span>
+													</span>
+													<strong style="color: rgb(79, 79, 79);">
+														<span
+															style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">
+															<strong style="color: rgb(79, 79, 79);">
+																<span
+																	style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">网站建设</span>
+															</strong>
+															<span
+																style="color: rgb(79, 79, 79); font-size: 10pt; margin: 0px; padding: 0px; list-style: none;">、
+																<strong
+																	style="color: rgb(79, 79, 79); font-family: 'Microsoft YaHei', Arial, sans-serif; font-size: 13px; white-space: normal;">
+																	<span
+																		style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">全网营销，网络
+																		<strong style="color: rgb(79, 79, 79);">
+																			<span
+																				style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">
+																				<strong style="color: rgb(79, 79, 79);">
+																					<span
+																						style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">推广</span>
+																				</strong>
+																			</span>
+																		</strong>，渠道
+																	</span>
+																</strong>
+																<span
+																	style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">代理</span>
+															</span>
+														</span>
+													</strong>
+													<span
+														style="color: rgb(79, 79, 79); font-size: 10pt; margin: 0px; padding: 0px; list-style: none;">等服务，快速帮助企业解决互联网营销推广问题。目前已成功帮助5万企业客户。</span>
+												</span>
+												<span
+													style="color: rgb(79, 79, 79); margin: 0px; padding: 0px; list-style: none; font-size: 10pt;">您可以直接联系电话：</span>
+												<strong style="color: rgb(254, 1, 0); font-size: 15px;">
+													<span
+														style="font-family: 微软雅黑; font-size: 16px;">石经理&nbsp;13662625893</span>
+												</strong>
+											</p>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none; color: rgb(79, 79, 79);">
+												<span
+													style="margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);"></span>
+											</p>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none; color: rgb(79, 79, 79);">
+												<span
+													style="font-family: 微软雅黑; font-size: 11pt; color: rgb(0, 0, 0); margin: 0px; padding: 0px; list-style: none;">您好，请问是需要咨询什么业务呢？</span>
+											</p>
+										</ins>
+									</ins>
+									<ins id class="nb-webim-light-message-error" style="display: none;">
+										<ins class="nb-webim-light-message-error-icon"></ins>
+										"消息发送失败,"
+										<ins class="nb-webim-light-message-resend">重新发送</ins>
+									</ins>
+									<ins id="undefined_1" class="nb-webim-light-message-error"
+										style="display: none; line-height: 18px;">
+										<ins class="nb-webim-light-message-error-icon"></ins>发送失败！含有敏感词，<br>请
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-rewrite nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">重新编辑</ins>后再发送。
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-feedback nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">误报反馈</ins>
+									</ins>
+								</ins>
+								<!--001-->
+								<ins class="nb-webim-light-message nb-webim-light-message-1">
+									<ins class="nb-webim-light-message-title">
+										<ins class="nb-webim-light-message-name">玉婷</ins>
+										<ins class="nb-webim-light-message-time">今天 16:18:56</ins>
+									</ins>
+									<ins class="nb-webim-light-message-content">
+										<ins class="nb-webim-light-message-arrow"></ins>
+										<ins>
+											<div
+												style="text-align: left;font-weight: 400;font-style: normal;color: rgb(48, 49, 51);font-size: 14px;text-decoration: none solid rgb(48, 49, 51);font-family:">
+												<p style="font-size: 12px">您好，是需要做SEO优化吗？</p>
+											</div>
+										</ins>
+									</ins>
+									<ins id class="nb-webim-light-message-error" style="display: none;">
+										<ins class="nb-webim-light-message-error-icon"></ins>消息发送失败,
+										<ins class="nb-webim-light-message-resend">重新发送</ins>
+									</ins>
+									<ins id="undefined_1" class="nb-webim-light-message-error"
+										style="display: none; line-height: 18px;">
+										<ins class="nb-webim-light-message-error-icon"></ins>发送失败！含有敏感词，<br>请
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-rewrite nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">重新编辑</ins>后再发送。
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-feedback nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">误报反馈</ins>
+									</ins>
+								</ins>
+								<ins class="nb-webim-light-message nb-webim-light-message-1">
+									<ins class="nb-webim-light-message-title">
+										<ins class="nb-webim-light-message-name">玉婷</ins>
+										<ins class="nb-webim-light-message-time">今天 16:23:51</ins>
+									</ins>
+									<ins class="nb-webim-light-message-content">
+										<ins class="nb-webim-light-message-arrow"></ins>
+										<ins>
+											<p>
+												<span
+													style="font-family: 微软雅黑; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;">请问您需要做哪种类型的服务呢？您</span>
+												<span
+													style="font-family: 微软雅黑; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none; color: rgb(119, 119, 119);">
+													<span
+														style="margin: 0px; padding: 0px; list-style: none; letter-spacing: 0px; font-size: 10pt;"></span>
+													<strong>
+														<span
+															style="margin: 0px; padding: 0px; list-style: none; letter-spacing: 0px; color: rgb(254, 1, 0);"></span>
+														<span
+															style="margin: 0px; padding: 0px; list-style: none;"></span>电
+													</strong>
+												</span>
+												<strong>
+													<span
+														style="margin: 0px; padding: 0px; list-style: none; letter-spacing: 0px;">话</span>
+												</strong>
+												<span
+													style="letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none; color: rgb(0, 0, 0);"></span>或
+												<strong>
+													<span
+														style="margin: 0px; padding: 0px; list-style: none; letter-spacing: 0px; color: rgb(254, 1, 0); font-size: 10pt;"></span>微信
+												</strong>
+												<span
+													style="letter-spacing: 0px; font-family: 宋体; margin: 0px; padding: 0px; list-style: none;"></span>
+												<span
+													style="letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;">
+													<span
+														style="font-size: 9pt; font-family: 微软雅黑; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;"></span>是多少呢
+												</span>
+												<span
+													style="font-family: 微软雅黑; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none; font-size: 13px;">
+													<strong>，</strong>
+												</span>
+												<span style="font-family: 微软雅黑;"></span>
+												<span
+													style="font-size: 9pt; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;">我这边</span>
+												<span
+													style="letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;">安排专员联系您，给您制定解决方案和相关报价呢。或者您联系</span>
+												<span style="letter-spacing: 0px;">：</span>
+												<span style="font-family: 微软雅黑; letter-spacing: 0px;"></span>
+												<span
+													style="color: rgb(254, 1, 0); font-size: 16px !important;">石经理&nbsp;13662625893</span>
+												<span style="font-family: 微软雅黑;"></span>
+												<span style="font-family: 微软雅黑;"></span>
+											</p>
+										</ins>
+									</ins>
+									<ins id class="nb-webim-light-message-error" style="display: none;">
+										<ins class="nb-webim-light-message-error-icon"></ins>消息发送失败,
+										<ins class="nb-webim-light-message-resend">重新发送</ins>
+									</ins>
+									<ins id="undefined_1" class="nb-webim-light-message-error"
+										style="display: none; line-height: 18px;">
+										<ins class="nb-webim-light-message-error-icon"></ins>发送失败！含有敏感词，<br>请
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-rewrite nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">重新编辑</ins>后再发送。
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-feedback nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">误报反馈</ins>
+									</ins>
+								</ins>
+								<!--002-->
+								<ins class="nb-webim-light-system-message">
+									<ins class="nb-webim-light-system-message-container">
+										<ins class="nb-webim-light-system-message-type-alert"></ins>会话已结束
+									</ins>
+								</ins>
+								<ins id="nbwlEditor">
+									<ins id="nbWebimLightEditor" class="editor" contenteditable="true"
+										style="font-family: 微软雅黑; font-size: 9pt; color: rgb(0, 0, 0);">
+										<p style="font-family: 微软雅黑; font-size: 9pt; color: rgb(0, 0, 0);"><br></p>
+									</ins>
+								</ins>
+								<!--003-->
+								<ins id="nbwlToolBar">
+									<form id="nbwlImgViewer" action="https://p.qiao.baidu.com/cps4//imageviewer"
+										method="post" target="_blank">
+										<input id="nbwlImgViewerInput" name="imgsrc">
+									</form>
+									<ins id="nbwlSendBtn"
+										class="nb-webim-light-toolbar-send nb-webim-light-toolbar-send-disable">发送
+										<span class="nb-webim-light-toolbar-send-select"><span class="select-span"></span></span>
+										<div class="nb-webim-light-toolbar-send-select-layer">
+											<div val="enter" class="nb-webim-light-toolbar-send-select-layer-active">
+												按Enter发送</div>
+											<div val="ctrlenter">按Ctrl+Enter发送</div>
+										</div>
+									</ins>
+									<ins class="nb-webim-light-toolbar-font" title="设置字体颜色和格式">
+										<ins class="nb-webim-light-font-container"
+											style="display: none;">
+											<ins class="nb-webim-light-font-bar">
+												<div
+													class="nb-webim-light-toolbar-select nb-webim-light-toolbar-fontselect nb-webim-light-selectmodal">
+													<select id="nbwlFontFamily" class="nb-webim-light-font-family"
+														style="display: none;">
+														<option value="arial,微软雅黑">微软雅黑</option>
+														<option value="宋体">宋体</option>
+														<option value="arial,楷体">楷体</option>
+														<option value="arial,黑体">黑体</option>
+														<option value="arial,隶书">隶书</option>
+														<option value="Arial">Arial</option>
+														<option value="Roman">Roman</option>
+													</select>
+													<div class="nb-webim-light-selectmodalvalue">微软雅黑</div>
+													<div class="nb-webim-light-selectmodallist" style="display: none;">
+														<div class="nb-webim-light-selectmodaloption"
+															value="arial,微软雅黑">微软雅黑</div>
+														<div class="nb-webim-light-selectmodaloption" value="宋体">宋体
+														</div>
+														<div class="nb-webim-light-selectmodaloption" value="arial,楷体">
+															楷体</div>
+														<div class="nb-webim-light-selectmodaloption" value="arial,黑体">
+															黑体</div>
+														<div class="nb-webim-light-selectmodaloption" value="arial,隶书">
+															隶书</div>
+														<div class="nb-webim-light-selectmodaloption" value="Arial">
+															Arial</div>
+														<div class="nb-webim-light-selectmodaloption" value="Roman">
+															Roman</div>
+													</div>
+												</div>
+												<div
+													class="nb-webim-light-toolbar-select nb-webim-light-toolbar-sizeselect nb-webim-light-selectmodal">
+													<select id="nbwlFontSize" class="nb-webim-light-font-size"
+														style="display: none;">
+														<option value="8pt">8</option>
+														<option value="10pt" selected="">10</option>
+														<option value="12pt">12</option>
+														<option value="14pt">14</option>
+														<option value="16pt">16</option>
+														<option value="18pt">18</option>
+														<option value="24pt">24</option>
+													</select>
+													<div class="nb-webim-light-selectmodalvalue">10</div>
+													<div class="nb-webim-light-selectmodallist" style="display: none;">
+														<div class="nb-webim-light-selectmodaloption" value="8pt">8
+														</div>
+														<div class="nb-webim-light-selectmodaloption" value="10pt">10
+														</div>
+														<div class="nb-webim-light-selectmodaloption" value="12pt">12
+														</div>
+														<div class="nb-webim-light-selectmodaloption" value="14pt">14
+														</div>
+														<div class="nb-webim-light-selectmodaloption" value="16pt">16
+														</div>
+														<div class="nb-webim-light-selectmodaloption" value="18pt">18
+														</div>
+														<div class="nb-webim-light-selectmodaloption" value="24pt">24
+														</div>
+													</div>
+												</div>
+												<ins id="nbwlFontBold" class="nb-webim-light-font-bold"
+													title="加粗"></ins>
+												<ins id="nbwlFontItalic" class="nb-webim-light-font-italic"
+													title="斜体"></ins>
+												<ins id="nbwlFontUnderline" class="nb-webim-light-font-underline"
+													title="下划线"></ins>
+												<ins id="nbwlFontColor" class="nb-webim-light-font-color" title="字体颜色">
+													<ins id="nbwlColorContainer" class="nb-webim-light-color-container"
+														style="display: none;">
+														<ul>
+															<!-- target: colorItem -->
+															<li class="nb-webim-light-color-item nb-webim-light-color-select"
+																style="border-color:#000000;"><ins
+																	style="background-color: #000000;"
+																	data-color="#000000"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#7f8003;"><ins
+																	style="background-color: #7f8003;"
+																	data-color="#7f8003"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#808080;"><ins
+																	style="background-color: #808080;"
+																	data-color="#808080"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#408082;"> <ins
+																	style="background-color: #408082;"
+																	data-color="#408082"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#420140;"> <ins
+																	style="background-color: #420140;"
+																	data-color="#420140"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#efefef;"><ins
+																	style="background-color: #efefef;"
+																	data-color="#efefef"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#3f0100;"><ins
+																	style="background-color: #3f0100;"
+																	data-color="#3f0100"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#814000;"><ins
+																	style="background-color: #814000;"
+																	data-color="#814000"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#004300;"><ins
+																	style="background-color: #004300;"
+																	data-color="#004300"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#010576;"> <ins
+																	style="background-color: #010576;"
+																	data-color="#010576"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#00003f;"> <ins
+																	style="background-color: #00003f;"
+																	data-color="#00003f"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#40027e;"><ins
+																	style="background-color: #40027e;"
+																	data-color="#40027e"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#7c0200;"><ins
+																	style="background-color: #7c0200;"
+																	data-color="#7c0200"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#fd8100;"> <ins
+																	style="background-color: #fd8100;"
+																	data-color="#fd8100"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#00ff04;"><ins
+																	style="background-color: #00ff04;"
+																	data-color="#00ff04"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#02fffb;"><ins
+																	style="background-color: #02fffb;"
+																	data-color="#02fffb"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#7e81bf;"><ins
+																	style="background-color: #7e81bf;"
+																	data-color="#7e81bf"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#ff01fa;"><ins
+																	style="background-color: #ff01fa;"
+																	data-color="#ff01fa"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#fe0100;"><ins
+																	style="background-color: #fe0100;"
+																	data-color="#fe0100"></ins></li>
+															<li class="nb-webim-light-color-item"
+																style="border-color:#feff00;"><ins
+																	style="background-color: #feff00;"
+																	data-color="#feff00"></ins></li>
+														</ul>
+														<div class="nb-webim-light-arrow"><em></em><ins></ins></div>
+													</ins></ins>
+											</ins>
+											<div class="nb-webim-light-arrow"><em></em><ins></ins></div>
+										</ins></ins>
+									<!-- target: face -->
+									<ins id="nbwlFaceIcon" class="nb-webim-light-toolbar-face"
+										title="选择表情">
+										<ins id="nbwlFaceContainer" class="nb-webim-light-face-container"
+											style="">
+											<ins class="nb-webim-light-face-content">
+												<ul>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="7f62a16f51cc29b221a87ed741cb2040" extension="png"
+														alt="微笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="449f34831c63932bc6f816fb69222696" extension="png"
+														alt="大笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="84ac7709105c9e8b986e1fb080aef158" extension="png"
+														alt="偷笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="1360cc1b2e12fc722571584290a2b6e1" extension="png"
+														alt="憨笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6628ce0328a1aec3e3688a95ebbd609d" extension="png"
+														alt="得意"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5a2cce712902b315f98cbce1df04462a" extension="png"
+														alt="可爱"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6c0ae5a68c041f7f339d87ba313292c5" extension="png"
+														alt="害羞"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="576f76513e5a4c5b49b8e5323e69ff8b" extension="png" alt="乖">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="43a89b8fa99b951863b9e52bbba44e63" extension="png"
+														alt="淘气"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f0bcf27ffcef2c7d627af19d04ce7051" extension="png"
+														alt="调皮"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="b19fb15226fdc3bedb574f7f319ac4e8" extension="png"
+														alt="流泪"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="20791b0c75839b8ede1deddf7d14ea0e" extension="png"
+														alt="大哭"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="585d6a02d5209eebce230c11a84e2122" extension="png"
+														alt="撇嘴"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="65c0ea03c6ad3a2c9a56ef2f12d73d7f" extension="png"
+														alt="闭嘴"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="9c3ab5280830b24928fba2ecbfa5423c" extension="png" alt="嘘">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="ec619f6b677a364aa8daca7ee088b0fc" extension="png"
+														alt="鄙视"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="ba6bd8678622db5c54cc265f78540a59" extension="png"
+														alt="傲慢"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5d2bba3091be38970563d3e4bd04e8fb" extension="png"
+														alt="白眼"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="eba03f67b8a667bb16b20fd32b9b51bd" extension="png"
+														alt="思考"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="915fb0149e684a7f1f40f568aac87a74" extension="png" alt="困">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="80f75e10b4fb8c46df80b1595c7d50cb" extension="png" alt="睡">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="49c0997a2807cf28300e84fb87605efe" extension="png" alt="汗">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e162da21d7bde950367501958629aa18" extension="png"
+														alt="尴尬"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f59bf80e1ba9111f4ee819fddec977d5" extension="png"
+														alt="惊讶"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6594322f85d0a78caa55c95182937a43" extension="png"
+														alt="惊恐"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6dd384507524a14951b2978ce45d427c" extension="png"
+														alt="疑问"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="d2b9f0ebae2898bab340a464f10a678c" extension="png" alt="晕">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="3b1f5191cc6f6aab3fbc161f5ca95586" extension="png"
+														alt="敲打"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6b562d094d2f23a5f41ba823ded02da2" extension="png"
+														alt="难过"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="10dbd6c0cf8d5af5c70fdf4eb7f98692" extension="png"
+														alt="委屈"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="ce277e2ca55543eb7eb467c5d397e10d" extension="png" alt="色">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="d652ac7ff1ac8c0d4ad9d00e9847fccc" extension="png"
+														alt="抓狂"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="42c9ab68d510f0dfa35e4df3abf6a5fa" extension="png"
+														alt="愤怒"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="8e972967218fa060a8fcda1a54fe025b" extension="png" alt="吐">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="2a3a3cf6d0b28d889fd249e3d68afae2" extension="png" alt="衰">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="9912488906a31978d1c93150e7da65be" extension="png"
+														alt="再见"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="034650679ea520821ace18816fd309b8" extension="png"
+														alt="滑稽"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f34d9586f86e135e4ce5c9630c9f6a25" extension="png"
+														alt="高兴"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="a5b36a0ac2cf38463e9e6486fc3d6b70" extension="png"
+														alt="完美"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f5ddc76e56c8221e61c58b72e37f9829" extension="png"
+														alt="坏笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="2f25b6cbc178c5811743bb3f3fe95eb6" extension="png"
+														alt="惊呆"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="b6405f17ae2596f6065a8b1da7d81da4" extension="png"
+														alt="嘿哈"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="b0955a756bc690b02fc6c82cb5663be6" extension="png"
+														alt="机智"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6a91ab45cab3ce482b2069f3a8bb43aa" extension="png"
+														alt="走你"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e33ec7875595d23dfc0e70625aa839dd" extension="png"
+														alt="捂脸"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="d987e058fe2ddb9436e3f3af3aeee43c" extension="png"
+														alt="戳脸"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="7413c233681ce9f2a7d3d0e22d4ba632" extension="png"
+														alt="爱心"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="004a9411849aa007b843d4bc74ba2db3" extension="png"
+														alt="鼻血"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="1e04fa2b77173ad5419c58cb2a4c944c" extension="png"
+														alt="奋斗"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="14f8db64e92d43e0ee4bb1c55553e399" extension="png"
+														alt="棒棒哒"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="0246fb8175a9e47e859593f6ed19e7f3" extension="png"
+														alt="摸头"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="54207c894ff556b1778eeb90893e196a" extension="png"
+														alt="NO"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="73d4ace4f6bafb7c48f7d4ea62da5e27" extension="png"
+														alt="沉思"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f985e5a0d5f5e7ec7d0e02f229164816" extension="png"
+														alt="抠鼻"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="4fc4e9bf21b34df2170c2add1a215162" extension="png"
+														alt="生病"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="481fa659924b4dd3c692556fe1e42349" extension="png"
+														alt="口罩"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e0275fff10e8225e5618e7baf95b6296" extension="png"
+														alt="左拥抱"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e1e8ac2d122dca4fe77644994a815613" extension="png"
+														alt="右拥抱"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="fd1457cad55db7e7dc7970acb24e5832" extension="png"
+														alt="闪人"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="dc45642dc5aae41541fff2634a08a647" extension="png" alt="刀">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="49106010c742c69727221622283131a9" extension="png" alt="吻">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6b278bb3a2acaa362311551208c22de7" extension="png"
+														alt="爱情"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="3693411aa84d66f7ff840993acc9c753" extension="png"
+														alt="心碎"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f5d3fd06ead545b5abd48e367195b1fb" extension="png"
+														alt="鲜花"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="a91f909f9d1a1fdca0c0eaf8f232eb1f" extension="png"
+														alt="枯萎"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="3e2ec2a092127757f89a771762d2103f" extension="png"
+														alt="胜利"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5cd4259ce1239fb13b1b026826ae5cd8" extension="png"
+														alt="OK"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="b9149566ccf3b7937ab2f0a639e681f5" extension="png"
+														alt="大拇指"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6697732553bbee2d1760b2d889220eb2" extension="png" alt="弱">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5537920713864c60f86dcba194b459ef" extension="png"
+														alt="握手"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="bf4bc9d82fd8365319e4f4fca8732e26" extension="png"
+														alt="蛋糕"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="bb3b630c7189b362d39905a6b10f4e25" extension="png"
+														alt="咖啡"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="c6796331da7ebed681d6adcfdc1d9e60" extension="png"
+														alt="吃饭"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5e54aaa520e07cc35c92594aa85c3ca5" extension="png"
+														alt="太阳"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="0e3a50af997063d132bb115e98cf9783" extension="png"
+														alt="月亮"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f4963b986d487f24100ac41b4d36e4b6" extension="png"
+														alt="星星"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="78d7c5e2e0dfb11fce910a45019bc52c" extension="png"
+														alt="便便"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="24b03c84c57ced0bea595c264bd7d9f1" extension="png"
+														alt="猪头"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e6af94688a6f70062c75a3cf3f8dfdf5" extension="png" alt="钱">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="71a6b6d3231a0ca74f2c80f6c36b81b8" extension="png"
+														alt="Hi"></li>
+												</ul>
+											</ins>
+											<ins id="previewBox"></ins>
+											<div class="nb-webim-light-arrow"><em></em>
+												<ins></ins>
+											</div><ins></ins>
+										</ins></ins>
+									<!-- target: picture -->
+									<ins class="nb-webim-light-toolbar-picture" title="选择图片">
+										<form id="nbwlPicForm">
+											<input id="nbwlPicInput" type="file" name="pic"
+												accept="image/jpeg,image/png,image/gif">
+										</form>
+									</ins>
+								</ins>
+								
+								<!-- target: support -->
+							</ins>
+						</ins>
