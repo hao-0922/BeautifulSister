@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>账户注销</title>
+		<link rel="stylesheet" type="text/css" href="css/zhuxiao/findpwd_v20211013152730.css"/>
+		<!-- <link rel="stylesheet" type="text/css" href="css/zhuxiao/yzh_sdk.css"/> -->
+		<!-- <script src="js/zhuxiao/ppt_securitye.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/rpdata.buddle.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/passport_fingerprint2.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/ppfingerprint.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/challenge_pop.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/isd_captcha.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/securityGuide_pop.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/guideInit_pop.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/guideUrl_pop.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/wxLogin.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/gt_captcha.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/wxLogin.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/yzhImageValidateCom.min.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/xxzltz.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/index.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/yzhImageValidateCom.min.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/yzhImageValidateCom.min.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <style type="text/css">
+			main .current_active, main .item button{
+			                  background: #ff552e;
+			                }
+			                main .current_active .progress_title, #secondstep #sel .select{
+			                  color: #ff552e;
+			                }
+			                
+		</style> -->
+		<!-- <style type="text/css">
+			.yzh-image-validate-wrapper {
+			  position: relative;
+			  width: 100%;
+			}
+			
+			.yzh-image-validate-wrapper > input {
+			  border: 2px solid #ebebeb;
+			  width: 100%;
+			  height: 36px;
+			  padding-right: 110px;
+			  padding-left: 15px;
+			  box-sizing: border-box;
+			}
+			
+			.yzh-image-validate-wrapper > input.error {
+			  border: 1px solid #ff552e;
+			}
+			
+			.yzh-image-validate-wrapper > img {
+			  width: 80px;
+			  height: 32px;
+			  position: absolute;
+			  right: 4px;
+			  top: 2px;
+			  cursor: pointer;
+			}
+			
+			.yzh-image-validate-wrapper > p {
+			  color: #ff552e;
+			  margin-top: 10px;
+			}
+			
+			.yzh-img-modal-wrapper {
+			  position: fixed;
+			  left: 0;
+			  top: 0;
+			  width: 100%;
+			  height: 100%;
+			  background: rgba(0, 0, 0, 0.5);
+			  z-index: 99999991;
+			}
+			
+			.yzh-img-modal-wrapper > .yzh-img-modal-pnl {
+			  position: fixed;
+			  top: 40%;
+			  left: 50%;
+			  transform: translate3d(-50%, -50%, 0);
+			  background-color: #fff;
+			  width: auto;
+			  border-radius: 3px;
+			  overflow: hidden;
+			  backface-visibility: hidden;
+			}
+			
+			.yzh-img-modal-wrapper > .yzh-img-modal-pnl > .yzh-img-modal-header {
+			  padding: 30px 0 20px;
+			  text-align: center;
+			  font-size: 20px;
+			  color: #333;
+			}
+			
+			.yzh-img-modal-wrapper > .yzh-img-modal-pnl > .yzh-img-modal-content {
+			  padding: 0 20px 20px;
+			  border-bottom: 1px solid #f3f3f3;
+			  width: 300px;
+			  overflow: auto;
+			}
+			
+			.yzh-img-modal-wrapper > .yzh-img-modal-pnl > .yzh-img-modal-footer {
+			  padding: 10px 0 20px;
+			  white-space: nowrap;
+			}
+			
+			.yzh-img-modal-wrapper > .yzh-img-modal-pnl > .yzh-img-modal-footer > div {
+			  font-size: 16px;
+			  display: inline-block;
+			  text-align: center;
+			  width: 50%;
+			  cursor: pointer;
+			  font-weight: 500;
+			}
+			.yzh-img-modal-wrapper
+			  > .yzh-img-modal-pnl
+			  > .yzh-img-modal-footer
+			  > .single-confirm-btn {
+			  width: 100%;
+			  color: #ff552e;
+			}
+			
+			.yzh-img-modal-wrapper
+			  > .yzh-img-modal-pnl
+			  > .yzh-img-modal-footer
+			  > div.confirm-btn {
+			  color: #ff552e;
+			}
+		</style> -->
+		<link rel="stylesheet" type="text/css" href="css/zhuxiao/style_https.1.5.8.css"/>
+		<style type="text/css">
+			.geetest_wait {
+			    top: 0;
+			    position: absolute;
+			    margin: 17px 12px;
+			    font-size: 0;
+			    opacity: 0;
+			    transition: opacity .5s ease;
+			}
+			.geetest_wait .geetest_wait_dot {
+			    width: 5px;
+			    height: 5px;
+			    background: #b1babe;
+			    border-radius: 50%;
+			    display: inline-block;
+			    margin: 2px;
+			    vertical-align: top;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<!-- <script type="text/javascript">
+			    var SKIN = "";
+			    var SOURCE = "";
+			    // var PATH = "http://my.58.com/?pts=1636277558256";
+			    var BIZ = "";
+			    var DOMAIN = "58.com";
+			    var EXCHANGEDOMAIN = "";
+			    var ISREDIRECT = "";
+		</script> -->
+		<!-- <script src="js/zhuxiao/mobileLogin_v20211101162323.js" type="text/javascript" charset="utf-8"></script> -->
+		<!-- <script src="js/zhuxiao/findpwd_v20211013152730.js" type="text/javascript" charset="utf-8"></script> -->
+		
+		<header class="main_box" style="display: block;">
+		                <img id="logo" src="images/logo(2).jpg" width="70" alt="">
+		                <span class="split"></span>
+		                <span class="findpwd">找回密码</span>
+		                <span class="link"><a href="denglu.html">登录</a><a href="zhuce.html">注册</a></span>
+		                </header>
+		
+		<main class="main_box" style="display: block;">
+		                <div class="progress">
+		                    <span class="progress_item confirm current_active">1<label class="progress_title">确认账号</label></span><span class="progress_line"></span>
+		                    <span class="progress_item verify">2<label class="progress_title">身份验证</label></span><span class="progress_line"></span>
+		                    <span class="progress_item reset">3<label class="progress_title">重置密码</label></span>
+		                </div>
+		                <div id="firststep">
+		                    <div class="item item_first">
+		                        <label class="item_title">账号：</label>
+		                        <span class="username"><input type="text" name="" id="username" placeholder="请输入手机号/邮箱/用户名"></span>
+		                        <div id="msg"><span id="msgtext">错误提示</span><div class="clearfloat"></div></div>
+		
+		                    </div>
+		                    <div class="item slide">
+		                        <span id="slideDom" style="display: block;"><div class="geetest_holder geetest_wind geetest_detect" style="width: 290px;"><div class="geetest_form"><input type="hidden" name="geetest_challenge"><input type="hidden" name="geetest_validate"><input type="hidden" name="geetest_seccode"></div><div class="geetest_btn"><div class="geetest_radar_btn"><div class="geetest_radar"><div class="geetest_ring"><div class="geetest_small"></div></div><div class="geetest_sector" style="transform: rotate(250.71deg);"><div class="geetest_small"></div></div><div class="geetest_cross"><div class="geetest_h"></div><div class="geetest_v"></div></div><div class="geetest_dot"></div><div class="geetest_scan"><div class="geetest_h"></div></div><div class="geetest_status"><div class="geetest_bg"></div><div class="geetest_hook"></div></div></div><div class="geetest_ie_radar"></div><div class="geetest_radar_tip" tabindex="0" aria-label="点击按钮进行验证" style="outline-width: 0px;"><span class="geetest_radar_tip_content">点击按钮进行验证</span><span class="geetest_reset_tip_content">请点击重试</span><span class="geetest_radar_error_code"></span></div><a class="geetest_logo" style="display: none;"></a><div class="geetest_other_offline geetest_offline"></div></div><div class="geetest_ghost_success"><div class="geetest_success_btn"><div class="geetest_success_box"><div class="geetest_success_show"><div class="geetest_success_pie"></div><div class="geetest_success_filter"></div><div class="geetest_success_mask"></div></div><div class="geetest_success_correct"><div class="geetest_success_icon"></div></div></div><div class="geetest_success_radar_tip"><span class="geetest_success_radar_tip_content"></span><span class="geetest_success_radar_tip_timeinfo"></span></div><a class="geetest_success_logo" style="display: none;"></a><div class="geetest_success_offline geetest_offline"></div></div></div><div class="geetest_slide_icon"></div></div><div class="geetest_wait"><span class="geetest_wait_dot geetest_dot_1"></span><span class="geetest_wait_dot geetest_dot_2"></span><span class="geetest_wait_dot geetest_dot_3"></span></div><div class="geetest_fullpage_click"><div class="geetest_fullpage_ghost"></div><div class="geetest_fullpage_click_wrap"><div class="geetest_fullpage_click_box"></div><div class="geetest_fullpage_pointer"><div class="geetest_fullpage_pointer_out"></div><div class="geetest_fullpage_pointer_in"></div></div></div></div><div class="geetest_goto" style="display: none;"><div class="geetest_goto_ghost"></div><div class="geetest_goto_wrap"><div class="geetest_goto_content"><div class="geetest_goto_content_tip"></div></div><div class="geetest_goto_cancel"></div><a class="geetest_goto_confirm"></a></div></div><div class="geetest_panel"><div class="geetest_panel_ghost"></div><div class="geetest_panel_box"><div class="geetest_other_offline geetest_panel_offline"></div><div class="geetest_panel_loading"><div class="geetest_panel_loading_icon"></div><div class="geetest_panel_loading_content"></div></div><div class="geetest_panel_success"><div class="geetest_panel_success_box"><div class="geetest_panel_success_show"><div class="geetest_panel_success_pie"></div><div class="geetest_panel_success_filter"></div><div class="geetest_panel_success_mask"></div></div><div class="geetest_panel_success_correct"><div class="geetest_panel_success_icon"></div></div></div><div class="geetest_panel_success_title"></div></div><div class="geetest_panel_error"><div class="geetest_panel_error_icon"></div><div class="geetest_panel_error_title"></div><div class="geetest_panel_error_content"></div><div class="geetest_panel_error_code"><div class="geetest_panel_error_code_text"></div></div></div><div class="geetest_panel_footer"><div class="geetest_panel_footer_logo"></div><div class="geetest_panel_footer_copyright"></div></div><div class="geetest_panel_next"></div></div></div></div></span>
+		                    </div>
+		                    <div class="item">
+		                        <button id="submit">提交</button>
+		                    </div>
+		                </div>
+		                <div id="secondstep">
+		                    <div class="item select_account_item">
+		                        <label class="item_title">请选择：</label>
+		                        <span class="sel"><ul name="" id="sel">
+		                            <li class="">aaa</li>
+		                            <i>123</i>
+		                        </ul></span>
+		                    </div>
+		                    <div class="phoneDiv">
+		                        <div class="item">
+		                            <label class="item_title mail">手机号：</label>
+		                            <span class="phonenum phone"><input type="text" name="" id="phonenum" disabled="" value="152****9987"><button id="getcode">获取动态码</button></span>
+		                            <div id="secondmsg"><span id="secondmsgtext">收不到动态码？<a id="getvoicecode">使用语音验证码</a></span><div class="clearfloat"></div></div>
+		                        </div>
+		                        <div class="item slide">
+		                            <span id="slideDom2"></span>
+		                        </div>
+		                        <div class="item">
+		                            <label class="item_title">动态码：</label>
+		                            <span class="validcode"><input type="text" name="" id="validcode" placeholder="请输入动态码" maxlength="6"></span>
+		                            <div id="validcode_msg"><span id="validcode_msgtext">动态码错误提示动态码错</span></div>
+		                            <div class="clearfloat"></div>
+		                        </div>
+		                        <div class="item">
+		                            <div id="validcodemsg" class="appealEntries"><span id="validcodemsgtext"><a class="hreflink" href="//passport.58.com/sec/complainv2/pc/index?type=resetpwd">原手机不再使用？申诉换绑新手机</a></span><div class="clearfloat"></div></div>
+		                            <button id="next">下一步</button>
+		                        </div>
+		                    </div>
+		                    <div class="wechat">
+		                        <div class="weichatdom_mask">
+		                            <img src="images/021dNec3OyDIalny.jpeg" height="148" width="148">
+		                            <div class="bar">
+		                                <p>微信账号有误</p>
+		                                <p><img src="images/refresh@2x.png" height="16" width="16">刷新重扫</p>
+		                            </div>
+		                        </div>
+		                        <div id="weichatdom"></div>
+		                        <div id="weichatmsgdom">
+		                            <div class="wechatflag">
+		                                <img src="images/wechat@2x.png">
+		                                <div class="wechatflagtext">
+		                                    <p>打开该账号绑定的微信</p>
+		                                    <p>扫一扫</p>
+		                                    <p>验证成功回PC端重置密码</p>
+		                                </div>
+		                            </div>
+		                            <a class="hreflink appealEntries" href="//passport.58.com/sec/complainv2/pc/index?type=resetpwd">无法验证？我要申诉！</a>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div id="thirdstep">
+		                    <div class="item">
+		                        <label class="item_title">密码：</label>
+		                        <span class="password"><input type="password" name="" id="password" placeholder="请输入新密码" maxlength="16" autocomplete="new-password"></span>
+		                        <div id="password_msg"><span id="password_msgtext">错误提示</span><div class="clearfloat"></div></div>
+		                    </div>
+		                    <div class="item">
+		                        <label class="item_title">确认密码：</label>
+		                        <span class="confirmpassword"><input type="password" name="" id="confirmpassword" placeholder="请再次输入新密码" maxlength="16" autocomplete="new-password"></span>
+		                        <div id="confirmpassword_msg"><span id="confirmpassword_msgtext">错误提示</span><div class="clearfloat"></div></div>
+		                    </div>
+		                    <div class="item">
+		                        <button id="confirm">确认</button>
+		                    </div>
+		                </div>
+		                <div class="mask">
+		                    <div class="item mask_div">
+		                        <p>请填写图片验证码</p>
+		                        <span><input type="text" id="pic_code" placeholder="图片验证码" maxlength="6"><img id="vcodekey_img" src="//img.58cdn.com.cn/logo/58/254_85/logo-o.png" alt=""></span>
+		                        <div id="pic_code_msg"><span id="pic_code_msgtext">图片验证码有误</span></div>
+		                        <button id="getcodebtn">确定</button>
+		                    </div>
+		                </div>
+		                <div id="riskmsgpwd">
+		                    <div>
+		                        <p id="risktextpwd">检测到您在新设备登录，为了验证账户安全，我们将以语音电话的方式给您发送验证码，请您注意保持电话畅通</p>
+		                        <span id="riskbtnpwd">我知道了</span>
+		                    </div>
+		                </div>
+		            </main>
+				<script src="js/zhuxiao/template_pc.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/jd.css"/>
+		<link rel="stylesheet" type="text/css" href="css/fuwu.css"/>
+		<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(".main_ul_li").hover(function() {
+					$(this).children(".main_div").show();
+				}, function() {
+					$(this).children(".main_div").hide();
+				});
+				
+				$(".main_ul_li").hover(function() {
+					$(".main_logo").hide();
+				}, function() {
+					$(".main_logo").show();
+				});
+				
+					var btns = $(".video1");
+					$(btns).click(function() {
+						var myVideo = $(this).parent().parent().children(".video")[0];
+						console.log($(this).parent().parent().children(".video"));
+						if(myVideo.paused)
+						myVideo.play();
+						else
+						myVideo.pause();
+					});
+					
+				showHide();
+				function showHide() {
+					//找到name=hide的元素
+					$('[name=show_hide]').hover(function() {
+						//获取当前li的id
+						var id = $(this).attr("id");
+						var subId = id + "_items";
+						$('#' + subId).show();
+					}, function() {
+						//获取当前li的id
+						var id = $(this).attr("id");
+						var subId = id + "_items";
+						$('#' + subId).hide();
+					});
+				}
+				//返回顶部
+				$(".totop").click(function() {
+					$('html,body').animate({
+						scrollTop: 0
+					}, 600);
+				});
+				//鼠标跟随
+				function dotMove(e) {
+				    var obj = $("#c-followDot");
+				    var aA = $("a");
+				    var bW = $("body").width() - 25;
+				    $(document).mousemove(function(e) {
+				        var endx = e.clientX;
+				        var endy = e.clientY;
+				        if (endx > bW) {
+				            endx = bW;
+				        }
+				        obj.css({ "left": endx + "px", "top": endy + "px" });
+				    });
+				    aA.hover(function() {
+				        obj.addClass("c-active");
+				    }, function() {
+				        obj.removeClass("c-active");
+				    });
+				}
+				dotMove();
+				$(".liji").click(function(){
+					alert("请先连接网络");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!--鼠标跟随-->
+		<div id="c-followDot" class style="ledft: 467px; top: 576px;">
+			<div class="c-default"></div>
+			<div class="c-hover"></div>
+		</div>
+		<div class="top">
+			<div class="top_left">
+				<img src="images/logo(2).jpg" >
+				<a>找工作上答灵</a>
+				<p>Multifunctional toolbox | China</p>
+			</div>
+			<div class="top_right">
+				<div class="top_input">
+					<input type="search" class="" placeholder="请输入搜索内容">
+					<img src="images/搜索.png" >
+				</div>
+			<div id="my_jd" class="lf" name='show_hide'>
+				<div class="my_jd_mt" >
+				  <a style="color: black;" href="people.html">个人中心</a><b></b>
+				</div>
+				<div id="my_jd_items">
+				  <p>您好，请<a href="denglu.html">登录</a></p>
+				  <div class="my_jd_div">
+				  <ul class="lf">
+				    <li><a href="people.html">待处理面试</a></li>
+				    <li><a href="people.html">咨询回复</a></li>
+				    <li><a href="people.html">我的证书</a></li>
+				    <li><a href="people.html">过去履历</a></li>
+				    <li><a href="people.html">会员卡</a></li>
+				  </ul>
+				  <ul class="lf">
+				    <li><a href="people.html">我的关注 &gt;</a></li>
+				    <li><a href="people.html">我的工具 &gt;</a></li>
+				    <li><a href="people.html">我的理财 &gt;</a></li>
+				    <li><a href="people.html">我的钱包 &gt;</a></li>
+				  </ul>
+				  </div>
+				</div>
+			</div>
+			<div id="settle_up" class="lf" name='show_hide'>
+			  <div class="settle_up_mt">
+			    查看新信息
+			    <b></b>
+			  </div>
+			  <div id="settle_up_items">
+			    <div id="no_goods">
+			      <b></b>
+			      您还没有面试邀请，请继续努力！
+			    </div>
+			  </div>
+			</div>
+		</div>
+		</div>
+		<header class="hd">
+			<ul class="hd_ul">
+				<li><a href="#">首页</a></li>
+					<li><a href="home.html">全职招聘信息</a></li>
+					<li><a href="work.html">行业分类</a></li>
+					<li><a href="surf.html">线上互动</a></li>
+					<li><a href="self.html">自助服务</a></li>
+					<li id="service" class="service" name="show_hide">
+					  <b></b>
+					  <label class="rt">
+					    <a href="customer.html"> 客户服务</a>
+					  </label>
+					  <ul id="service_items">
+					    <li><a href="customer.html">帮助中心</a></li>
+					    <li><a href="customer.html">咨询服务</a></li>
+					    <li><a href="customer.html">在线客服</a></li>
+					    <li><a href="customer.html">投诉中心</a></li>
+					    <li><a href="customer.html">客服邮箱</a></li>
+					  </ul>
+					</li>
+					<li><a href="denglu.html">登录/</a><a href="zhuce.html">注册</a></li>
+				</ul>
+		</header>
+		<div class="main">
+			<ul class="main_ul">
+				<li class="main_ul_li"><a href=""><img src="images/首页/01.jpg" ></a><p>百度公司</p>
+					<div class="main_div"><video width="200" height="350" class="video">
+						<source src="video/01.mp4" type="video/mp4">
+						</source>
+					</video>
+					<div style="text-align:center"><button class="video1">播放/暂停</button></div>
+				</li>
+				<li class="main_ul_li"><a href=""><img src="images/首页/02.jpg" ></a><p>富士康公司</p>
+					<div class="main_div"><video width="200" height="350" class="video">
+						<source src="video/02.mp4" type="video/mp4">
+						</source>
+					</video>
+					<div style="text-align:center"><button class="video1">播放/暂停</button></div>
+				</li>
+				<li class="main_ul_li"><a href=""><img src="images/首页/03.jpg" ></a><p>比亚迪公司</p>
+					<div class="main_div">
+						<video width="200" height="350" class="video">
+							<source src="video/03.mp4" type="video/mp4"></source>
+						</video>
+						<div style="text-align:center"><button class="video1">播放/暂停</button></div>
+				</li>
+				<li class="main_ul_li"><a href=""><img src="images/首页/04.jpg" ></a><p>上海三菱</p>
+					<div class="main_div">
+						<video width="200" height="350" class="video">
+							<source src="video/04.mp4" type="video/mp4"></source>
+						</video>
+						<div style="text-align:center"><button class="video1">播放/暂停</button></div>
+				</li>
+				<li class="main_ul_li"><a href=""><img src="images/首页/05.jpg" ></a><p>合昌建筑</p>
+					<div class="main_div">
+						<video width="200" height="350" class="video">
+							<source src="video/05.mp4" type="video/mp4"></source>
+						</video>
+						<div style="text-align:center"><button class="video1">播放/暂停</button></div>
+				</li>
+				<li class="main_ul_li"><a href=""><img src="images/首页/06.jpg" ></a><p>顺丰快递</p>
+					<div class="main_div">
+						<video width="200" height="350" class="video">
+							<source src="video/06.mp4" type="video/mp4"></source>
+						</video>
+						<div style="text-align:center"><button class="video1">播放/暂停</button></div>
+				</li>
+			</ul>
+			<div class="main_logo">
+				<p class="main_p">答灵找工作就是牛</p>
+				<p class="main_p">Multifunctional toolbox | Made In LiuYuTing</p>
+			</div>
+		</div>
+		<div class="maini_div">
+			<div class="main_div_right">
+				<div class="main_div_right_top">
+					<ul>
+						<li>
+							<span>*</span><label>公司名称</label>
+							<input type="text" placeholder="采购/代理成品勿填">
+						</li>
+						<li>
+							<span>*</span><label>联系人</label>
+							<input type="text" placeholder="请输入您的姓名">
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<span>*</span><label>联系方式</label>
+							<input type="text" placeholder="有效的手机号码">
+						</li>
+						<li>
+							<span>*</span><label>选择省市</label>
+							<select value="选择省市">
+								<option value="选择省市">请选择城市</option>
+								<option value="选择省市">湖南</option>
+								<option value="选择省市">北京</option>
+								<option value="选择省市">江西</option>
+								<option value="选择省市">上海</option>
+								<option value="选择省市">四川</option>
+							</select>
+						</li>
+					</ul>
+				</div>
+				<div class="main_div_bon">
+					<span>*</span><label>您希望寻找的工作岗位要求？</label>
+					<ul>
+						<li><input type="checkbox" /><a>销售</a></li>
+						<li><input type="checkbox" /><a>客服</a></li>
+						<li><input type="checkbox" /><a>餐饮</a></li>
+						<li><input type="checkbox" /><a>旅游</a></li>
+						<li><input type="checkbox" /><a>酒店</a></li>
+					</ul>
+					<ul>
+						<li><input type="checkbox" /><a>建筑</a></li>
+						<li><input type="checkbox" /><a>美容美发</a></li>
+						<li><input type="checkbox" /><a>保健按摩</a></li>
+						<li><input type="checkbox" /><a>运动健身</a></li>
+						<li><input type="checkbox" /><a>普工/技工</a></li>
+					</ul>
+					<ul>
+						<li><input type="checkbox" /><a>生产管理</a></li>
+						<li><input type="checkbox" /><a>建筑</a></li>
+						<li><input type="checkbox" /><a>物业管理</a></li>
+						<li><input type="checkbox" /><a>房产中介</a></li>
+					</ul>
+					<ul>
+						<li><input type="checkbox" /><a>其他更多</a></li>
+					</ul>
+				</div>
+				<div class="main_div_bonn">
+					<span>*</span><label>您寻找的企业类型</label>
+					<ul>
+						<li><input type="checkbox" /><a>制造商</a></li>
+						<li><input type="checkbox" /><a>方案商</a></li>
+						<li><input type="checkbox" /><a>品牌商</a></li>
+					</ul>
+				</div>
+				<div class="main_div_need">
+					<span>*</span><label>需求留言</label><br />
+					<input type="text"placeholder="如果您有其他的需求,请备注" />
+				</div>
+				<div class="read">
+					<input type="checkbox" /><a>阅读并同意，<span style="color: #005EA7;">《服务条款》 《法律声明》 《隐私政策》</span></a>
+				</div>
+				<div class="up"><input type="button" value="立即提交" /></div>
+			</div>
+		</div>
+		<div class="main1">
+			<div class="main1_left">
+				<h1>答灵招聘网全面升级</h1>
+				<p><span>本期主推：</span>多方面智能升级方案</p>
+				<a class="liji">立即智能化</a>
+			</div>
+			<img src="images/logo.png" >
+		</div>
+		<div class="main2">
+			<p>主要功能</p>
+			<ul class="main2_ul">
+				<li><span></span><p class="main2_p">模式设定</p><a>自由、目标模式<br>设置和选择</a></li>
+				<li><span></span><p class="main2_p">智能推荐</p><a>最新、最热门、最适合好工作劲爆来袭</a></li>
+				<li><span></span><p class="main2_p">历史记录</p><a>30天内累积观看历史数据可查看</a></li>
+				<li><span></span><p class="main2_p">分享社交</p><a>一键分享社交圈，呼朋唤友找工作</a></li>
+				<li><span></span><p class="main2_p">专项指导</p><a>专业hr一对一面试指导，视频面试更优秀</a></li>
+			</ul>
+			<p>绝对优势</p>
+			<ul class="main2_uli">
+				<li><span></span><p class="main2_p">分类明确</p><a>各行各业所有的工作，分类精准，查找更方便</a></li>
+				<li><span></span><p class="main2_p">人生履历</p><a>实时记录您工作的每次经历，统计一目了然</a></li>
+				<li><span></span><p class="main2_p">邮件提醒</p><a>当您关注的公司发出offer时，会发送邮件提醒</a></li>
+				<li><span></span><p class="main2_p">匹配度排名</p><a>期望度最高的工作，您能第一时间查到</a></li>
+				<li><span></span><p class="main2_p">其他更多</p><a>时刻接收您的简历，最短时间内更新工作</a></li>
+			</ul>
+		</div>
+		<footer class="ft">
+			<h1>为什么选择答灵招聘网找工作?</h1>
+			<p>已对接 220 + 国家/地区，服务器 23 万开发者</p>
+			<div class="ft_div">
+				<ul>
+					<li><span>优</span><p><a class="a1" href="">就业保障</a><a class="a2">保障护航 就业无忧</a></p></li>
+					<li><span>帮</span><p><a class="a1" href="customer.html">帮助中心</a><a class="a2">您的找工作寻找指南</a></p></li>
+					<li><span>全</span><p><a class="a1" href="surf.html">全民咨询</a><a class="a2">大家一起找工作</a></p></li>
+					<li><span>联</span><p><a class="a1" href="">全国联保</a><a class="a2">保护您的合法权益</a></p></li>
+					<li><span>试</span><p><a class="a1" href="">视频面试</a><a class="a2">视频面试 方便快捷</a></p></li>
+				</ul>
+			</div>
+			<div class="last">答灵招聘网</div>
+		</footer>
+		<ul class="fuwu">
+		    <li>
+			<a target="_blank" class="blink1" href="self.html" rel="nofollow">举报招聘欺诈 核实有奖</a>
+		    </li>
+		    <li>
+			<a target="_blank" class="blink2" href="self.html" rel="nofollow">删除信息/简历 登录账户或短信删除</a>
+		    </li>
+		    <li>
+			<a target="_blank" class="blink3" href="self.html" rel="nofollow">验证营业执照 可获得10份免费简历</a></li>
+		    <li>
+			<a target="_blank" class="blink4" href="self.html" rel="nofollow">招聘通服务 中小企业的最佳选择</a>
+		    </li>
+		</ul>
+	</body>
+</html>
+<!--右侧悬浮-->
+			<div class="new_right_pendant">
+				<div class="new_right_list">
+					<a title="电话咨询">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-dianhua"></span>
+						</div>
+						<span class="txt1">13548809860</span>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="https://www.baidu.com" title="百度一下">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-wangzhan1"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="#" title="刷新页面">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-keji1"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="customer.html" title="客户服务">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-ziyuan"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a>
+						<div class="ysUtilIco">
+							<span class="iconfont icon-haipaikeicon-"></span>
+						</div>
+						<span class="txt1 txt2">
+							<img src="./images/wx.jpg" alt="微信咨询">
+						</span>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a href="" class="totop" title="回到顶部">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-fanhuidingbu1"></span>
+						</div>
+					</a>
+				</div>
+			</div>

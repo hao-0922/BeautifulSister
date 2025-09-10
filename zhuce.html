@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>注册</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			a {
+				text-decoration: none;
+			}
+			.tot{
+				width: 850px;
+				margin: 0 auto;
+				background-image: url(images/头像/tx4.jpg);
+				background-size: 850px 800px;
+				height: 800px;
+			}
+			.all{
+				width: 500px;
+				margin: 0px auto;
+				position: relative;
+				top: 200px;
+				background-color: rgba(0,0,0,0.5);
+			}
+			.tot-two{
+				width: 500px;
+				text-align: center;
+			}
+			.tot-two span{
+				line-height: 100px;
+				font-size: 26px;
+				color: #ffffff;
+				display: inline-block;
+				font-family: Cursive;
+				text-shadow: 1px 2px 1px #C0C0C0;
+			}
+			.tot-two a{
+				line-height: 100px;
+				font-size: 26px;
+				color: #006CFD;
+				display: inline-block;
+				font-family: Cursive;
+				text-shadow: 1px 2px 1px #C0C0C0;
+			}
+			.input{
+				width: 350px;
+				margin: auto;
+			}
+			.input p{
+				display: flex;
+				justify-content: space-between;
+				height: 60px;
+				width: 350px;
+			}
+			.input span{
+				color: #ffffff;
+				font-family: Cursive;
+				font-size: 18px;
+				display: inline-block;
+				line-height: 60px;
+				width: 100px;
+				text-align: center;
+			}
+			.input a{
+				display: inline-block;
+				line-height: 60px;
+			}
+			.input input{
+				height: 35px;
+				width: 250px;
+				border-radius: 5px;
+				padding-left: 5px;
+				color: #ffffff;
+				font-family: Cursive;
+				text-shadow: 1px 2px 1px #C0C0C0;
+				background-color: rgba(255,255,255,0.5);
+				border: 1px #ffffff solid;
+				box-sizing: border-box;
+			}
+			input::-webkit-input-placeholder {
+			     color :  #ffffff;
+			}
+			input:-ms-input-placeholder { 
+			     color :  #ffffff;
+			}
+			input:-moz-placeholder { 
+			     color :  #ffffff;
+			}
+			input::-moz-placeholder { 
+			     color :  #ffffff;
+			}
+			p .four{
+				width: 190px;
+			}
+			p .five{
+				width: 150px;
+				background-color: #006CFD;
+			}
+			p .six{
+				width: 400px;
+				background-color: #006CFD;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tot">
+			<div class="all">
+				<div class="tot-two">
+					<span>欢迎注册</span>
+					<span class="last">已注册可</span>
+					<a href="denglu.html">直接登录</a>
+				</div>
+				<div class="input">
+					<p><span>手机号：</span><a><input type="text" name="telephone" class="one" placeholder="请输入手机号" /></a></p>
+					<p><span>设置密码：</span><a><input type="password" name="psd" class="two" placeholder="密码由6-20位字母/数字和符号组成" /></a></p>
+					<p><span>确认密码：</span><a><input type="password" name="psd" class="three" placeholder="请再次输入上面的密码" /></a></p>
+					<p><input  class="four" placeholder="输入验证码" /><input type="button" name="" class="five" value="获取验证码" /></p>
+					<p><input type="button" name="" class="six" value="立即注册" /></p>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+				var str = "";
+				$(".five").click(function(){
+					str = "";
+					for(i = 0;i < 6;i++){
+						str += Math.floor(Math.random() * 10);
+					}
+					alert("您的验证码为:"+str);
+				});
+				
+			$(".six").click(function(){
+				var phone = $(".one").val().trim();
+				var psd = $(".two").val().trim();
+				var psd1 = $(".three").val().trim();
+				var st = $(".four").val().trim();
+				if (phone == ""){
+					alert("手机号不能为空！！！");
+				}else if(psd == ""){
+					alert("密码不能为空！！！");
+				}else if(psd != psd1){
+					alert("密码不一致！！！");
+				}else if(st == ""){
+					alert("验证码不能为空！！！");
+				}else if(st != str){
+					alert("验证码错误！！！");
+				}else{
+					window.location.href = "denglu.html";
+				}
+			});
+		</script>
+	</body>
+</html>

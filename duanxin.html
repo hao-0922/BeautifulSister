@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>手机冒用</title>
+		<link rel="stylesheet" type="text/css" href="css/delete/search_v20190605125917.css"/>
+	</head>
+		<body style="overflow: auto;">
+		<!-- 头部 -->
+		<div class="header">
+		    <div class="main-container">
+		        <div class="logo-container">
+		            <div class="logo"></div>
+		            <div class="logo-title">帮助中心</div>
+		            <div class="logo-sub-title">手机冒用删除</div>
+		        </div>
+		    </div>
+		</div>
+		
+		<!-- main -->
+		<div class="main-container index-container">
+		    <div class="index-title">手机短信删除</div>
+		    <div class="search-container">
+		        <ul>
+		            <li class="item-active itemSearch">
+		                <div class="search search-active"></div>
+		                <span>信息查询</span>
+		            </li>
+		            <li class="itemPhone">
+		                <div class="phone phone-primary"></div>
+		                <span>手机验证</span>
+		            </li>
+		            <li class="itemMessage">
+		                <div class="message message-primary"></div>
+		                <span>信息删除</span>
+		            </li>
+		        </ul>
+		    
+		                              <div class="line-base"></div>
+		                              <div class="line-upper"></div></div>
+		
+		    <div>
+		        <!-- 信息查询 -->
+		        <div class="message-search">
+		            <div class="content-container">
+		                <div class="phone-div">
+		                    <span>手机号码</span>
+		                    <input type="text" class="phone-input" id="phone-input">
+		                    <div class="phone-error hide">
+		                        <i class="iconfont icon-warn"></i>手机号码不能为空!
+		                    </div>
+		                </div>
+		
+		                <div class="verify-div">
+		                    <span>验证码</span>
+		                    <input type="text" class="verify-input" id="verify-input">
+		                    <img class="verify-image" id="verify-image" src="images/delete/getverifycode.jpg">
+		                    <div class="make-change">换一换</div>
+		                    <div class="verify-error hide">
+		                        <i class="iconfont icon-warn"></i>验证码不能为空!
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="search-submit">确定</div>
+		        </div>
+		
+		        <!-- 手机验证 -->
+		
+		        <div class="phone-verify hide">
+		            <div class="content-container">
+		                <div class="phone-div verify-phone-div">
+		                    <span>手机号码</span>
+		                    <div class="phone-number">
+		                        <span class="phone-verify-span"></span>
+		                    </div>
+		                </div>
+		
+		                <div class="verify-div">
+		                    <span>校验码</span>
+		                    <input type="text" class="phone-verify-input" id="phone-verify-input">
+		                    <div class="phone-send-code">发送验证码</div>
+		                </div>
+		                <div class="phone-tips">
+		                    <i class="iconfont icon-warn icon-phone-tip"></i>
+		                    校验码已发送到你的手机，受网络影响，短信可能有延迟，请耐心等待！
+		                <div>
+		                              <i class="iconfont icon-warn icon-phone-tip"></i>
+		                              每次最多可显示300条信息！
+		                          </div></div>
+		            </div>
+		            <div class="phone-search-submit">确定</div>
+		        </div>
+		
+		        <!-- 信息删除 -->
+		
+		        <div class="message-delete hide">
+		            <div class="message-container">
+		                <div class="message-phone-title">
+		              <span>以下是
+		                <span class="message-phone-number"></span>
+		                查询的结果
+		              </span>
+		                </div>
+		                <div class="message-table">
+		                    <div class="xa-table-thead">
+		                        <ul>
+		                            <li class="xa-table-selection-column xa-col-1">
+		                    <span>
+		                      <label class="xa-checkbox-wrapper">
+		                        <p class="xa-checkbox">
+		                          <input type="checkbox" class="xa-checkbox-input" value="">
+		                          <span class="xa-checkbox-inner"></span>
+		                        </p>
+		                      </label>
+		                    </span>
+		                            </li>
+		                            <li class="xa-col-2">信息标题</li>
+		                            <li class="xa-col-3">信息ID</li>
+		                            <li class="xa-col-4">发布时间</li>
+		                        </ul>
+		                    </div>
+		                    <div class="xa-table-body"></div>
+		                </div>
+		                <div class="table-pagination">
+		                    <ul class="pagination_ul"></ul>
+		                </div>
+		                <div>
+		                    <div class="message-delete-submit">删除</div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+		
+		<!-- footer -->
+		<div class="footer">
+		    <ul class="footer-item">
+		        <li>
+		            <a href="self.html">了解答灵</a>
+		        </li>
+		        <li>
+		            <a href="zhuce.html">加入答灵</a>
+		        </li>
+		        <li>
+		            <a>会员介绍</a>
+		        </li>
+		        <li>
+		            <a>渠道招商</a>
+		        </li>
+		        <li>
+		            <a href="people.html">个人中心</a>
+		        </li>
+		    </ul>
+		</div>
+		
+		<div class="body-mask hide">
+		    <div class="close-panel">
+		        <div>
+		            <i class="iconfont icon-close"></i>
+		        </div>
+		        <div class="close-panel-error-message"></div>
+		        <div class="close-panel-close-button">确定</div>
+		    </div>
+		</div>
+		
+		<div class="message-delete-tips hide">
+		    <div class="delete-icon-container">
+		        <i class="iconfont delete-icon icon-success"></i>
+		    </div>
+		    <div class="delete-message">删除预计在2小时之内完成，为此造成您的不便请谅解！</div>
+		</div>
+		
+		<script type="text/javascript" src="js/delete/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/delete/search_v20190605125917.js"></script>
+		
+		<script type="text/javascript">
+		    window.WMDA_SDK_CONFIG = {
+		        api_v: 1,
+		        sdk_v: 0.1,
+		        mode: "report",
+		        appid: 9705389153585,
+		        key: "9yvob5gx",
+		        project_id: "9561808484917"
+		    };
+		</script>
+		<script type="text/javascript" src="js/delete/statistic_v20190319111213.js"></script>
+	</body>
+</html>

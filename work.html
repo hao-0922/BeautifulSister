@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>职业工具</title>
+		<link rel="stylesheet" type="text/css" href="css/work.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="css/nbw.css"/> -->
+		<!-- <link rel="stylesheet" type="text/css" href="css/main.css"/> -->
+		<link rel="stylesheet" type="text/css" href="css/ytx.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css"/> -->
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+				var btns = $(".video1");
+				$(btns).click(function() {
+					var myVideo = $(this).parent().parent().children(".video")[0];
+					console.log($(this).parent().parent().children(".video"));
+					if (myVideo.paused)
+						myVideo.play();
+					else
+						myVideo.pause();
+				});
+
+				showHide();
+
+				function showHide() {
+					//找到name=hide的元素
+					$('[name=show_hide]').hover(function() {
+						//获取当前li的id
+						var id = $(this).attr("id");
+						var subId = id + "_items";
+						$('#' + subId).show();
+					}, function() {
+						//获取当前li的id
+						var id = $(this).attr("id");
+						var subId = id + "_items";
+						$('#' + subId).hide();
+					});
+				}
+
+				//鼠标跟随
+				function dotMove(e) {
+					var obj = $("#c-followDot");
+					var aA = $("a");
+					var bW = $("body").width() - 25;
+					$(document).mousemove(function(e) {
+						var endx = e.clientX;
+						var endy = e.clientY;
+						if (endx > bW) {
+							endx = bW;
+						}
+						obj.css({
+							"left": endx + "px",
+							"top": endy + "px"
+						});
+					});
+					aA.hover(function() {
+						obj.addClass("c-active");
+					}, function() {
+						obj.removeClass("c-active");
+					});
+				}
+				dotMove();
+
+
+				//精品推荐
+				var index = 0;
+				var width = $(".show_box").width();
+				var len = $(".pic_list").children().length;
+				var time = 2000;
+
+				fn2();
+
+				function fn1() {
+					$(".pic_list").children().hide().css("opacity", 0).eq(index).show().css("opacity", 1);
+				}
+
+				function fn2() {
+					fn1();
+					index++;
+					if (index == len) {
+						index = 0;
+					}
+					setTimeout(fn2, time);
+				}
+
+				$(".select").hover(function() {
+					index = $(this).index();
+					fn1();
+					// $(this).CSS("background", "rgba(118,107,122,0.3)");
+				}, function() {
+					// $(this).CSS("background", "rgba(160,107,122,0.3)");
+				});
+
+				//中间悬浮窗口
+				$(".nb-icon-inner-wrap").click(function() {
+					if ($("#nb_invite_wrap").is(':hidden')) {
+						$("#nb_invite_wrap").show();
+					} else {
+						$("#nb_invite_wrap").hide();
+					}
+				});
+				$(".zj2").click(function() {
+					$("#nb_invite_wrap").hide();
+				});
+				$(".base").click(function() {
+					$("#nb_invite_wrap").hide();
+				});
+				//留言板
+				$(".liuyan").click(function() {
+					if ($(".nb-nodeboard-base").is(':hidden')) {
+						$(".nb-nodeboard-base").show();
+					} else {
+						$(".nb-nodeboard-base").hide();
+					}
+				});
+				$(".nb-nodeboard-close").click(function() {
+					$(".nb-nodeboard-base").hide();
+				});
+				$(".nb-sucess-close").click(function() {
+					$(".nb-nodeboard-base").hide();
+				});
+				//右下窗口
+				$(".ok").click(function() {
+					if ($(".maxMessageContainer").is(':hidden')) {
+						$(".maxMessageContainer").show();
+					} else {
+						$(".maxMessageContainer").hide();
+					}
+				});
+				$(".nb-webim-light-status-bar-toggle").click(function() {
+					$(".maxMessageContainer").hide();
+				});
+				//发送
+				$(".select-span").click(function() {
+					if ($(".nb-webim-light-toolbar-send-select-layer").is(':hidden')) {
+						$(".nb-webim-light-toolbar-send-select-layer").show();
+					} else {
+						$(".nb-webim-light-toolbar-send-select-layer").hide();
+					}
+				});
+				//表情
+				$(".nb-webim-light-toolbar-face").click(function() {
+					if ($(".nb-webim-light-face-container").is(':hidden')) {
+						$(".nb-webim-light-face-container").show();
+					} else {
+						$(".nb-webim-light-face-container").hide();
+					}
+				});
+				// //选择文字
+				$(".nb-webim-light-toolbar-font").click(function() {
+					if ($(".nb-webim-light-font-bar").is(':hidden')) {
+						$(".nb-webim-light-font-bar").show();
+					} else {
+						$(".nb-webim-light-font-bar").hide();
+					}
+				});
+				//字体颜色
+				$(".nb-webim-light-font-color").click(function() {
+					if ($(".nb-webim-light-color-container").is(':hidden')) {
+						$(".nb-webim-light-color-container").show();
+					} else {
+						$(".nb-webim-light-color-container").hide();
+					}
+				});
+
+				//切换图片
+				$(document).ready(function() {
+					$(".p2").hide();
+					$(".p3").hide();
+					$(".p4").hide();
+
+					$(".1").click(function() {
+						$(".p1").show();
+						$(".p2").hide();
+						$(".p3").hide();
+						$(".p4").hide();
+						$(".1").css("background-color", "rgb(38, 162, 248)")
+						$(".2").css("background-color", "")
+						$(".3").css("background-color", "")
+						$(".4").css("background-color", "")
+					});
+
+					$(".2").click(function() {
+						$(".p2").show();
+						$(".p1").hide();
+						$(".p3").hide();
+						$(".p4").hide();
+						$(".2").css("background-color", "rgb(38, 162, 248)")
+						$(".1").css("background-color", "")
+						$(".3").css("background-color", "")
+						$(".4").css("background-color", "")
+					});
+
+					$(".3").click(function() {
+						$(".p3").show();
+						$(".p1").hide();
+						$(".p2").hide();
+						$(".p4").hide();
+						$(".3").css("background-color", "rgb(38, 162, 248)")
+						$(".1").css("background-color", "")
+						$(".2").css("background-color", "")
+						$(".4").css("background-color", "")
+					});
+					$(".4").click(function() {
+						$(".p4").show();
+						$(".p1").hide();
+						$(".p2").hide();
+						$(".p3").hide();
+						$(".4").css("background-color", "rgb(38, 162, 248)")
+						$(".1").css("background-color", "")
+						$(".2").css("background-color", "")
+						$(".3").css("background-color", "")
+					});
+				});
+
+				//抓踪教学
+				$(".nb-icon-groups-item1").click(function() {
+					$('html,body').animate({
+						scrollTop: 760
+					}, 600);
+				});
+				//抓踪健身
+				$(".nb-icon-groups-item2").click(function() {
+					$('html,body').animate({
+						scrollTop: 2300
+					}, 600);
+				});
+				//抓踪医护
+				$(".nb-icon-groups-item3").click(function() {
+					$('html,body').animate({
+						scrollTop: 4150
+					}, 600);
+				});
+				//抓踪互联网
+				$(".nb-icon-groups-item4").click(function() {
+					$('html,body').animate({
+						scrollTop: 5650
+					}, 600);
+				});
+				//抓踪艺术
+				$(".nb-icon-groups-item5").click(function() {
+					$('html,body').animate({
+						scrollTop: 7500
+					}, 600);
+				});
+				//抓踪电器
+				$(".nb-icon-groups-item6").click(function() {
+					$('html,body').animate({
+						scrollTop: 9020
+					}, 600);
+				});
+				//抓踪艺术
+				$(".nb-icon-groups-item7").click(function() {
+					$('html,body').animate({
+						scrollTop: 10890
+					}, 600);
+				});
+
+
+				//返回顶部
+				$(".totop").click(function() {
+					$('html,body').animate({
+						scrollTop: 0
+					}, 600);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<!--鼠标跟随-->
+		<div id="c-followDot" class style="ledft: 467px; top: 576px;">
+			<div class="c-default"></div>
+			<div class="c-hover"></div>
+		</div>
+		<div class="top">
+			<div class="top_left">
+				<img src="images/logo(2).jpg">
+				<a>找工作上答灵</a>
+				<p>Multifunctional toolbox | China</p>
+			</div>
+			<div class="top_right">
+				<div class="top_input">
+					<input type="search" class="" placeholder="请输入搜索内容">
+					<img src="images/搜索.png">
+				</div>
+				<div id="my_jd" class="lf" name='show_hide'>
+					<div class="my_jd_mt">
+						<a style="color: black;" href="people.html">个人中心</a><b></b>
+					</div>
+					<div id="my_jd_items">
+						<p>您好，请<a href="denglu.html">登录</a></p>
+						<div class="my_jd_div">
+							<ul class="lf">
+								<li><a href="people.html">待处理面试</a></li>
+								<li><a href="people.html">咨询回复</a></li>
+								<li><a href="people.html">我的证书</a></li>
+								<li><a href="people.html">过去履历</a></li>
+								<li><a href="people.html">会员卡</a></li>
+							</ul>
+							<ul class="lf">
+								<li><a href="people.html">我的关注 &gt;</a></li>
+								<li><a href="people.html">我的工具 &gt;</a></li>
+								<li><a href="people.html">我的理财 &gt;</a></li>
+								<li><a href="people.html">我的钱包 &gt;</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="settle_up" class="lf" name='show_hide'>
+					<div class="settle_up_mt">
+						查看新消息
+						<b></b>
+					</div>
+					<div id="settle_up_items">
+						<div id="no_goods">
+							<b></b>
+							您还没有面试邀请，请继续努力~
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<header class="hd">
+			<ul class="hd_ul">
+				<li><a href="index.html">首页</a></li>
+				<li><a href="home.html">全职招聘信息</a></li>
+				<li><a href="work.html">行业分类</a></li>
+				<li><a href="surf.html">线上互动</a></li>
+				<li><a href="self.html">自助服务</a></li>
+				<li id="service" class="service" name="show_hide">
+					<b></b>
+					<label class="rt">
+						<a href="customer.html"> 客户服务</a>
+					</label>
+					<ul id="service_items">
+						<li><a href="customer.html">帮助中心</a></li>
+						<li><a href="customer.html">咨询服务</a></li>
+						<li><a href="customer.html">在线客服</a></li>
+						<li><a href="customer.html">投诉中心</a></li>
+						<li><a href="customer.html">客服邮箱</a></li>
+					</ul>
+				</li>
+				<li><a href="denglu.html">登录/</a><a href="zhuce.html">注册</a></li>
+			</ul>
+		</header>
+		<!--职业分类-->
+		<div class="show_box">
+			<ul class="pic_list">
+				<li><a href=""><img src="images/work/big/01.jpg" alt="2"></a></li>
+				<li><a href=""><img src="images/work/big/02.jpg" alt="1"></a></li>
+				<li><a href=""><img src="images/work/big/03.jpg" alt="2"></a></li>
+				<li><a href=""><img src="images/work/big/04.jpg" alt="2"></a></li>
+				<li><a href=""><img src="images/work/big/05.jpg" alt="2"></a></li>
+				<li><a href=""><img src="images/work/big/06.jpg" alt="2"></a></li>
+				<li><a href=""><img src="images/work/big/07.jpg" alt="2"></a></li>
+			</ul>
+			<div class="title_nav">
+				<a href="#" class="select">教师教学</a>
+				<a href="#" class="select">运动健身</a>
+				<a href="http://www.ehutong.net/html-website/home" class="select">医学护士</a>
+				<a href="http://bd.hnjing.com/" class="select">互联网业</a>
+				<a href="#" class="select">艺术手工</a>
+				<a href="#" class="select">专业技术人员</a>
+				<a href="#" class="select">建筑工程</a>
+			</div>
+		</div>
+		<!--教师教学-->
+		<div class="teacher">
+			<h2>教师教学·教育类</h2>
+			<p>一站式互联网全方位服务，提升您的找工作效率</p>
+			<div class="teacher_top">
+				<div class="teacher_top_left">
+					<img src="images/work/teacher/001.jpg">
+				</div>
+				<div class="teacher_top_right">
+					<h2>教师教学·教育类</h2>
+					<p>您找工作的首选网站</p>
+					<a class="c" href="https://www.yuntianxia.com">+</a>
+					<div class="b">
+						“教学部 教务部 授课部 专业教师 助教 外教 培训机构”
+						<br>
+						“高酬高量高门槛 符合人教资格 一应俱全”<br />
+						“覆盖率超99% 独家平台一键自主查询”
+					</div>
+					<a class="a" href="surf.html"><span></span>问问大家</a>
+				</div>
+			</div>
+			<div class="teacher_main">
+				<ul>
+					<li><img src="images/work/teacher/ul/001.jpg">
+						<div class="teacher_main_div">
+							<h3>教学部</h3>
+							<P class="teacher_main_div_p1">学术主管岗位职责</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">有相关经验 管理师资团队 监控教学质量 负责后备师资的选拔与培养</p>
+						</div>
+					</li>
+					<li><img src="images/work/teacher/ul/002.jpg">
+						<div class="teacher_main_div">
+							<h3>教务部</h3>
+							<P class="teacher_main_div_p1">课程咨询主管(销售经理角色)</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">与教务部、授课部进行部门间协调配合工作，以确保服务链的畅通，为客户提供最方便快捷的服务咨询</p>
+						</div>
+					</li>
+					<li><img src="images/work/teacher/ul/003.jpg">
+						<div class="teacher_main_div">
+							<h3>授课部</h3>
+							<P class="teacher_main_div_p1">学如逆水行舟不进则退</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">负责课程的主讲、辅导答疑、批改作业(含实践报告)、考核等教学环节</p>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li><img src="images/work/teacher/ul/004.jpg">
+						<div class="teacher_main_div">
+							<h3>专业教师</h3>
+							<P class="teacher_main_div_p1">最新最热新题 业精于勤，荒于嬉；行成于思，毁于随</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">负责完成所管理课程的各项教学组织工作，承担400课时教学工作量</p>
+						</div>
+					</li>
+					<li><img src="images/work/teacher/ul/005.gif">
+						<div class="teacher_main_div">
+							<h3>助教/外教</h3>
+							<P class="teacher_main_div_p1">专业教研室主任</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">负责开展本教研室的教学、科研、学科建设等工作，承担260课时教学工作量。</p>
+						</div>
+					</li>
+					<li><img src="images/work/teacher/ul/006.jpg">
+						<div class="teacher_main_div">
+							<h3>培训机构</h3>
+							<P class="teacher_main_div_p1">学海无涯苦作舟,书山有路勤为径</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">精心设计课后拓展为课堂增效 在实施有效教学、追求课堂高效的过程中归纳与延伸</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--运动健身-->
+		<div class="teacher">
+			<h2>运动健身·健身类职业</h2>
+			<p>只有运动才可以除去各种各样的疑虑。——歌德</p>
+			<div class="yundong_top">
+				<img src="images/work/yundong/01.jpg" class="p1">
+				<img src="images/work/yundong/02.jpg" class="p2">
+				<img src="images/work/yundong/03.jpg" class="p3">
+				<img src="images/work/yundong/04.jpg" class="p4">
+				<ul>
+					<li class="1">1</li>
+					<li class="2">2</li>
+					<li class="3">3</li>
+					<li class="4">4</li>
+				</ul>
+			</div>
+			<div class="teacher_main">
+				<ul>
+					<li><img src="images/work/yundong/ul/001.jpg">
+						<div class="teacher_main_div">
+							<h3>教练部</h3>
+							<P class="teacher_main_div_p1">私教主管、私人教练、巡场教练</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">私教主管和私人教练是可以培训的，正式入职前需要参加培训和考核；巡场教练只需要简单的指导会员动作</p>
+						</div>
+					</li>
+					<li><img src="images/work/yundong/ul/002.jpg">
+						<div class="teacher_main_div">
+							<h3>会籍部</h3>
+							<P class="teacher_main_div_p1">会籍主管和会籍顾问</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">会籍主管需要有一定的管理能力和领导能力，希望有这方面的经验；会籍顾问基本上就是推荐顾客办卡。</p>
+						</div>
+					</li>
+					<li><img src="images/work/yundong/ul/003.jpg">
+						<div class="teacher_main_div">
+							<h3>前台接待</h3>
+							<P class="teacher_main_div_p1">运动是一切生命的源泉。——达芬奇</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">运动可以使人愉悦心情，健身俱乐部也需要一个好的招待；形象好气质佳的求职者优先</p>
+						</div>
+					</li>
+				</ul>
+				<ul>
+					<li><img src="images/work/yundong/ul/004.jpg">
+						<div class="teacher_main_div">
+							<h3>总经理办公室</h3>
+							<P class="teacher_main_div_p1">协助总经理经营管理的核心部门，是总经理的工作助手。</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">协助总经理进行公司的日常管理工作；协助公司重大决策的制定、实施；协助制定、组织实施公司长期战略。</p>
+						</div>
+					</li>
+
+					<li><img src="images/work/yundong/ul/005.jpg">
+						<div class="teacher_main_div">
+							<h3>副总经理</h3>
+							<P class="teacher_main_div_p1">协调总经理与各总经理助理、各部门的沟通与配合工作</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">负责健身房的各项日常工作，制定健身房工作的发展计划，贯彻上级发布的各项指令，保证各项任务顺利完成。</p>
+						</div>
+					</li>
+					<li><img src="images/work/yundong/ul/006.jpg">
+						<div class="teacher_main_div">
+							<h3>市场部经理</h3>
+							<P class="teacher_main_div_p1">负责编制部门年度、季度、月销售计划并负责落实完成</P>
+							<a href="">—</a>
+							<p class="teacher_main_div_p2">协调、督促公司做好健身卡销售；参与、跟踪、指导销售的整个过程；健身房内公共设施的维护、跟踪、管理。</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<!--医学护士-->
+			<div class="teacher">
+				<h2>医学护士·医疗岗位</h2>
+				<p>一站式互联网全方位服务，帮助您找到你想要的工作</p>
+				<div class="teacher_top">
+					<div class="teacher_top_left">
+						<img src="images/work/doctor/001.jpg" class="doctor_img">
+					</div>
+					<div class="teacher_top_right">
+						<h2>医学护士·医疗岗位</h2>
+						<p>答灵 您寻找工作的首选网站</p>
+						<a class="c" href="http://www.ehutong.net/html-website/home">+</a>
+						<div class="b">
+							“临床护士 公共卫生医师 护理教育方向 护理管理 做科研 其它岗位或考卫生系统公务员”
+							<br>
+							“专业对口 免费咨询 一应俱全”<br />
+							“覆盖率超99% 独家平台一键自主查询”
+						</div>
+						<a class="a" href="surf.html"><span></span>问问大家</a>
+					</div>
+				</div>
+				<div class="teacher_main">
+					<ul>
+						<li><img src="images/work/doctor/ul/001.jpg">
+							<div class="teacher_main_div">
+								<h3>临床护士</h3>
+								<P class="teacher_main_div_p1">临床护士是一般人会觉得比较辛苦的一条路</P>
+								<a href="http://www.ehutong.net/html-website/home">—</a>
+								<p class="teacher_main_div_p2">本科生在临床上的机会比大专中专生要多很多，有能力又能抓住机会的人会晋升地比较快。</p>
+							</div>
+						</li>
+						<li><img src="images/work/doctor/ul/002.jpg">
+							<div class="teacher_main_div">
+								<h3>公共卫生医师</h3>
+								<P class="teacher_main_div_p1">类别属于执业或助理</P>
+								<a href="http://www.ehutong.net/html-website/home">—</a>
+								<p class="teacher_main_div_p2">公共执业医师职业类别：预防医、公共卫、妇幼保健、计划育、疾病控制、职业卫、健康教育。</p>
+							</div>
+						</li>
+						<li><img src="images/work/doctor/ul/006.jpg">
+							<div class="teacher_main_div">
+								<h3>护理教育方向</h3>
+								<P class="teacher_main_div_p1">凡为医之道，必先正己，然后正人。——《医工论》</P>
+								<a href="http://www.ehutong.net/html-website/home">—</a>
+								<p class="teacher_main_div_p2">读本科就是为了脱离临床进学校做老师 但现在比较有名的护理学院一般都不招本科学历了，有些连硕士的都不要</p>
+							</div>
+						</li>
+					</ul>
+					<ul>
+						<li><img src="images/work/doctor/ul/004.jpg">
+							<div class="teacher_main_div">
+								<h3>护理管理</h3>
+								<P class="teacher_main_div_p1">上工治未病，不治已病。——《黄帝内经》</P>
+								<a href="http://www.ehutong.net/html-website/home">—</a>
+								<p class="teacher_main_div_p2">护理管理职位，一般刚毕业的都不太可能，即使做上了管理的位子，没经验估计也做不久，所以还是等有一定资历了再研究吧。
+								</p>
+							</div>
+						</li>
+						<li><img src="images/work/doctor/ul/005.jpg">
+							<div class="teacher_main_div">
+								<h3>做科研</h3>
+								<P class="teacher_main_div_p1">一般而言，本科毕业的护士在临床上或多或少都会有一些科研的工作</P>
+								<a href="http://www.ehutong.net/html-website/home">—</a>
+								<p class="teacher_main_div_p2">没有专门的护理科研机构，依附于大学院校和医院；对科研感兴趣的话可以根据现有资源向学校或医院申请。</p>
+							</div>
+						</li>
+						<li><img src="images/work/doctor/ul/003.jpg">
+							<div class="teacher_main_div">
+								<h3>其它岗位或考卫生系统公务员</h3>
+								<P class="teacher_main_div_p1">其它的岗位主要有去社区做护士、血站、急救站</P>
+								<a href="http://www.ehutong.net/html-website/home">—</a>
+								<p class="teacher_main_div_p2">考卫生系统公务员主要是一些对管理有兴趣的学生考虑的，具体适不适合自己的道路，还得看自己的兴趣和爱好了。</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--互联网业-->
+			<div class="teacher">
+				<h2>互联网业·互联网岗位</h2>
+				<p>互联网是第二个世界，互联网行业最重要的也是创造。</p>
+				<div class="yundong_top">
+					<img src="images/work/hlw/001.jpg" class="p1">
+					<img src="images/work/hlw/002.jpg" class="p2">
+					<img src="images/work/hlw/003.jpg" class="p3">
+					<img src="images/work/hlw/004.jpg" class="p4">
+					<ul>
+						<li class="1">1</li>
+						<li class="2">2</li>
+						<li class="3">3</li>
+						<li class="4">4</li>
+					</ul>
+				</div>
+				<div class="teacher_main">
+					<ul>
+						<li><img src="images/work/hlw/ul/001.jpg">
+							<div class="teacher_main_div">
+								<h3>电子商务平台设计</h3>
+								<P class="teacher_main_div_p1">代表性岗位：网站策划/编辑人员</P>
+								<a href="http://e.baidu.com/">—</a>
+								<p class="teacher_main_div_p2">主要从事电子商务平台规划、网络编程、电子商务平台安全设计等工作。</p>
+							</div>
+						</li>
+						<li><img src="images/work/hlw/ul/002.jpg">
+							<div class="teacher_main_div">
+								<h3>电子商务网站设计</h3>
+								<P class="teacher_main_div_p1">代表性岗位：网站设计/开发人员</P>
+								<a href="http://e.baidu.com/">—</a>
+								<p class="teacher_main_div_p2">主要从事电子商务网页设计、数据库建设、程序设计、站点管理与技术维护等工作。</p>
+							</div>
+						</li>
+						<li><img src="images/work/hlw/ul/003.jpg">
+							<div class="teacher_main_div">
+								<h3>软件测试工程师</h3>
+								<P class="teacher_main_div_p1">分为黑盒测试和白盒测试两大类。</P>
+								<a href="http://e.baidu.com/">—</a>
+								<p class="teacher_main_div_p2">使用各种测试技术和方法来测试和发现软件中存在的软件缺陷。</p>
+							</div>
+						</li>
+					</ul>
+					<ul>
+						<li><img src="images/work/hlw/ul/004.jpg">
+							<div class="teacher_main_div">
+								<h3>IT开发工程师</h3>
+								<P class="teacher_main_div_p1">需求、设计、编程和测试。</P>
+								<a href="http://e.baidu.com/">—</a>
+								<p class="teacher_main_div_p2">这个岗位你不仅仅是满足用户需求，应该是满足开发中遇到的所有的需求</p>
+							</div>
+						</li>
+
+						<li><img src="images/work/hlw/ul/005.jpg">
+							<div class="teacher_main_div">
+								<h3>电子商务平台美术设计</h3>
+								<P class="teacher_main_div_p1">代表性岗位：网站美工人员</P>
+								<a href="http://e.baidu.com/">—</a>
+								<p class="teacher_main_div_p2">主要从事平台颜色处理、文字处理、图像处理、视频处理等工作。</p>
+							</div>
+						</li>
+						<li><img src="images/work/hlw/ul/006.jpg">
+							<div class="teacher_main_div">
+								<h3>网上国际贸易</h3>
+								<P class="teacher_main_div_p1">代表性岗位：外贸电子商务人员</P>
+								<a href="http://e.baidu.com/">—</a>
+								<p class="teacher_main_div_p2">利用网络平台开发国际市场，进行国际贸易；利用虚拟市场提供产品和服务，又可以直接为虚拟市场提供服务。</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<!--手工艺术-->
+				<div class="teacher">
+					<h2>文化艺术·艺术岗位</h2>
+					<p>泼一抹墨色，国风脉脉。调几声弦音，民韵悠悠。</p>
+					<div class="teacher_top">
+						<div class="teacher_top_left">
+							<img src="images/work/yishu/01.jpg" class="yishu_img">
+						</div>
+						<div class="teacher_top_right">
+							<h2>文化艺术·文艺岗位</h2>
+							<p>有艺术的世界更美好。</p>
+							<a class="c" href="https://www.sidaixiucn.com/">+</a>
+							<div class="b">
+								演员 舞蹈家 音乐家 画家 主持人 艺术设计人员
+								<br>
+								民族风韵，共展乾坤，舞出艺术，唱出国风<br />
+								“美丽的艺术出于你美丽的心灵”
+							</div>
+							<a class="a" href="surf.html"><span></span>问问大家</a>
+						</div>
+					</div>
+					<div class="teacher_main">
+						<ul>
+							<li><img src="images/work/yishu/ul/001.jpg">
+								<div class="teacher_main_div">
+									<h3>演员</h3>
+									<P class="teacher_main_div_p1">不论科班出身还是自行摸索，起码要懂表演艺术。</P>
+									<a href="http://www.ehutong.net/html-website/home">—</a>
+									<p class="teacher_main_div_p2"> 每个行业都有立足之本，演员起码的演技，艺德，这是身为演员要具备的修养与能力。</p>
+								</div>
+							</li>
+							<li><img src="images/work/yishu/ul/002.jpg">
+								<div class="teacher_main_div">
+									<h3>舞蹈家</h3>
+									<P class="teacher_main_div_p1">舞蹈演员，是中华人民共和国职业之一</P>
+									<a href="http://www.ehutong.net/html-website/home">—</a>
+									<p class="teacher_main_div_p2">基本功(基础和根基) 基本功的练习；协调度（舞蹈的精髓把握）；软开度（点睛作用）</p>
+								</div>
+							</li>
+							<li><img src="images/work/yishu/ul/006.jpg">
+								<div class="teacher_main_div">
+									<h3>音乐家</h3>
+									<P class="teacher_main_div_p1">专注于音乐领域中的艺术家</P>
+									<a href="http://www.ehutong.net/html-website/home">—</a>
+									<p class="teacher_main_div_p2">掌握基本的音乐技能，有良好的音乐修养，持之以恒的练习决心，不断学习音乐的热情</p>
+								</div>
+							</li>
+						</ul>
+						<ul>
+							<li><img src="images/work/yishu/ul/004.jpg">
+								<div class="teacher_main_div">
+									<h3>画家</h3>
+									<P class="teacher_main_div_p1">成为一个好画家需要两个条件：技术要好；修养要全面。</P>
+									<a href="http://www.ehutong.net/html-website/home">—</a>
+									<p class="teacher_main_div_p2">首要条件就是要真正的喜欢；在你成为职业画家之前，你真的要做好一切思想准备，包括最坏的准备。</p>
+								</div>
+							</li>
+							<li><img src="images/work/yishu/ul/005.jpg">
+								<div class="teacher_main_div">
+									<h3>主持人</h3>
+									<P class="teacher_main_div_p1">熟悉并掌握新闻专业基本理论</P>
+									<a href="http://www.ehutong.net/html-website/home">—</a>
+									<p class="teacher_main_div_p2">普通话水平达到国家规定的标准，有良好的职业道德、遵纪守法，具有良好的公众形象以及形体语言表达能力</p>
+								</div>
+							</li>
+							<li><img src="images/work/yishu/ul/003.jpg">
+								<div class="teacher_main_div">
+									<h3>艺术设计人员</h3>
+									<P class="teacher_main_div_p1">成功在于努力，艺术在于创造。</P>
+									<a href="http://www.ehutong.net/html-website/home">—</a>
+									<p class="teacher_main_div_p2">基础的美术理解与表现能力 具备一定审美 对具体的专业有相应的认识和判断 思维最重要</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<!--电器维修-->
+					<div class="teacher">
+						<h2>技术类·专业技术人员</h2>
+						<p>因为专业、因为快捷、因为效率，所以选我没有错。</p>
+						<div class="yundong_top">
+							<img src="images/work/dianqi/002.jpg" class="p1">
+							<img src="images/work/dianqi/001.jpg" class="p2">
+							<img src="images/work/dianqi/003.jpg" class="p3">
+							<img src="images/work/dianqi/004.jpg" class="p4">
+							<ul>
+								<li class="1">1</li>
+								<li class="2">2</li>
+								<li class="3">3</li>
+								<li class="4">4</li>
+							</ul>
+						</div>
+						<div class="teacher_main">
+							<ul>
+								<li><img src="images/work/dianqi/ul/001.jpg">
+									<div class="teacher_main_div">
+										<h3>农业类技术岗位</h3>
+										<P class="teacher_main_div_p1">农学（农业科学）是研究与农作物生产相关领域的科学</P>
+										<a href="http://e.baidu.com/">—</a>
+										<p class="teacher_main_div_p2">园艺热带果树方向,全日制本科专业学历；5年以上工作经验,有2年以上四大工作经验者更优</p>
+									</div>
+								</li>
+								<li><img src="images/work/dianqi/ul/002.jpg">
+									<div class="teacher_main_div">
+										<h3>经济类技术岗位</h3>
+										<P class="teacher_main_div_p1">经管类职位分类_经济学_高等教育_教育专区</P>
+										<a href="http://e.baidu.com/">—</a>
+										<p class="teacher_main_div_p2">
+											掌握经济学的基本理论和分析方法;握现代经济分析方法和计算机应用技能;了解中外经济学的学术动态及应用前景。</p>
+									</div>
+								</li>
+								<li><img src="images/work/dianqi/ul/003.jpg">
+									<div class="teacher_main_div">
+										<h3>会计类技术岗位</h3>
+										<P class="teacher_main_div_p1">相关财务系统录入</P>
+										<a href="http://e.baidu.com/">—</a>
+										<p class="teacher_main_div_p2">3年以上制造业会计工作经验，熟练OFFICE办公软件，有免抵退工作经验优先，已婚已育，大专以上学历
+										</p>
+									</div>
+								</li>
+							</ul>
+							<ul>
+								<li><img src="images/work/dianqi/ul/004.jpg">
+									<div class="teacher_main_div">
+										<h3>统计类技术岗位</h3>
+										<P class="teacher_main_div_p1">仓储统计员 汇总单据、数据,分类,打包</P>
+										<a href="http://e.baidu.com/">—</a>
+										<p class="teacher_main_div_p2">
+											年龄23-45岁,男女不限,大专以上学历;了解掌握物料入库存储出库流程；能够独立制作仓库统计表格单据。</p>
+									</div>
+								</li>
+
+								<li><img src="images/work/dianqi/ul/005.jpg">
+									<div class="teacher_main_div">
+										<h3>翻译类技术岗位</h3>
+										<P class="teacher_main_div_p1">翻译岗位职责 市场办翻译岗位职责</P>
+										<a href="http://e.baidu.com/">—</a>
+										<p class="teacher_main_div_p2">具有大专以上文化程度，掌握英汉两种语言，掌握涉外礼仪基本原则，熟悉办公软件的运用</p>
+									</div>
+								</li>
+								<li><img src="images/work/dianqi/ul/006.jpg">
+									<div class="teacher_main_div">
+										<h3>律师类技术岗位</h3>
+										<P class="teacher_main_div_p1">民商事争议、知识产权领域执业律师</P>
+										<a href="http://e.baidu.com/">—</a>
+										<p class="teacher_main_div_p2">法学专业毕业（硕士研究生优先），持有北京律师执业证；有独立办案经验，能够独立完成指派的任务。
+										</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--建筑工程-->
+					<div class="teacher">
+						<h2>建筑工程·建筑类岗位</h2>
+						<p>建筑工程，秉以人为本的理念，专注于各类建设。</p>
+						<div class="teacher_top">
+							<div class="teacher_top_left">
+								<img src="images/work/jianzhu/01.jpg" class="yishu_img">
+							</div>
+							<div class="teacher_top_right">
+								<h2>建筑工程·建筑类岗位</h2>
+								<p>说到职务就有，项目经理、技术负责、执行经理、生产负责、施工现场负责；以及各专业负责人等</p>
+								<a class="c" href="https://www.sidaixiucn.com/">+</a>
+								<div class="b">
+									项目经理、生产经理、安全总监、技术负责人
+									<br>
+									建筑行业是一个围绕建筑的设计、施工、装修、管理而展开的行业。
+									建筑行业包括的范围广，行业的企业数量众多，行业的企业集中度不高。
+								</div>
+								<a class="a" href="surf.html"><span></span>问问大家</a>
+							</div>
+						</div>
+						<div class="teacher_main">
+							<ul>
+								<li><img src="images/work/jianzhu/ul/001.jpg">
+									<div class="teacher_main_div">
+										<h3>建筑行业 开发商</h3>
+										<P class="teacher_main_div_p1">主要负责商业开发经营，市场部，管理部门，财务部</P>
+										<a href="http://www.ehutong.net/html-website/home">—</a>
+										<p class="teacher_main_div_p2">会按图施工，会用水平仪，有相似项目的施工经验，至少公司是这么要求的，头发不能是长的</p>
+									</div>
+								</li>
+								<li><img src="images/work/jianzhu/ul/002.jpg">
+									<div class="teacher_main_div">
+										<h3>土建技术员</h3>
+										<P class="teacher_main_div_p1">主要负责项目土建相关技术把关 </P>
+										<a href="http://www.ehutong.net/html-website/home">—</a>
+										<p class="teacher_main_div_p2">
+											要会测量放线，会用水准仪和经纬仪要懂施工，要熟悉图集,最好在有疑问的地方找到相应的图集进行参照对比。</p>
+									</div>
+								</li>
+								<li><img src="images/work/jianzhu/ul/006.jpg">
+									<div class="teacher_main_div">
+										<h3>水暖电技术员</h3>
+										<P class="teacher_main_div_p1">主要负责项目水暖电相关技术工作 </P>
+										<a href="http://www.ehutong.net/html-website/home">—</a>
+										<p class="teacher_main_div_p2">应具备相关的技术员证书以及上岗证书，有工作经验之后可以考取水利专业建造师以及监理工程师。</p>
+									</div>
+								</li>
+							</ul>
+							<ul>
+								<li><img src="images/work/jianzhu/ul/004.jpg">
+									<div class="teacher_main_div">
+										<h3>程概预算技术员 </h3>
+										<P class="teacher_main_div_p1">工程概预算主要工程概算 成本控制 招投标控制价</P>
+										<a href="http://www.ehutong.net/html-website/home">—</a>
+										<p class="teacher_main_div_p2">具备能看图纸，能测量放线，施工组织设计，质量检测，其他的东西经过长时间的工作有了经验就可也了
+										</p>
+									</div>
+								</li>
+								<li><img src="images/work/jianzhu/ul/005.jpg">
+									<div class="teacher_main_div">
+										<h3>建筑专业</h3>
+										<P class="teacher_main_div_p1">建筑学方案职位 建筑设计职位</P>
+										<a href="http://www.ehutong.net/html-website/home">—</a>
+										<p class="teacher_main_div_p2">具有较扎实得自然科学基础、较好得人文社会科学基础与外语语言综合能力，本岗位的专家级能力</p>
+									</div>
+								</li>
+								<li><img src="images/work/jianzhu/ul/003.jpg">
+									<div class="teacher_main_div">
+										<h3>规划专业</h3>
+										<P class="teacher_main_div_p1">城市规划专业职 </P>
+										<a href="http://www.ehutong.net/html-website/home">—</a>
+										<p class="teacher_main_div_p2">会制图，懂建筑原理，想象能力必不可少，要遵循建设所在地的环境、地质、人文、气候、交通等条件。
+										</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<footer class="ft">
+						<P><img src="images/work/zh1_02.jpg"></P>
+						<P><img src="images/work/y4_02.jpg"></P>
+					</footer>
+					<div class="new_right_pendant">
+						<div class="new_right_list">
+							<a>
+								<div class="ysUtilIco">
+									<span class="iconfont icon-dianhua"></span>
+								</div>
+								<span class="txt1">13548809860</span>
+							</a>
+						</div>
+						<div class="new_right_list">
+							<a target="_blank" href="https://www.baidu.com" title="百度一下">
+								<div class="ysUtilIco">
+									<span class="iconfont icon-wangzhan1"></span>
+								</div>
+							</a>
+						</div>
+						<div class="new_right_list">
+							<a target="_blank" href="#" title="刷新页面">
+								<div class="ysUtilIco">
+									<span class="iconfont icon-keji1"></span>
+								</div>
+							</a>
+						</div>
+						<div class="new_right_list">
+							<a target="_blank" href="customer.html" title="客户服务">
+								<div class="ysUtilIco">
+									<span class="iconfont icon-ziyuan"></span>
+								</div>
+							</a>
+						</div>
+						<div class="new_right_list">
+							<a>
+								<div class="ysUtilIco">
+									<span class="iconfont icon-haipaikeicon-"></span>
+								</div>
+								<span class="txt1 txt2">
+									<img src="./images/wx.jpg" alt="微信咨询">
+								</span>
+							</a>
+						</div>
+						<div class="new_right_list">
+							<a href="" class="totop" title="回到顶部">
+								<div class="ysUtilIco">
+									<span class="iconfont icon-fanhuidingbu1"></span>
+								</div>
+							</a>
+						</div>
+					</div>
+					<!--悬浮咨询-->
+					<ins id="newBridge">
+						<ins class="nb-nodeboard-base" id="nb_nodeboard">
+							<ins class="nb-nodeboard-contain-base">
+								<ins id="nb_nodeboard_top" class="nb-nodeboard-top nb-nodeboard-top-0"
+									style="background-color: blue;">
+									<ins class="nb-head-title">留言板</ins>
+									<ins class="nb-nodeboard-close" id="nb_nodeboard_close" data-type="min"></ins>
+								</ins>
+								<form id="" autocomplete="off" class="nb-board-form"
+									action="https://p.qiao.baidu.com/cps4//bookmanage/saveBook.action?userId=29208617"
+									method="post" accept-charset="utf-8">
+									<ins id="nb_nodeboard_set" class="nb-nodeboard-set">
+										<ins class="nb-nodeboard-content">
+											<textarea name="content" data-ph="请在此输入留言内容，我们会尽快与您联系。（必填）"
+												placeholder="请在此输入留言内容，我们会尽快与您联系。（必填）"
+												class="nb-nodeboard-set-content nb-nodeboard-param"></textarea>
+										</ins>
+										<ins class="nb-nodeboard-name" style="z-index:4;">
+											<ins class="nb-nodeboard-icon nodeName"></ins>
+											<input id="nb_nodeboard_set_name" data-write="0" name="visitorName"
+												maxlength="30" class="nb-nodeboard-input nb-nodeboard-param" type="text"
+												data-ph="姓名" placeholder="姓名">
+										</ins>
+										<ins class="nb-nodeboard-name" id="nb_nodeboard_phone" style="z-index:3;">
+											<ins class="nb-nodeboard-icon nodePhone"></ins>
+											<input id="nb_nodeboard_set_phone" name="visitorPhone" maxlength="30"
+												class="nb-nodeboard-input nb-nodeboard-param" data-write="1" type="text"
+												data-ph="电话（必填）" placeholder="电话（必填）">
+										</ins>
+										<ins class="nb-nodeboard-name" id="nb_nodeboard_mail" style="z-index:2;">
+											<ins class="nb-nodeboard-icon nodeMail"></ins>
+											<input id="nb_nodeboard_set_email" name="visitorEmail" maxlength="50"
+												class="nb-nodeboard-input nb-nodeboard-param" type="text" data-write="0"
+												data-ph="邮箱" placeholder="邮箱">
+										</ins>
+										<ins class="nb-nodeboard-name" style="z-index:1;">
+											<ins class="nb-nodeboard-icon nodeAddress"></ins>
+											<input id="nb_nodeboard_set_address" name="visitorAddress"
+												class="nb-nodeboard-input nb-nodeboard-param" maxlength="50" type="text"
+												data-write="0" data-ph="地址" placeholder="地址">
+										</ins>
+									</ins>
+								</form>
+								<ins class="nb-nodeboard-success" id="nb_nodeboard_success">
+									<ins class="nb-success-box">
+										<ins class="nb-success-icon"></ins>
+										<ins class="nb-success-title" id="nb_node_messagetitle">感谢留言</ins>
+										<ins class="nb-success-content" id="nb_node_messagecontent">我们会尽快与您联系</ins>
+										<ins id="nb_nodeboard_return" needverifycode="1"
+											class="nb-sucess-close">关闭</ins>
+									</ins>
+								</ins>
+								<ins class="nb-nodeboard-send" id="nb_node_contain">
+									<ins id="nb_nodeboard_send" needverifycode="1"
+										class="nb-nodeboard-send-btn nb-nodeboard-send-btn-0">发送</ins>
+								</ins>
+							</ins>
+						</ins>
+						<ins class="nb-icon-wrap nb-icon-base icon-left-center nb-icon-skin-xc-0 nb-icon-group"
+							id="nb_icon_wrap" style="margin-top:-241px;width:190px;">
+							<ins class="nb-icon-group">
+								<ins class="nb-icon-inner-wrap" style="height:151px;width:190px;;border-radius:0;">
+									<ins class="nb-icon-bridge0 nb-icon-bridge-base" data-type="iconInvite"></ins>
+								</ins>
+								<ins class="nb-icon-groups nb-show" style="margin-left:0;" id="nb_icon_groups">
+									<ins class="nb-icon-groups-item1" id="nb-icon-groups-item" data-id="772128">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">教师教学</ins>
+									</ins>
+									<ins class="nb-icon-groups-item2" id="nb-icon-groups-item" data-id="880447">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">运动健身</ins>
+									</ins>
+									<ins class="nb-icon-groups-item3" id="nb-icon-groups-item" data-id="772129">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">医学护士</ins>
+									</ins>
+									<ins class="nb-icon-groups-item4" id="nb-icon-groups-item" data-id="880448">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">互联网业</ins>
+									</ins>
+									<ins class="nb-icon-groups-item5" id="nb-icon-groups-item" data-id="880449">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">文化艺术</ins>
+									</ins>
+									<ins class="nb-icon-groups-item6" id="nb-icon-groups-item" data-id="772130">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">专业技术</ins>
+									</ins>
+									<ins class="nb-icon-groups-item7" id="nb-icon-groups-item" data-id="772131">
+										<ins class="nb-group-icon"></ins>
+										<ins class="nb-group-text">建筑工程</ins>
+									</ins>
+								</ins>
+							</ins>
+						</ins>
+						<ins class="nb-invite-wrap nb-invite-wrap-base nb-position-base nb-middle customer-invite-style "
+							id="nb_invite_wrap" style="width: 400px; margin-left: -200px; margin-top: -141px;">
+							<ins class="nb-invite-body zj1" style="height:282px;">
+								<ins class="zj2" id="nb_invite_tool" style=""></ins>
+								<ins class="nb-invite-text zj3">
+									<ins class="nb-invite-welcome nb-invite-welcome-base nb-show"
+										id="nb_invite_welcome">
+										<p>您好，欢迎来到本站，请问您需要咨询什么业务呢</p>
+									</ins>
+								</ins>
+								<ins class="nb-invite-btn-base nb-invte-btns-0">
+									<ins class="base" id="nb_invite_cancel">稍后再说</ins>
+									<ins class="ok" id="nb_invite_ok">现在咨询</ins>
+									<ins class="liuyan" id="nb_invite_liuyan">留言板</ins>
+								</ins>
+							</ins>
+						</ins>
+						<ins id="nbWebImLightContainer" class="maxMessageContainer" style="right: 54px; bottom: 10px;">
+							<ins id="nbwlStatusBar">
+								<ins id="nbwlToggle" class="nb-webim-light-status-bar-toggle">
+									<ins class="nb-webim-light-toggle-icon"></ins>
+								</ins>
+								<ins class="nb-webim-light-status-bar-title">在线咨询</ins>
+								<ins id="nbwlUnreadCount">1</ins>
+							</ins>
+							<ins id="nbwlMessageContainer">
+								<ins id="nbwlStatusMessage">
+									<ins class="nb-webim-light-status-message">
+										<ins class="nb-webim-light-status-message-container">2021-11-02 17:18:54
+											开始沟通</ins>
+									</ins>
+								</ins>
+								<ins class="nb-webim-light-message nb-webim-light-message-1">
+									<ins class="nb-webim-light-message-title">
+										<ins class="nb-webim-light-message-name">玉婷</ins>
+										<ins class="nb-webim-light-message-time">今天 16:18:51</ins>
+									</ins>
+									<ins class="nb-webim-light-message-content">
+										<ins class="nb-webim-light-message-arrow"></ins>
+										<ins>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none; color: rgb(79, 79, 79);">
+												<span
+													style="margin: 0px; padding: 0px; list-style: none; font-size: 10pt;"></span>
+											</p>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none; color: rgb(79, 79, 79);">
+												<span
+													style="margin: 0px; padding: 0px; list-style: none; font-size: 10pt;">您好，欢迎您光临本站！</span>
+											</p>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none;">
+												<span
+													style="color: rgb(79, 79, 79); margin: 0px; padding: 0px; list-style: none; font-size: 16px !important;">
+													<strong style="">多功能</strong>
+												</span>
+												<span style="font-size: 10pt;">
+													<span
+														style="color: rgb(79, 79, 79); font-size: 10pt; margin: 0px; padding: 0px; list-style: none;">专业为企业提供</span>
+													<span
+														style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none;">
+														<strong style="color: rgb(254, 1, 0);">SEO优化</strong>
+														<span style="color: rgb(79, 79, 79);">、</span>
+													</span>
+													<strong style="color: rgb(79, 79, 79);">
+														<span
+															style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">
+															<strong style="color: rgb(79, 79, 79);">
+																<span
+																	style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">网站建设</span>
+															</strong>
+															<span
+																style="color: rgb(79, 79, 79); font-size: 10pt; margin: 0px; padding: 0px; list-style: none;">、
+																<strong
+																	style="color: rgb(79, 79, 79); font-family: 'Microsoft YaHei', Arial, sans-serif; font-size: 13px; white-space: normal;">
+																	<span
+																		style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">全网营销，网络
+																		<strong style="color: rgb(79, 79, 79);">
+																			<span
+																				style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">
+																				<strong style="color: rgb(79, 79, 79);">
+																					<span
+																						style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">推广</span>
+																				</strong>
+																			</span>
+																		</strong>，渠道
+																	</span>
+																</strong>
+																<span
+																	style="font-size: 10pt; margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);">代理</span>
+															</span>
+														</span>
+													</strong>
+													<span
+														style="color: rgb(79, 79, 79); font-size: 10pt; margin: 0px; padding: 0px; list-style: none;">等服务，快速帮助企业解决互联网营销推广问题。目前已成功帮助5万企业客户。</span>
+												</span>
+												<span
+													style="color: rgb(79, 79, 79); margin: 0px; padding: 0px; list-style: none; font-size: 10pt;">您可以直接联系电话：</span>
+												<strong style="color: rgb(254, 1, 0); font-size: 15px;">
+													<span
+														style="font-family: 微软雅黑; font-size: 16px;">刘经理&nbsp;13548809860</span>
+												</strong>
+											</p>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none; color: rgb(79, 79, 79);">
+												<span
+													style="margin: 0px; padding: 0px; list-style: none; color: rgb(254, 1, 0);"></span>
+											</p>
+											<p
+												style="margin-top: 0px; margin-bottom: 0px; font-family: 'Microsoft YaHei', Arial, sans-serif; white-space: normal; padding: 0px; list-style: none; color: rgb(79, 79, 79);">
+												<span
+													style="font-family: 微软雅黑; font-size: 11pt; color: rgb(0, 0, 0); margin: 0px; padding: 0px; list-style: none;">您好，请问是需要咨询什么业务呢？</span>
+											</p>
+										</ins>
+									</ins>
+									<ins id class="nb-webim-light-message-error">
+										<ins class="nb-webim-light-message-error-icon"></ins>
+										"消息发送失败,"
+										<ins class="nb-webim-light-message-resend">重新发送</ins>
+									</ins>
+									<ins id="undefined_1" class="nb-webim-light-message-error" style="line-height: 18px;">
+										<ins class="nb-webim-light-message-error-icon"></ins>发送失败！含有敏感词，<br>请
+										<ins class="nb-webim-light-message-resend nb-webim-light-message-rewrite nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">重新编辑</ins>后再发送。
+										<ins class="nb-webim-light-message-resend nb-webim-light-message-feedback nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">误报反馈</ins>
+									</ins>
+								<!--001-->
+								<ins class="nb-webim-light-message nb-webim-light-message-1">
+									<ins class="nb-webim-light-message-title">
+										<ins class="nb-webim-light-message-name">玉婷</ins>
+										<ins class="nb-webim-light-message-time">今天 16:18:56</ins>
+									</ins>
+									<ins class="nb-webim-light-message-content">
+										<ins class="nb-webim-light-message-arrow"></ins>
+										<ins>
+											<div
+												style="text-align: left;font-weight: 400;font-style: normal;color: rgb(48, 49, 51);font-size: 14px;text-decoration: none solid rgb(48, 49, 51);font-family:">
+												<p style="font-size: 12px">您好，是需要做SEO优化吗？</p>
+											</div>
+										</ins>
+									</ins>
+									<ins id class="nb-webim-light-message-error" style="display: none;">
+										<ins class="nb-webim-light-message-error-icon"></ins>消息发送失败,
+										<ins class="nb-webim-light-message-resend">重新发送</ins>
+									</ins>
+									<ins id="undefined_1" class="nb-webim-light-message-error"
+										style="display: none; line-height: 18px;">
+										<ins class="nb-webim-light-message-error-icon"></ins>发送失败！含有敏感词，<br>请
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-rewrite nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">重新编辑</ins>后再发送。
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-feedback nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">误报反馈</ins>
+									</ins>
+								</ins>
+								<ins class="nb-webim-light-message nb-webim-light-message-1">
+									<ins class="nb-webim-light-message-title">
+										<ins class="nb-webim-light-message-name">玉婷</ins>
+										<ins class="nb-webim-light-message-time">今天 16:23:51</ins>
+									</ins>
+									<ins class="nb-webim-light-message-content">
+										<ins class="nb-webim-light-message-arrow"></ins>
+										<ins>
+											<p>
+												<span
+													style="font-family: 微软雅黑; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;">请问您需要做哪种类型的服务呢？您</span>
+												<span
+													style="font-family: 微软雅黑; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none; color: rgb(119, 119, 119);">
+													<span
+														style="margin: 0px; padding: 0px; list-style: none; letter-spacing: 0px; font-size: 10pt;"></span>
+													<strong>
+														<span
+															style="margin: 0px; padding: 0px; list-style: none; letter-spacing: 0px; color: rgb(254, 1, 0);"></span>
+														<span
+															style="margin: 0px; padding: 0px; list-style: none;"></span>电
+													</strong>
+												</span>
+												<strong>
+													<span
+														style="margin: 0px; padding: 0px; list-style: none; letter-spacing: 0px;">话</span>
+												</strong>
+												<span
+													style="letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none; color: rgb(0, 0, 0);"></span>或
+												<strong>
+													<span
+														style="margin: 0px; padding: 0px; list-style: none; letter-spacing: 0px; color: rgb(254, 1, 0); font-size: 10pt;"></span>微信
+												</strong>
+												<span
+													style="letter-spacing: 0px; font-family: 宋体; margin: 0px; padding: 0px; list-style: none;"></span>
+												<span
+													style="letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;">
+													<span
+														style="font-size: 9pt; font-family: 微软雅黑; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;"></span>是多少呢
+												</span>
+												<span
+													style="font-family: 微软雅黑; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none; font-size: 13px;">
+													<strong>，</strong>
+												</span>
+												<span style="font-family: 微软雅黑;"></span>
+												<span
+													style="font-size: 9pt; letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;">我这边</span>
+												<span
+													style="letter-spacing: 0px; margin: 0px; padding: 0px; list-style: none;">安排专员联系您，给您制定解决方案和相关报价呢。或者您联系</span>
+												<span style="letter-spacing: 0px;">：</span>
+												<span style="font-family: 微软雅黑; letter-spacing: 0px;"></span>
+												<span
+													style="color: rgb(254, 1, 0); font-size: 16px !important;">刘经理&nbsp;13548809860</span>
+												<span style="font-family: 微软雅黑;"></span>
+												<span style="font-family: 微软雅黑;"></span>
+											</p>
+										</ins>
+									</ins>
+									<ins id class="nb-webim-light-message-error" style="display: none;">
+										<ins class="nb-webim-light-message-error-icon"></ins>消息发送失败,
+										<ins class="nb-webim-light-message-resend">重新发送</ins>
+									</ins>
+									<ins id="undefined_1" class="nb-webim-light-message-error"
+										style="display: none; line-height: 18px;">
+										<ins class="nb-webim-light-message-error-icon"></ins>发送失败！含有敏感词，<br>请
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-rewrite nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">重新编辑</ins>后再发送。
+										<ins
+											class="nb-webim-light-message-resend nb-webim-light-message-feedback nb-webim-light-message-resend-sent nb-webim-light-message-resend-sent">误报反馈</ins>
+									</ins>
+								</ins>
+								<!--002-->
+								<ins class="nb-webim-light-system-message">
+									<ins class="nb-webim-light-system-message-container">
+										<ins class="nb-webim-light-system-message-type-alert"></ins>会话已结束
+									</ins>
+								</ins>
+								<ins id="nbwlEditor">
+									<ins id="nbWebimLightEditor" class="editor" contenteditable="true"
+										style="font-family: 微软雅黑; font-size: 9pt; color: rgb(0, 0, 0);">
+										<p style="font-family: 微软雅黑; font-size: 9pt; color: rgb(0, 0, 0);"><br></p>
+									</ins>
+								</ins>
+								<!--003-->
+								<ins id="nbwlToolBar">
+									<form id="nbwlImgViewer" action="https://p.qiao.baidu.com/cps4//imageviewer"
+										method="post" target="_blank">
+										<input id="nbwlImgViewerInput" name="imgsrc">
+									</form>
+									<ins id="nbwlSendBtn"
+										class="nb-webim-light-toolbar-send nb-webim-light-toolbar-send-disable">发送
+										<span class="nb-webim-light-toolbar-send-select"><span
+												class="select-span"></span></span>
+										<div class="nb-webim-light-toolbar-send-select-layer">
+											<div val="enter" class="nb-webim-light-toolbar-send-select-layer-active">
+												按Enter发送</div>
+											<div val="ctrlenter">按Ctrl+Enter发送</div>
+										</div>
+									</ins>
+									<ins class="fontstyle">
+										<div class="nb-webim-light-toolbar-font" title="设置字体和大小"></div>
+										<ins class="nb-webim-light-font-container">
+											<ins class="nb-webim-light-font-bar" style="display: none;">
+												<div class="nb-webim-light-toolbar-select nb-webim-light-toolbar-fontselect nb-webim-light-selectmodal">
+													<select id="nbwlFontFamily" class="nb-webim-light-font-family">
+														<option value="arial,微软雅黑">微软雅黑</option>
+														<option value="宋体">宋体</option>
+														<option value="arial,楷体">楷体</option>
+														<option value="arial,黑体">黑体</option>
+														<option value="arial,隶书">隶书</option>
+														<option value="Arial">Arial</option>
+														<option value="Roman">Roman</option>
+													</select>
+													<div class="nb-webim-light-selectmodalvalue">微软雅黑</div>
+													<div class="nb-webim-light-selectmodallist">
+														<div class="nb-webim-light-selectmodaloption" value="arial,微软雅黑">微软雅黑</div>
+														<div class="nb-webim-light-selectmodaloption" value="宋体">宋体</div>
+														<div class="nb-webim-light-selectmodaloption" value="arial,楷体">楷体</div>
+														<div class="nb-webim-light-selectmodaloption" value="arial,黑体">黑体</div>
+														<div class="nb-webim-light-selectmodaloption" value="arial,隶书">隶书</div>
+														<div class="nb-webim-light-selectmodaloption" value="Arial">Arial</div>
+														<div class="nb-webim-light-selectmodaloption" value="Roman">Roman</div>
+													</div>
+												</div>
+												<div class="nb-webim-light-toolbar-select nb-webim-light-toolbar-sizeselect nb-webim-light-selectmodal">
+													<select id="nbwlFontSize" class="nb-webim-light-font-size">
+														<option value="8pt">8</option>
+														<option value="10pt" selected="">10</option>
+														<option value="12pt">12</option>
+														<option value="14pt">14</option>
+														<option value="16pt">16</option>
+														<option value="18pt">18</option>
+														<option value="24pt">24</option>
+													</select>
+													<div class="nb-webim-light-selectmodalvalue">10</div>
+													<div class="nb-webim-light-selectmodallist">
+														<div class="nb-webim-light-selectmodaloption" value="8pt">8</div>
+														<div class="nb-webim-light-selectmodaloption" value="10pt">10</div>
+														<div class="nb-webim-light-selectmodaloption" value="12pt">12</div>
+														<div class="nb-webim-light-selectmodaloption" value="14pt">14</div>
+														<div class="nb-webim-light-selectmodaloption" value="16pt">16</div>
+														<div class="nb-webim-light-selectmodaloption" value="18pt">18</div>
+														<div class="nb-webim-light-selectmodaloption" value="24pt">24</div>
+													</div>
+												</div>
+											</ins>
+										</ins>
+									</ins>
+										<!-- 字体样式 -->
+													<ins id="nbwlFontBold" class="nb-webim-light-font-bold"
+														title="加粗"></ins>
+													<ins id="nbwlFontItalic" class="nb-webim-light-font-italic"
+														title="斜体"></ins>
+													<ins id="nbwlFontUnderline" class="nb-webim-light-font-underline"
+														title="下划线"></ins>
+													<ins id="nbwlFontColor" class="nb-webim-light-font-color" title="字体颜色">
+														<div><em></em></div>
+														<ins id="nbwlColorContainer" class="nb-webim-light-color-container">
+															<ul>
+																<!-- target: colorItem -->
+																<li class="nb-webim-light-color-item nb-webim-light-color-select"
+																	style="border-color:#000000;"><ins
+																		style="background-color: #000000;"
+																		data-color="#000000"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#7f8003;"><ins
+																		style="background-color: #7f8003;"
+																		data-color="#7f8003"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#808080;"><ins
+																		style="background-color: #808080;"
+																		data-color="#808080"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#408082;"> <ins
+																		style="background-color: #408082;"
+																		data-color="#408082"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#420140;"> <ins
+																		style="background-color: #420140;"
+																		data-color="#420140"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#efefef;"><ins
+																		style="background-color: #efefef;"
+																		data-color="#efefef"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#3f0100;"><ins
+																		style="background-color: #3f0100;"
+																		data-color="#3f0100"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#814000;"><ins
+																		style="background-color: #814000;"
+																		data-color="#814000"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#004300;"><ins
+																		style="background-color: #004300;"
+																		data-color="#004300"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#010576;"> <ins
+																		style="background-color: #010576;"
+																		data-color="#010576"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#00003f;"> <ins
+																		style="background-color: #00003f;"
+																		data-color="#00003f"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#40027e;"><ins
+																		style="background-color: #40027e;"
+																		data-color="#40027e"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#7c0200;"><ins
+																		style="background-color: #7c0200;"
+																		data-color="#7c0200"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#fd8100;"> <ins
+																		style="background-color: #fd8100;"
+																		data-color="#fd8100"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#00ff04;"><ins
+																		style="background-color: #00ff04;"
+																		data-color="#00ff04"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#02fffb;"><ins
+																		style="background-color: #02fffb;"
+																		data-color="#02fffb"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#7e81bf;"><ins
+																		style="background-color: #7e81bf;"
+																		data-color="#7e81bf"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#ff01fa;"><ins
+																		style="background-color: #ff01fa;"
+																		data-color="#ff01fa"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#fe0100;"><ins
+																		style="background-color: #fe0100;"
+																		data-color="#fe0100"></ins></li>
+																<li class="nb-webim-light-color-item"
+																	style="border-color:#feff00;"><ins
+																		style="background-color: #feff00;"
+																		data-color="#feff00"></ins></li>
+															</ul>
+														</ins>
+													</ins>
+									<!-- target: face -->
+									<ins id="nbwlFaceIcon" class="nb-webim-light-toolbar-face" title="选择表情">
+										<ins id="nbwlFaceContainer" class="nb-webim-light-face-container"
+											style="display: none;">
+											<ins class="nb-webim-light-face-content">
+												<ul>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="7f62a16f51cc29b221a87ed741cb2040" extension="png"
+														alt="微笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="449f34831c63932bc6f816fb69222696" extension="png"
+														alt="大笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="84ac7709105c9e8b986e1fb080aef158" extension="png"
+														alt="偷笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="1360cc1b2e12fc722571584290a2b6e1" extension="png"
+														alt="憨笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6628ce0328a1aec3e3688a95ebbd609d" extension="png"
+														alt="得意"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5a2cce712902b315f98cbce1df04462a" extension="png"
+														alt="可爱"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6c0ae5a68c041f7f339d87ba313292c5" extension="png"
+														alt="害羞"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="576f76513e5a4c5b49b8e5323e69ff8b" extension="png" alt="乖">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="43a89b8fa99b951863b9e52bbba44e63" extension="png"
+														alt="淘气"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f0bcf27ffcef2c7d627af19d04ce7051" extension="png"
+														alt="调皮"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="b19fb15226fdc3bedb574f7f319ac4e8" extension="png"
+														alt="流泪"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="20791b0c75839b8ede1deddf7d14ea0e" extension="png"
+														alt="大哭"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="585d6a02d5209eebce230c11a84e2122" extension="png"
+														alt="撇嘴"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="65c0ea03c6ad3a2c9a56ef2f12d73d7f" extension="png"
+														alt="闭嘴"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="9c3ab5280830b24928fba2ecbfa5423c" extension="png" alt="嘘">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="ec619f6b677a364aa8daca7ee088b0fc" extension="png"
+														alt="鄙视"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="ba6bd8678622db5c54cc265f78540a59" extension="png"
+														alt="傲慢"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5d2bba3091be38970563d3e4bd04e8fb" extension="png"
+														alt="白眼"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="eba03f67b8a667bb16b20fd32b9b51bd" extension="png"
+														alt="思考"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="915fb0149e684a7f1f40f568aac87a74" extension="png" alt="困">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="80f75e10b4fb8c46df80b1595c7d50cb" extension="png" alt="睡">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="49c0997a2807cf28300e84fb87605efe" extension="png" alt="汗">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e162da21d7bde950367501958629aa18" extension="png"
+														alt="尴尬"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f59bf80e1ba9111f4ee819fddec977d5" extension="png"
+														alt="惊讶"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6594322f85d0a78caa55c95182937a43" extension="png"
+														alt="惊恐"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6dd384507524a14951b2978ce45d427c" extension="png"
+														alt="疑问"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="d2b9f0ebae2898bab340a464f10a678c" extension="png" alt="晕">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="3b1f5191cc6f6aab3fbc161f5ca95586" extension="png"
+														alt="敲打"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6b562d094d2f23a5f41ba823ded02da2" extension="png"
+														alt="难过"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="10dbd6c0cf8d5af5c70fdf4eb7f98692" extension="png"
+														alt="委屈"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="ce277e2ca55543eb7eb467c5d397e10d" extension="png" alt="色">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="d652ac7ff1ac8c0d4ad9d00e9847fccc" extension="png"
+														alt="抓狂"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="42c9ab68d510f0dfa35e4df3abf6a5fa" extension="png"
+														alt="愤怒"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="8e972967218fa060a8fcda1a54fe025b" extension="png" alt="吐">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="2a3a3cf6d0b28d889fd249e3d68afae2" extension="png" alt="衰">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="9912488906a31978d1c93150e7da65be" extension="png"
+														alt="再见"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="034650679ea520821ace18816fd309b8" extension="png"
+														alt="滑稽"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f34d9586f86e135e4ce5c9630c9f6a25" extension="png"
+														alt="高兴"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="a5b36a0ac2cf38463e9e6486fc3d6b70" extension="png"
+														alt="完美"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f5ddc76e56c8221e61c58b72e37f9829" extension="png"
+														alt="坏笑"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="2f25b6cbc178c5811743bb3f3fe95eb6" extension="png"
+														alt="惊呆"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="b6405f17ae2596f6065a8b1da7d81da4" extension="png"
+														alt="嘿哈"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="b0955a756bc690b02fc6c82cb5663be6" extension="png"
+														alt="机智"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6a91ab45cab3ce482b2069f3a8bb43aa" extension="png"
+														alt="走你"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e33ec7875595d23dfc0e70625aa839dd" extension="png"
+														alt="捂脸"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="d987e058fe2ddb9436e3f3af3aeee43c" extension="png"
+														alt="戳脸"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="7413c233681ce9f2a7d3d0e22d4ba632" extension="png"
+														alt="爱心"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="004a9411849aa007b843d4bc74ba2db3" extension="png"
+														alt="鼻血"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="1e04fa2b77173ad5419c58cb2a4c944c" extension="png"
+														alt="奋斗"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="14f8db64e92d43e0ee4bb1c55553e399" extension="png"
+														alt="棒棒哒"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="0246fb8175a9e47e859593f6ed19e7f3" extension="png"
+														alt="摸头"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="54207c894ff556b1778eeb90893e196a" extension="png"
+														alt="NO"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="73d4ace4f6bafb7c48f7d4ea62da5e27" extension="png"
+														alt="沉思"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f985e5a0d5f5e7ec7d0e02f229164816" extension="png"
+														alt="抠鼻"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="4fc4e9bf21b34df2170c2add1a215162" extension="png"
+														alt="生病"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="481fa659924b4dd3c692556fe1e42349" extension="png"
+														alt="口罩"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e0275fff10e8225e5618e7baf95b6296" extension="png"
+														alt="左拥抱"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e1e8ac2d122dca4fe77644994a815613" extension="png"
+														alt="右拥抱"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="fd1457cad55db7e7dc7970acb24e5832" extension="png"
+														alt="闪人"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="dc45642dc5aae41541fff2634a08a647" extension="png" alt="刀">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="49106010c742c69727221622283131a9" extension="png" alt="吻">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6b278bb3a2acaa362311551208c22de7" extension="png"
+														alt="爱情"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="3693411aa84d66f7ff840993acc9c753" extension="png"
+														alt="心碎"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f5d3fd06ead545b5abd48e367195b1fb" extension="png"
+														alt="鲜花"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="a91f909f9d1a1fdca0c0eaf8f232eb1f" extension="png"
+														alt="枯萎"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="3e2ec2a092127757f89a771762d2103f" extension="png"
+														alt="胜利"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5cd4259ce1239fb13b1b026826ae5cd8" extension="png"
+														alt="OK"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="b9149566ccf3b7937ab2f0a639e681f5" extension="png"
+														alt="大拇指"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="6697732553bbee2d1760b2d889220eb2" extension="png" alt="弱">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5537920713864c60f86dcba194b459ef" extension="png"
+														alt="握手"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="bf4bc9d82fd8365319e4f4fca8732e26" extension="png"
+														alt="蛋糕"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="bb3b630c7189b362d39905a6b10f4e25" extension="png"
+														alt="咖啡"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="c6796331da7ebed681d6adcfdc1d9e60" extension="png"
+														alt="吃饭"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="5e54aaa520e07cc35c92594aa85c3ca5" extension="png"
+														alt="太阳"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="0e3a50af997063d132bb115e98cf9783" extension="png"
+														alt="月亮"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="f4963b986d487f24100ac41b4d36e4b6" extension="png"
+														alt="星星"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="78d7c5e2e0dfb11fce910a45019bc52c" extension="png"
+														alt="便便"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="24b03c84c57ced0bea595c264bd7d9f1" extension="png"
+														alt="猪头"></li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="e6af94688a6f70062c75a3cf3f8dfdf5" extension="png" alt="钱">
+													</li>
+													<!-- target: faceItem -->
+													<li class="nb-webim-light-face-item"
+														face="71a6b6d3231a0ca74f2c80f6c36b81b8" extension="png"
+														alt="Hi"></li>
+												</ul>
+											</ins>
+											<!-- <ins id="previewBox"></ins>
+											<div class="nb-webim-light-arrow"><em></em></div> -->
+										</ins>
+									</ins>
+									<!-- target: picture -->
+									<ins class="nb-webim-light-toolbar-picture" title="选择图片">
+										<form id="nbwlPicForm">
+											<input id="nbwlPicInput" type="file" name="pic"
+												accept="image/jpeg,image/png,image/gif">
+										</form>
+									</ins>
+								<!-- target: support -->
+							
+	</body>
+</html>

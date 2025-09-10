@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>线上交流</title>
+	<link rel="stylesheet" type="text/css" href="css/surf.css" />
+	<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+	<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+			//返回顶部
+			$(".totop").click(function () {
+				$('html,body').animate({
+					scrollTop: 0
+				}, 600);
+			});
+			//鼠标跟随
+			function dotMove(e) {
+				var obj = $("#c-followDot");
+				var aA = $("a");
+				var bW = $("body").width() - 25;
+				$(document).mousemove(function (e) {
+					var endx = e.clientX;
+					var endy = e.clientY;
+					if (endx > bW) {
+						endx = bW;
+					}
+					obj.css({
+						"left": endx + "px",
+						"top": endy + "px"
+					});
+				});
+				aA.hover(function () {
+					obj.addClass("c-active");
+				}, function () {
+					obj.removeClass("c-active");
+				});
+			}
+			dotMove();
+			//帖子
+			$(".main1_tiezi").click(function () {
+				if ($(".tiezi").is(':hidden')) {
+					$(".tiezi").show();
+				} else {
+					$(".tiezi").hide();
+				}
+			});
+			$(".tiezi_close").click(function () {
+				$(".tiezi").hide();
+			});
+			//评论
+			$(".main1_pinlun").click(function () {
+				if ($(".pinlun").is(':hidden')) {
+					$(".pinlun").show();
+				} else {
+					$(".pinlun").hide();
+				}
+			});
+			$(".pinlun_close").click(function () {
+				$(".pinlun").hide();
+			});
+			//收藏
+			$(".main1_shoucang").click(function () {
+				if ($(".shoucang").is(':hidden')) {
+					$(".shoucang").show();
+				} else {
+					$(".shoucang").hide();
+				}
+			});
+			$(".shoucang_close").click(function () {
+				$(".shoucang").hide();
+			});
+			//插眼
+			$(".main1_chayan").click(function () {
+				if ($(".chayan").is(':hidden')) {
+					$(".chayan").show();
+				} else {
+					$(".chayan").hide();
+				}
+			});
+			$(".chayan_close").click(function () {
+				$(".chayan").hide();
+			});
+			//赞过
+			$(".main1_zanguo").click(function () {
+				if ($(".zanguo").is(':hidden')) {
+					$(".zanguo").show();
+				} else {
+					$(".zanguo").hide();
+				}
+			});
+			$(".zanguo_close").click(function () {
+				$(".zanguo").hide();
+			});
+			//切换图片
+			var index = 0;
+			var width = $(".show_box").width();
+			var len = $(".pic_list").children().length;
+			var time = 2000;
+
+			fn2();
+			function fn1() {
+				$(".pic_list").children().hide().css("opacity", 0).eq(index).show().css("opacity", 1);
+			}
+			function fn2() {
+				fn1();
+				index++;
+				if (index == len) {
+					index = 0;
+				}
+				setTimeout(fn2, time);
+			}
+			$(".select").hover(function () {
+				index = $(this).index();
+				fn1();
+				// $(this).CSS("background", "rgba(118,107,122,0.3)");
+			}, function () {
+				// $(this).CSS("background", "rgba(160,107,122,0.3)");
+			});
+			//大家的评论
+			$(".main2_ul_li").click(function () {
+				if ($(".main2_ul_span").is(':hidden')) {
+					$(".main2_ul_span").show();
+				} else {
+					$(".main2_ul_span").hide();
+				}
+			});
+			$(".li2").click(function () {
+				if ($(".span2").is(':hidden')) {
+					$(".span2").show();
+				} else {
+					$(".span2").hide();
+				}
+			});
+			$(".li3").click(function () {
+				if ($(".span3").is(':hidden')) {
+					$(".span3").show();
+				} else {
+					$(".span3").hide();
+				}
+			});
+			$(".li4").click(function () {
+				if ($(".span4").is(':hidden')) {
+					$(".span4").show();
+				} else {
+					$(".span4").hide();
+				}
+			});
+			$(".li5").click(function () {
+				if ($(".span5").is(':hidden')) {
+					$(".span5").show();
+				} else {
+					$(".span5").hide();
+				}
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<!--鼠标跟随-->
+	<div id="c-followDot" class style="ledft: 467px; top: 576px;">
+		<div class="c-default"></div>
+		<div class="c-hover"></div>
+	</div>
+	<!--右侧悬浮-->
+	<div class="new_right_pendant">
+		<div class="new_right_list">
+			<a title="电话咨询">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-dianhua"></span>
+				</div>
+				<span class="txt1">13548809860</span>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a target="_blank" href="index.html" title="返回首页">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-wangzhan1"></span>
+				</div>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a target="_blank" href="#" title="刷新页面">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-keji1"></span>
+				</div>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a target="_blank" href="customer.html" title="客户服务">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-ziyuan"></span>
+				</div>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a>
+				<div class="ysUtilIco">
+					<span class="iconfont icon-haipaikeicon-"></span>
+				</div>
+				<span class="txt1 txt2">
+					<img src="./images/wx.jpg" alt="微信咨询">
+				</span>
+			</a>
+		</div>
+		<div class="new_right_list">
+			<a href="" class="totop" title="回到顶部">
+				<div class="ysUtilIco">
+					<span class="iconfont icon-fanhuidingbu1"></span>
+				</div>
+			</a>
+		</div>
+	</div>
+	<header class="hd">
+		<div class="hd_top">
+			<div class="hd__top_p">
+				<p class="p_img"><img src="images/wd.jpg"></p>
+				<p class="p_name">猫都不可思议<span class="name_span"></span></p>
+				<p class="p_gxqm">个性签名：哈哈哈哈哈我不是搞笑女<span class="gxqm_span"></span></p>
+				<div class="p_bottem">
+					<p><span class="bottem_span">78.3w</span>获赞</p>
+					<p><span class="bottem_span">1</span>关注</p>
+					<p><span class="bottem_span">1.1w</span>粉丝</p>
+				</div>
+			</div>
+			<div class="hd_top_right">
+				<p class="hd_top_right_p"><span class="hd_right_span"></span>答灵会员<span class="hd_top_rr"></span></p>
+			</div>
+		</div>
+	</header>
+	<div class="body">
+		<div class="main1">
+			<ul class="main1_ul">
+				<li class="main1_tiezi">
+					<span></span>
+					<p>帖子</p>
+				</li>
+				<li class="main1_pinlun">
+					<span></span>
+					<p>评论</p>
+				</li>
+				<li class="main1_shoucang">
+					<span></span>
+					<p>收藏</p>
+				</li>
+				<li class="main1_chayan">
+					<span></span>
+					<p>插眼</p>
+				</li>
+				<li class="zanguo">
+					<span></span>
+					<p>赞过</p>
+				</li>
+			</ul>
+		</div>
+		<!--图片-->
+		<div class="show_box">
+			<ul class="pic_list">
+				<li><a href=""><img src="images/surf/big1.jpg" alt="2"></a></li>
+				<li><a href=""><img src="images/surf/big2.jpg" alt="1"></a></li>
+				<li><a href=""><img src="images/surf/big3.jpg" alt="2"></a></li>
+				<li><a href=""><img src="images/surf/big4.jpg" alt="2"></a></li>
+				<li><a href=""><img src="images/surf/big5.jpg" alt="2"></a></li>
+			</ul>
+			<div class="title_nav">
+				<a href="#" class="select">1</a>
+				<a href="#" class="select">2</a>
+				<a href="#" class="select">3</a>
+				<a href="#" class="select">4</a>
+				<a href="#" class="select">5</a>
+			</div>
+		</div>
+
+		<div class="main2">
+			<h1>推荐</h1>
+			<div class="main2_top">
+				<img src="images/头像/tx1.jpg">
+				<h2>发情的大公猴</h2>
+			</div>
+			<p class="main2_text">呜呜呜 友友们 我emo了 咱就是说发个抖音记录日常 刚打开就刷到了答灵的推荐视频，看着看着我就打开了答灵的页面，太爱了，答灵简直就是方便我们生活的好网站啊!下面附上几张我的照片。嘻嘻
+			</p>
+			<p class="main2_img">
+				<span><img src="images/surf/photo/001.jpg"></span>
+				<span><img src="images/surf/photo/002.jpg"></span>
+				<span><img src="images/surf/photo/003.jpg"></span>
+			</p>
+			<p class="main2_huati"><span>#</span>答灵很灵</p>
+			<ul class="main2_ul">
+				<li><span class="smo_span"></span>分享</li>
+				<li class="main2_ul_li"><span class="smo_span"></span>24670
+					<div class="main2_ul_span">
+						<p><span style="color: blue;">七彩咩咩</span>评论：答灵很棒的哦</p>
+						<p><span style="color: blue;">来来来继续</span>评论：小伙子长得真不赖啊</p>
+						<p><span style="color: blue;">发情的大公猴</span>回复：杰哥不要嘛</p>
+						<p><span style="color: blue;">朱八姐姐</span>评论：加个好友</p>
+						<p><span style="color: blue;">发情的大公猴</span>回复：哈哈</p>
+						<p><span style="color: blue;">粉色季节</span>评论：关注一下呗</p>
+						<p><span style="color: blue;">发情的大公猴</span>回复：嘿嘿</p>
+						<p><span style="color: blue;">亲爱的</span>评论：很不错</p>
+						<p><span style="color: blue;">女朋友</span>评论：很帅气</p>
+						<p><span style="color: blue;">猫都不可思议</span>评论：小伙子结婚吧</p>
+					</div>
+				</li>
+				<li><span class="smo_span"></span>359w</li>
+				<li><span class="smo_span"></span>67</li>
+			</ul>
+			<!-- </div>
+			<div class="tuijain"> -->
+			<div class="main2">
+				<div class="main2_top">
+					<img src="images/头像/tx2.jpg">
+					<h2>没见过世面的小妮子</h2>
+				</div>
+				<p class="main2_text">怎么样可以买到我喜欢的东西啊，怎么样可以知道我适不适合这个产品？虽然答灵上面的东西都很物美价廉，但是我相信答灵里的大佬可以帮助我精益求精的！</p>
+				<p class="main2_img">
+					<span><img src="images/surf/photo/004.jpg"></span>
+					<span><img src="images/surf/photo/005.jpg"></span>
+					<span><img src="images/surf/photo/006.jpg"></span>
+				</p>
+				<p class="main2_huati"><span>#</span>求助大佬</p>
+				<ul class="main2_ul">
+					<li><span class="smo_span"></span>分享</li>
+					<li class="li2"><span class="smo_span"></span>285w
+						<div class="span2">
+							<p><span style="color: blue;">啾咪</span>评论：答灵很棒的哦</p>
+							<p><span style="color: blue;">答灵大佬</span>评论：你可以免费咨询</p>
+							<p><span style="color: blue;">妖怪哪里逃</span>评论：对啊免费咨询</p>
+							<p><span style="color: blue;">我可以揍你嘛</span>评论：答灵很多东西都很好</p>
+							<p><span style="color: blue;">妖妖灵</span>评论：答灵绝对不会踩雷的</p>
+							<p><span style="color: blue;">发情的大公猴</span>评论：关注一下呗</p>
+							<p><span style="color: blue;">我爱答灵</span>评论：永远可以相信答灵</p>
+							<p><span style="color: blue;">正经人</span>评论：问问游客们</p>
+							<p><span style="color: blue;">嘿嘿来吧宝贝</span>评论：你真的没见过世面吗</p>
+							<p><span style="color: blue;">嘿嘿来吧宝贝</span>评论：小妮子哈哈哈</p>
+						</div>
+					</li>
+					<li><span class="smo_span"></span>3.9w</li>
+					<li><span class="smo_span"></span>59</li>
+				</ul>
+			</div>
+			<div class="main2">
+				<div class="main2_top">
+					<img src="images/头像/tx3.jpg">
+					<h2>一米八五的卢姥爷</h2>
+				</div>
+				<p class="main2_text">我朋友的大型打脸现场，笑死我了，我就说答灵很棒我朋友还非不信昨天还只是刷到，今天就上了推荐，答灵不止产品好范围广，连帖子都发展这么好，不错不错</p>
+				<p class="main2_img">
+					<video width="300" height="350" class="video" controls="controls">
+						<source src="video/欧式.mp4" type="video/mp4">
+						</source>
+					</video>
+				</p>
+				<p class="main2_huati"><span>#</span>打脸现场</p>
+				<ul class="main2_ul">
+					<li><span class="smo_span"></span>分享</li>
+					<li class="li3"><span class="smo_span"></span>2890
+						<div class="span3">
+							<p><span style="color: blue;">粉色季节</span>评论：答灵一直都很好用的哦</p>
+							<p><span style="color: blue;">啾咪</span>评论：你朋友竟然敢质疑答灵？</p>
+							<p><span style="color: blue;">姜饼铺子</span>评论：答灵yyds</p>
+							<p><span style="color: blue;">杰哥最帅</span>评论：有谁能否定答灵呢？</p>
+							<p><span style="color: blue;">黑白无常</span>评论：答灵绝对不会踩雷的</p>
+							<p><span style="color: blue;">我爱菲菲</span>评论：我竟然在答灵找到了女朋友！！</p>
+							<p><span style="color: blue;">大帅哥嘛</span>评论：永远可以相信答灵</p>
+							<p><span style="color: blue;">吃肉的大白兔</span>评论：问问游客们</p>
+							<p><span style="color: blue;">人民币</span>评论：你真的没见过世面吗</p>
+							<p><span style="color: blue;">月亮下山啦</span>评论：兄弟走错片场了哈哈哈</p>
+						</div>
+					</li>
+					<li><span class="smo_span"></span>1.9w</li>
+					<li><span class="smo_span"></span>39</li>
+				</ul>
+			</div>
+			<div class="main2">
+				<div class="main2_top">
+					<img src="images/头像/tx4.jpg">
+					<h2>我不是黄蓉</h2>
+				</div>
+				<p class="main2_text">我女神太biu特否了，必须炫耀一下</p>
+				<p class="main2_img">
+					<span><img src="images/surf/photo/007.jpg"></span>
+					<span><img src="images/surf/photo/008.jpg"></span>
+					<span><img src="images/surf/photo/009.jpg"></span>
+				</p>
+				<p class="main2_huati"><span>#</span>气质女神</p>
+				<ul class="main2_ul">
+					<li><span class="smo_span"></span>分享</li>
+					<li class="li4"><span class="smo_span"></span>45.2w
+						<div class="span4">
+							<p><span style="color: blue;">明月照沟渠</span>评论：哇，太漂亮了</p>
+							<p><span style="color: blue;">发情的大公猴</span>评论：这明明是我的女神</p>
+							<p><span style="color: blue;">妖怪哪里逃</span>评论：我的女朋友是你们女神？</p>
+							<p><span style="color: blue;">师傅在这里</span>评论：快闭嘴吧你们</p>
+							<p><span style="color: blue;">我的屁是草莓味的</span>评论：有一说一，这不是同一个人吧？</p>
+							<p><span style="color: blue;">孟婆别放香菜</span>回复<span>我的屁是草莓味的</span>：你就是酸</p>
+							<p><span style="color: blue;">我的屁是草莓味的</span>回复<span>孟婆别放香菜</span>：实话实说有错吗？</p>
+							<p><span style="color: blue;">孟婆别放香菜</span>回复<span>我的屁是草莓味的</span>：快去放你的屁吧发情的大母猴</p>
+							<p><span style="color: blue;">我的屁是草莓味的</span>回复<span>孟婆别发香菜</span>：这年头怎么什么人都有</p>
+							<p><span style="color: blue;">妖妖灵</span>评论：直接叫老婆</p>
+							<p><span style="color: blue;">发情的大公猴</span>评论：推一下她的答灵号</p>
+							<p><span style="color: blue;">美女贴贴</span>评论：艾特一下本人好吗</p>
+							<p><span style="color: blue;">正经人</span>评论：哈喇子直接就留下来了</p>
+							<p><span style="color: blue;">嘿嘿来吧宝贝</span>评论：老婆快回家，孩子哭了</p>
+							<p><span style="color: blue;">嘿嘿来吧宝贝</span>评论：快回来喂奶了宝</p>
+						</div>
+					</li>
+					<li><span class="smo_span"></span>105.9w</li>
+					<li><span class="smo_span"></span>39</li>
+				</ul>
+			</div>
+			<div class="main2">
+				<div class="main2_top">
+					<img src="images/头像/tx5.jpg">
+					<h2>我的屁是草莓味的</h2>
+				</div>
+				<p class="main2_text">这不得让大家欣赏一下我的美貌嘛</p>
+				<p class="main2_img">
+					<video width="300" height="350" class="video" controls="controls">
+						<source src="video/7.mp4" type="video/mp4">
+						</source>
+					</video>
+				</p>
+				<p class="main2_huati"><span>#</span>普信女</p>
+				<ul class="main2_ul">
+					<li><span class="smo_span"></span>分享</li>
+					<li class="li5"><span class="smo_span"></span>6355
+						<div class="span5">
+							<p><span style="color: blue;">发情的大公猴</span>评论：我是从上面来的</p>
+							<p><span style="color: blue;">师傅我来救你了</span>评论：这就是普信女？</p>
+							<p><span style="color: blue;">我男朋友爱吃屎</span>评论：还是很漂亮的</p>
+							<p><span style="color: blue;">我的屁是草莓味的</span>评论：快闭嘴吧你们</p>
+							<p><span style="color: blue;">我的屁是草莓味的</span>评论：不会说话就不要说</p>
+							<p><span style="color: blue;">孟婆别放香菜</span>回复<span>我的屁是草莓味的</span>：你长这样也敢放出来？</p>
+							<p><span style="color: blue;">我的屁是草莓味的</span>回复<span>孟婆别放香菜</span>：什么玩意啊你</p>
+							<p><span style="color: blue;">孟婆别放香菜</span>回复<span>我的屁是草莓味的</span>：你妥妥的发情的大母猴</p>
+							<p><span style="color: blue;">我的屁是草莓味的</span>回复<span>孟婆别发香菜</span>：这就是网络喷子嘛</p>
+							<p><span style="color: blue;">妖妖灵</span>评论：两位不要吵，和气生财</p>
+							<p><span style="color: blue;">陈pro</span>评论：答灵什么时候成最右了？</p>
+							<p><span style="color: blue;">美女贴贴</span>评论：答灵自动给你的标签就是普信女哈哈哈</p>
+							<p><span style="color: blue;">小熊睡不着</span>评论：哈哈哈太有趣了你是搞笑女吧</p>
+							<p><span style="color: blue;">嘿嘿来吧宝贝</span>评论：我还是上去找我老婆吧</p>
+							<p><span style="color: blue;">帅气的李先森</span>评论：这还有连续剧呢</p>
+						</div>
+					</li>
+					<li><span class="smo_span"></span>6.9w</li>
+					<li><span class="smo_span"></span>9</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
+<div class="tiezi">
+	<div class="tiezi_hd">
+		<h3>我的帖子</h3>
+		<span class="tiezi_close"></span>
+	</div>
+	<div class="tiezi_main">
+		<div class="tiezi_st">
+			<div class="tiezi_top">
+				<img src="images/wd.jpg">
+				<div class="tiezi_top_txt">
+					<p>猫都不可思议</p>
+					<P class="p">11/05</P>
+				</div>
+			</div>
+			<div class="tiezi_main1">
+				<h2>答灵真的给我帮助太多了！</h2>
+				<p class="tiezi_main1_p">
+					<span><img src="images/surf/tiezi/001.jpg"></span>
+					<span><img src="images/surf/tiezi/002.jpg"></span>
+					<span><img src="images/surf/tiezi/003.jpg"></span>
+				</p>
+				<p class="tiezi_main1_huati"><span>#</span>感谢答灵</p>
+				<ul class="tiezi_main1_ul">
+					<li><span></span>分享</li>
+					<li><span></span>2890</li>
+					<li><span></span>1.9w</li>
+					<li><span></span>39</li>
+				</ul>
+			</div>
+		</div>
+		<span class="jiange"></span>
+		<div class="tiezi_st">
+			<div class="tiezi_top">
+				<img src="images/wd.jpg">
+				<div class="tiezi_top_txt">
+					<p>猫都不可思议</p>
+					<P class="p">10/31</P>
+				</div>
+			</div>
+			<div class="tiezi_main1">
+				<h2>万圣节，欢迎来冒险</h2>
+				<p class="tiezi_main1_p">
+					<video width="200" height="350" class="video" controls="controls">
+						<source src="video/002.mp4" type="video/mp4">
+						</source>
+					</video>
+				</p>
+				<p class="tiezi_main1_huati"><span>#</span>万圣节妆容</p>
+				<ul class="tiezi_main1_ul">
+					<li><span></span>分享</li>
+					<li><span></span>4.2w</li>
+					<li><span></span>30.6w</li>
+					<li><span></span>142</li>
+				</ul>
+			</div>
+		</div>
+		<span class="jiange"></span>
+		<div class="tiezi_st">
+			<div class="tiezi_top">
+				<img src="images/wd.jpg">
+				<div class="tiezi_top_txt">
+					<p>猫都不可思议</p>
+					<P class="p">09/24</P>
+				</div>
+			</div>
+			<div class="tiezi_main1">
+				<h2>让我们荡起双桨</h2>
+				<p class="tiezi_main1_p">
+					<span><img src="images/surf/tiezi/004.jpg"></span>
+					<span><img src="images/surf/tiezi/005.jpg"></span>
+					<span><img src="images/surf/tiezi/006.jpg"></span>
+				</p>
+				<p class="tiezi_main1_huati"><span>#</span>气质美女</p>
+				<ul class="tiezi_main1_ul">
+					<li><span></span>分享</li>
+					<li><span></span>3.7w</li>
+					<li><span></span>3.3w</li>
+					<li><span></span>24</li>
+				</ul>
+			</div>
+		</div>
+		<span class="jiange"></span>
+		<div class="tiezi_st">
+			<div class="tiezi_top">
+				<img src="images/wd.jpg">
+				<div class="tiezi_top_txt">
+					<p>猫都不可思议</p>
+					<P class="p">09/20</P>
+				</div>
+			</div>
+			<div class="tiezi_main1">
+				<h2>我不是搞笑女</h2>
+				<p class="tiezi_main1_p">
+					<video width="200" height="350" class="video" controls="controls">
+						<source src="video/001.mp4" type="video/mp4">
+						</source>
+					</video>
+				</p>
+				<p class="tiezi_main1_huati"><span>#</span>气质美女</p>
+				<ul class="tiezi_main1_ul">
+					<li><span></span>分享</li>
+					<li><span></span>5w</li>
+					<li><span></span>38.0w</li>
+					<li><span></span>98</li>
+				</ul>
+			</div>
+		</div>
+		<span class="jiange"></span>
+		<div class="tiezi_st">
+			<div class="tiezi_top">
+				<img src="images/wd.jpg">
+				<div class="tiezi_top_txt">
+					<p>猫都不可思议</p>
+					<P class="p">09/18</P>
+				</div>
+			</div>
+			<div class="tiezi_main1">
+				<h2>年年岁岁花相似，岁岁年年人不同</h2>
+				<p class="tiezi_main1_p">
+					<video width="200" height="350" class="video" controls="controls">
+						<source src="video/7.mp4" type="video/mp4">
+						</source>
+					</video>
+				</p>
+				<p class="tiezi_main1_huati"><span>#</span>气质美女</p>
+				<ul class="tiezi_main1_ul">
+					<li><span></span>分享</li>
+					<li><span></span>35.9w</li>
+					<li><span></span>101.3w</li>
+					<li><span></span>108</li>
+				</ul>
+			</div>
+		</div>
+		<span class="jiange"></span>
+		<div class="tiezi_ft">没有更多啦 快去发布吧~</div>
+		<div class="jiaru">
+			<h1>我要发布</h1>
+			<div class="mui-input-row">
+				<textarea cols="80px" rows="10px" placeholder="你想发表什么呢？"></textarea>
+				<a href="">发布</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="pinlun">
+	<div class="pinlun_hd">
+		<h3>我的评论</h3>
+		<span class="pinlun_close"></span>
+	</div>
+	<div class="pinlun_main">
+		<div class="pinlun_maintop">
+			<p class="pinlun_maintop_p">全部评论(69)</p>
+			<span class="pinlun_maintop_span"></span>
+			<p class="pinlun_maintop_p2">以下评论根据时间展示的范围将被隐藏，对应的帖子详情页仍然存在</p><span class="pinlun_maintop_span2"></span>
+		</div>
+		<div class="pinlun_main2">
+			<div class="tiezi_top" style="display: flex;padding-top: 10px;justify-content: space-between;">
+				<div style="display: flex;">
+					<img src="images/wd.jpg">
+					<div class="tiezi_top_txt">
+						<p>猫都不可思议</p>
+						<P class="p">09/20</P>
+					</div>
+				</div>
+				<div class="pinlun_main2_right">
+					<p><span></span>1</p>
+					<p><span></span>0</p>
+				</div>
+			</div>
+			<p style="line-height: 40px;color: blue; padding-left: 15px;">@NISSAN GTR</p>
+			<div class="pinlun_main2_st">
+				<div class="pinlun_main2_st_left">
+					<img src="images/surf/tiezi/002.jpg">
+					<div class="pinlun_main2_txt">
+						<p>找工具上答灵网</p>
+						<P class="p">答灵工具箱yyds</P>
+					</div>
+				</div>
+				<p class="pinlun_main2_st_right">></p>
+			</div>
+		</div>
+		<div class="pinlun_main2">
+			<div class="tiezi_top" style="display: flex;padding-top: 10px;justify-content: space-between;">
+				<div style="display: flex;">
+					<img src="images/wd.jpg">
+					<div class="tiezi_top_txt">
+						<p>猫都不可思议</p>
+						<P class="p">09/18</P>
+					</div>
+				</div>
+				<div class="pinlun_main2_right">
+					<p><span></span>4</p>
+					<p><span></span>0</p>
+				</div>
+			</div>
+			<p
+				style="background-image: url(images/ytx/face80.png);background-position: -51px -4px;background-size: 596px 370px;width: 40px;height: 45px;margin-left: 15px;">
+			</p>
+			<div class="pinlun_main2_st">
+				<div class="pinlun_main2_st_left">
+					<img src="images/surf/tiezi/001.jpg">
+					<div class="pinlun_main2_txt">
+						<p>答灵网真的太给力了吧，爱了爱了</p>
+						<P class="p">答灵工具箱yyds</P>
+					</div>
+				</div>
+				<p class="pinlun_main2_st_right">></p>
+			</div>
+		</div>
+		<div class="pinlun_main2">
+			<div class="tiezi_top" style="display: flex;padding-top: 10px;justify-content: space-between;">
+				<div style="display: flex;">
+					<img src="images/wd.jpg">
+					<div class="tiezi_top_txt">
+						<p>猫都不可思议</p>
+						<P class="p">09/16</P>
+					</div>
+				</div>
+				<div class="pinlun_main2_right">
+					<p><span></span>4</p>
+					<p><span></span>0</p>
+				</div>
+			</div>
+			<p>
+				<span
+					style="background-image: url(images/ytx/face80.png);background-position: -147px 102px;background-size: 596px 370px;width: 40px;height: 45px;margin-left: 15px;display: inline-block;"></span>
+				<span
+					style="background-image: url(images/ytx/face80.png);background-position: -147px 102px;background-size: 596px 370px;width: 40px;height: 45px;margin-left: 15px;display: inline-block;"></span>
+				<span
+					style="background-image: url(images/ytx/face80.png);background-position: -147px 102px;background-size: 596px 370px;width: 40px;height: 45px;margin-left: 15px;display: inline-block;"></span>
+			</p>
+			<div class="pinlun_main2_st">
+				<div class="pinlun_main2_st_left">
+					<img src="images/surf/tiezi/003.jpg">
+					<div class="pinlun_main2_txt">
+						<p>答灵网可以找到我需要的所有工具，我很like</p>
+						<P class="p">感谢答灵</P>
+					</div>
+				</div>
+				<p class="pinlun_main2_st_right">></p>
+			</div>
+		</div>
+		<div class="pinlun_main2">
+			<div class="tiezi_top" style="display: flex;padding-top: 10px;justify-content: space-between;">
+				<div style="display: flex;">
+					<img src="images/wd.jpg">
+					<div class="tiezi_top_txt">
+						<p>猫都不可思议</p>
+						<P class="p">09/18</P>
+					</div>
+				</div>
+				<div class="pinlun_main2_right">
+					<p><span></span>4</p>
+					<p><span></span>0</p>
+				</div>
+			</div>
+			<p style="line-height: 40px;color: black; padding-left: 15px;">回复 <span style="color: #0000FF;">粉色季节 :</span></p>
+			<div class="pinlun_main2_st">
+				<div class="pinlun_main2_st_left">
+					<img src="images/surf/tiezi/006.jpg">
+					<div class="pinlun_main2_txt">
+						<p>我朋友说他也在用这个网站</p>
+						<P class="p">答灵工具箱yyds</P>
+					</div>
+				</div>
+				<p class="pinlun_main2_st_right">></p>
+			</div>
+		</div>
+		<div class="pinlun_main2">
+			<div class="tiezi_top" style="display: flex;padding-top: 10px;justify-content: space-between;">
+				<div style="display: flex;">
+					<img src="images/wd.jpg">
+					<div class="tiezi_top_txt">
+						<p>猫都不可思议</p>
+						<P class="p">09/18</P>
+					</div>
+				</div>
+				<div class="pinlun_main2_right">
+					<p><span></span>4</p>
+					<p><span></span>0</p>
+				</div>
+			</div>
+			<p style="line-height: 40px;color: black; padding-left: 15px;display: flex;">回复<span
+					style="color: #0000FF;">&nbsp;粉色季节 : </span>&nbsp;嘿嘿~美女！嘿嘿~美女贴贴~</p>
+			<div class="pinlun_main2_st">
+				<div class="pinlun_main2_st_left">
+					<img src="images/surf/tiezi/005.jpg">
+					<div class="pinlun_main2_txt">
+						<p>今天长这样</p>
+						<P class="p">气质美女</P>
+					</div>
+				</div>
+				<p class="pinlun_main2_st_right">></p>
+			</div>
+		</div>
+		<div class="pinlun_main2">
+			<div class="tiezi_top" style="display: flex;padding-top: 10px;justify-content: space-between;">
+				<div style="display: flex;">
+					<img src="images/wd.jpg">
+					<div class="tiezi_top_txt">
+						<p>猫都不可思议</p>
+						<P class="p">09/16</P>
+					</div>
+				</div>
+				<div class="pinlun_main2_right">
+					<p><span></span>4</p>
+					<p><span></span>0</p>
+				</div>
+			</div>
+			<p>
+				<span
+					style="background-image: url(images/ytx/face80.png);background-position: -98px 102px;background-size: 596px 370px;width: 40px;height: 45px;margin-left: 15px;display: inline-block;"></span>
+				<span
+					style="background-image: url(images/ytx/face80.png);background-position: -200px 102px;background-size: 596px 370px;width: 40px;height: 45px;display: inline-block;"></span>
+				<span
+					style="background-image: url(images/ytx/face80.png);background-position: 47px 155px;background-size: 596px 370px;width: 40px;height: 45px;display: inline-block;"></span>
+				<span
+					style="background-image: url(images/ytx/face80.png);background-position: 95px 155px;background-size: 596px 370px;width: 40px;height: 45px;display: inline-block;"></span>
+			</p>
+			<div class="pinlun_main2_st">
+				<div class="pinlun_main2_st_left">
+					<img src="images/surf/tiezi/004.jpg">
+					<div class="pinlun_main2_txt">
+						<p>搞笑女是不配拥有爱情的</p>
+						<P class="p">搞笑女</P>
+					</div>
+				</div>
+				<p class="pinlun_main2_st_right">></p>
+			</div>
+		</div>
+		<div class="tiezi_ft" style="background-color: #ffffff;margin-top: 10px;">没有更多啦~</div>
+	</div>
+</div>
+<div class="shoucang">
+	<div class="shoucang_hd">
+		<h3>我的收藏</h3>
+		<span class="shoucang_close"></span>
+	</div>
+	<div class="shoucang_main">
+		<div class="tiezi_ft" style="background-color: #ffffff;">您还没有收藏哦,块去添加吧~</div>
+	</div>
+</div>
+<div class="chayan">
+	<div class="chayan_hd">
+		<h3>我的插眼</h3>
+		<span class="chayan_close"></span>
+	</div>
+	<div class="chayan_main">
+		<div><img src="images/surf/bg1.jpg"></div>
+	</div>
+</div>
+<div class="zanguo">
+	<div class="zanguo_hd">
+		<h3>我的插眼</h3>
+		<span class="zanguo_close"></span>
+	</div>
+	<div class="zanguo_main">
+		<div><img src="images/surf/bg2.jpg"></div>
+	</div>
+</div>

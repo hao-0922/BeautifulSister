@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自助服务</title>
+		<link rel="stylesheet" type="text/css" href="css/self.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/jd.css"/>
+		<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//返回顶部
+				$(".totop").click(function() {
+					$('html,body').animate({
+						scrollTop: 0
+					}, 600);
+				});
+				//鼠标跟随
+				function dotMove(e) {
+					var obj = $("#c-followDot");
+					var aA = $("a");
+					var bW = $("body").width() - 25;
+					$(document).mousemove(function(e) {
+						var endx = e.clientX;
+						var endy = e.clientY;
+						if (endx > bW) {
+							endx = bW;
+						}
+						obj.css({
+							"left": endx + "px",
+							"top": endy + "px"
+						});
+					});
+					aA.hover(function() {
+						obj.addClass("c-active");
+					}, function() {
+						obj.removeClass("c-active");
+					});
+				}
+				dotMove();
+				showHide();
+				
+				function showHide() {
+					//找到name=hide的元素
+					$('[name=show_hide]').hover(function() {
+						//获取当前li的id
+						var id = $(this).attr("id");
+						var subId = id + "_items";
+						$('#' + subId).show();
+					}, function() {
+						//获取当前li的id
+						var id = $(this).attr("id");
+						var subId = id + "_items";
+						$('#' + subId).hide();
+					});
+				}
+				$(function(){
+					$("#zhuxiao").click(function(){
+						alert("注销账号请先登录");
+					});
+				});
+				$(function(){
+					$(".ba").click(function(){
+						alert("登录之后才能进行此操作");
+					});
+				});
+				$(function(){
+					$("#mianshiyaoqing").click(function(){
+						alert("您还没有面试邀请");
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="top">
+			<div class="top_left">
+				<img src="images/logo(2).jpg">
+				<a>找工作上答灵</a>
+				<p>Multifunctional toolbox | China</p>
+			</div>
+			<div class="top_right">
+				<div class="top_input">
+					<input type="search" class="" placeholder="请输入搜索内容">
+					<img src="images/搜索.png">
+				</div>
+				<div id="my_jd" class="lf" name='show_hide'>
+					<div class="my_jd_mt">
+						<a style="color: black;" href="people.html">个人中心</a><b></b>
+					</div>
+					<div id="my_jd_items">
+						<p>您好，请<a href="denglu.html">登录</a></p>
+						<div class="my_jd_div">
+							<ul class="lf">
+								<li><a href="people.html">待处理面试</a></li>
+								<li><a href="people.html">咨询回复</a></li>
+								<li><a href="people.html">我的证书</a></li>
+								<li><a href="people.html">过去履历</a></li>
+								<li><a href="people.html">会员卡</a></li>
+							</ul>
+							<ul class="lf">
+								<li><a href="people.html">我的关注 &gt;</a></li>
+								<li><a href="people.html">我的工具 &gt;</a></li>
+								<li><a href="people.html">我的理财 &gt;</a></li>
+								<li><a href="people.html">我的钱包 &gt;</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div id="settle_up" class="lf" name='show_hide'>
+					<div class="settle_up_mt">
+						查看新消息
+						<b></b>
+					</div>
+					<div id="settle_up_items">
+						<div id="no_goods">
+							<b></b>
+							您还没有面试邀请，请继续努力！
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<header class="hd">
+			<ul class="hd_ul">
+				<li><a href="index.html">首页</a></li>
+					<li><a href="home.html">全职招聘信息</a></li>
+					<li><a href="work.html">行业分类</a></li>
+					<li><a href="surf.html">线上互动</a></li>
+					<li><a href="self.html">自助服务</a></li>
+				<li id="service" class="service" name="show_hide">
+					<b></b>
+					<label class="rt">
+						<a href="customer.html"> 客户服务</a>
+					</label>
+					<ul id="service_items">
+						<li><a href="customer.html">帮助中心</a></li>
+						<li><a href="customer.html">咨询服务</a></li>
+						<li><a href="customer.html">在线客服</a></li>
+						<li><a href="customer.html">投诉中心</a></li>
+						<li><a href="customer.html">客服邮箱</a></li>
+					</ul>
+				</li>
+				<li><a href="denglu.html">登录/</a><a href="zhuce.html">注册</a></li>
+			</ul>
+		</header>
+		<div class="main">
+			<div>
+			    <div class="h1">您需要什么帮助？</div>
+			    <div class="div-input">
+				<input placeholder="请输入问题关键词，如：信息删除">
+				<div class="main-div">搜索</div>
+			    </div>
+			</div>
+			<div class="main-left"></div>
+		</div>
+		<div class="main2">
+		    <div class="main2-top">
+			<span class="title">常用自助服务</span>
+		    </div>
+		    <div class="main2-div">
+			<li class="main2-div-li">
+			    <img src="images/self/58/1624436061601我要报案.png">
+			    <span class="ba">我要报案</span>
+			</li>
+			<li class="main2-div-li">
+			    <img src="images/self/58/1624436086139换绑认证手机.png">
+			    <span class="ba">换绑认证手机</span>
+			</li>
+			<li class="main2-div-li">
+			    <img src="images/self/58/1624436105470我的浏览.png">
+			    <span class="ba">我的浏览</span>
+			</li>
+			<li class="main2-div-li">
+			    <img src="images/self/58/1624436139627找回密码.png">
+			    <span><a href="zhuxiao.html" style="color: #000000;">找回密码</a></span>
+			</li>
+		    </div>
+			<div class="main2-div">
+			<li class="main2-div-li">
+			    <img src="images/self/58/1624436157330手机号被盗用.png">
+			    <span><a href="delete.html" style="color: #000000;">手机号被冒用</a></span>
+			</li>
+			<li class="main2-div-li">
+			    <img src="images/self/58/1624436174809处罚申诉.png">
+			    <span class="ba">处罚申诉</span>
+			</li>
+			<li class="main2-div-li">
+			    <img src="images/self/58/1624436208872我要申诉.png">
+			    <span class="ba">我要投诉</span>
+			</li>
+			<li class="main2-div-li">
+			    <img src="images/self/58/1624435736019发帖规范.png">
+			    <span class="ba">发帖规范</span>
+			</li>
+			</div>
+		</div>
+		<div class="main3">
+		    <h3>全部自助服务</h3>
+		    <div class="main3-div">
+			<div class="categoryUlStyle___32I-P ">
+			    <h5><i></i>个人信息</h5>
+				<ul>
+				    <li class=""><a href="denglu.html" target="_blank">发帖规范</a></li>
+				    <li class="liRight___liyMl"><a href="denglu.html" target="_blank">修改密码</a></li>
+				    <li class=""><a href="delete.html" target="_blank">换绑认证手机</a></li>
+				    <li class="liRight___liyMl"><a href="delete.html" target="_blank">换绑密保手机</a></li>
+				    <li class=""><a href="denglu.html" target="_blank">修改邮箱</a></li>
+				    <li class="liRight___liyMl"><a href="people.html" target="_blank">修改昵称</a></li>
+				    <li class="" style="margin-bottom: 0px;"><a href="people.html" target="_blank">修改头像</a></li>
+				    <li class="liRight___liyMl" style="margin-bottom: 0px;"><a href="people.html" target="_blank">我的认证</a></li>
+				</ul>
+			</div>
+			<div class="categoryUlStyle___32I-P ">
+			    <h5><i></i>求职管理</h5>
+				<ul><li class=""><a href="denglu.html" target="_blank">我的简历</a></li>
+				    <li class="liRight___liyMl" id="mianshiyaoqing"><a href="people.html" target="_blank">面试邀请</a></li>
+				    <li class=""><a href="denglu.html" target="_blank">简历设置</a></li>
+				    <li class="liRight___liyMl"><a href="delete.html" target="_blank">简历投递记录</a></li>
+				    <li class="" style="margin-bottom: 0px;"><a href="denglu.html" target="_blank">简历被下载记录</a></li>
+				    <li class="liRight___liyMl" style="margin-bottom: 0px;"><a href="denglu.html" target="_blank">开通求职会员</a></li>
+				</ul>
+			</div>
+			<div class="categoryUlStyle___32I-P categoryIndex3___1Yf-Z" style="border: none;">
+			    <h5><i></i>维权中心</h5>
+				<ul><li class=""><a href="denglu.html" target="_blank">我要投诉</a></li>
+				    <li class="liRight___liyMl" style="margin-bottom: 0px;"><a href="denglu.html" target="_blank">查看投诉记录</a></li>
+				    <li class="" style="margin-bottom: 0px;"><a href="denglu.html" target="_blank">我要报案</a></li>
+				</ul>
+			</div>
+			<div class="categoryUlStyle___32I-P ">
+			    <h5><i></i>注册登陆</h5>
+			 	<ul><li class=""><a href="zhuce.html" target="_blank">注册账户</a></li>
+				    <li class="liRight___liyMl" style="margin-bottom: 0px;" id="zhuxiao"><a href="denglu.html" target="_blank">账户注销</a></li>
+				    <li class="" style="margin-bottom: 0px;"><a href="zhuxiao.html" target="_blank">找回密码</a></li>
+				</ul>
+			</div>
+			<div class="categoryUlStyle___32I-P ">
+			    <h5><i></i>记录管理</h5>
+				<ul><li class="" style="margin-bottom: 0px;"><a href="//my.58.com/pro/myscanrecords/" target="_blank">我的浏览</a></li>
+				    <li class="liRight___liyMl" style="margin-bottom: 0px;"><a href="//my.58.com/pro/shoucangjianli/" target="_blank">我的收藏</a></li>
+				</ul>
+			</div>
+			<div class="categoryUlStyle___32I-P categoryIndex3___1Yf-Z" style="border: none;">
+			    <h5><i></i>客户服务</h5>
+				<ul><li class=""><a href="delete.html" target="_blank">手机号被冒用</a></li>
+				    <li class="liRight___liyMl" style="margin-bottom: 0px;"><a href="delete.html" target="_blank">企业信息被冒用</a></li>
+				    <li class="" style="margin-bottom: 0px;"><a href="duanxin.html" target="_blank">处罚申诉</a></li>
+				</ul>
+			</div>
+		    </div>
+		</div>
+		<footer class="ft">
+			<p>湖南财经工业职业技术学院电子信息系19软件2班出版</p>
+			<p>咨询电话:0738-520285</p>
+		</footer>
+	</body>
+</html>
+<!--鼠标跟随-->
+			<div id="c-followDot" class style="ledft: 467px; top: 576px;">
+				<div class="c-default"></div>
+				<div class="c-hover"></div>
+			</div>
+<!--右侧悬浮-->
+			<div class="new_right_pendant">
+				<div class="new_right_list">
+					<a title="电话咨询">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-dianhua"></span>
+						</div>
+						<span class="txt1">13548809860</span>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="https://www.baidu.com" title="百度一下">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-wangzhan1"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="#" title="刷新页面">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-keji1"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="customer.html" title="客户服务">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-ziyuan"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a>
+						<div class="ysUtilIco">
+							<span class="iconfont icon-haipaikeicon-"></span>
+						</div>
+						<span class="txt1 txt2">
+							<img src="./images/wx.jpg" alt="微信咨询">
+						</span>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a href="" class="totop" title="回到顶部">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-fanhuidingbu1"></span>
+						</div>
+					</a>
+				</div>
+			</div>

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>个人中心</title>
+		<link rel="stylesheet" type="text/css" href="css/people.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<script src="js/jquery-1.10.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".top_z_tx").hover(function(){
+					$(this).children(".top_z_p").show();
+					},function(){
+						$(this).children(".top_z_p").hide();
+					});
+					//新消息
+						$(".main_what_div").click(function(){
+							if($(".main_what_ul").is(':hidden')){
+								$(".main_what_ul").show();
+								$(".main_what_ul").css("display","flex");
+							}else{
+								$(".main_what_ul").hide();
+							}
+						});
+						
+					//我的关注
+					$(".main2_gz_p").click(function(){
+						if($(".main2_gz_ul").is(':hidden')){
+							$(".main2_gz_ul").show();
+							$(".main2_gz_ul").css("display","flex");
+						}else{
+							$(".main2_gz_ul").hide();
+						}
+					});
+					
+					//我的工具
+					$(".main2_gj_p").click(function(){
+						if($(".main2_gj_ul").is(':hidden')){
+							$(".main2_gj_ul").show();
+							$(".main2_gj_ul").css("display","flex");
+						}else{
+							$(".main2_gj_ul").hide();
+						}
+					});
+					
+					//系统设置
+					$(".main3_p").click(function(){
+						if($(".main3_ul").is(':hidden')){
+							$(".main3_ul").show();
+							$(".main3_ul").css("display","flex");
+						}else{
+							$(".main3_ul").hide();
+						}
+					});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="top">
+			<div class="top_s"><a>个人中心</a></div>
+			<div class="top_z">
+				<div class="top_z_tx">
+					<img src="images/wd.jpg" >
+					<p class="top_z_p">更换头像</p>
+				</div>
+			</div>
+			<div class="top_x">
+				<a>猫都不可思议</a>
+				<span></span>
+			</div>
+		</div>
+		<div class="main">
+			<div class="main_wait">
+				<p class="main_wait_p"><span></span><a href="">待处理面试</a></p>
+				<ul>
+					<li><a href="">已回复</a></li>
+					<li><a href="">已面试</a></li>
+					<li><a href="">未读</a></li>
+					<li><a href="">待通过</a></li>
+					<li><a href="">待回复</a></li>
+				</ul>
+			</div>
+			<div class="main_wait">
+				<p class="main_what_p"><span></span><a href="">咨询回复</a></p>
+				<div class="main_what_div">
+					<p class="main_what_ul_p"><span></span><a class="main_wait_ul_a">新消息</a></p>
+					<ul class="main_what_ul">
+						<li>置顶<span></span></li>
+						<li>标位已读</li>
+						<li>删除</li>
+					</ul>
+				</div>
+			</div>
+			<div class="main_wait">
+				<p class="main_down_p"><span></span><a href="">我的证书</a></p>
+				<ul>
+					<li><a href="">获得的证书</a></li>
+					<li><a href="">待考的证书</a></li>
+					<li><a href="">工作证书</a></li>
+					<li><a href="">生活证书</a></li>
+				</ul>
+			</div>
+			<div class="main_wait">
+				<p class="main_back_p"><span></span><a href="">过去履历</a></p>
+					<ul>
+						<li><a href="">上家公司</a></li>
+						<li><a href="">工作经验</a></li>
+						<li><a href="">工作成就</li>
+						<li><span></span><a href="">辞职理由</a></li>
+					</ul>
+			</div>
+			<div class="main_wait">
+				<p class="main_good_p"><span></span><a href="">会员卡</a></p>
+					<ul class="main_good_ul">
+						<li><a href="">满20减2</a></li>
+						<li><a href="">满100减8</a></li>
+						<li><a href="">跨店满减</li>
+						<li><span></span><a href="">会员七折</a></li>
+					</ul>
+			</div>
+		</div>
+		<div class="main2">
+			<div class="main_gz">
+				<p class="main2_gz_p"><span></span><a>我的关注 ></a></p>
+				<ul class="main2_gz_ul">
+					<li><span><img src="images/头像/tx2.jpg" ></span><a href="">哈honey</a></li>
+					<li><span><img src="images/头像/tx1.jpg" ></span><a href="">小王</a></li>
+					<li><span><img src="images/头像/tx4.jpg" ></span><a href="">杰克</a></li>
+					<li><span><img src="images/头像/tx3.jpg" ></span><a href="">Amly</a></li>
+					<li><span class="span"></span><a href="">更多</a></li>
+				</ul>
+			</div>
+			<div class="main_gz">
+				<p class="main2_gj_p"><span></span><a>我的工具 ></a></p>
+				<ul class="main2_gj_ul">
+					<li><span></span><a href="">记事本</a></li>
+					<li><span></span><a href="">标记</a></li>
+					<li><span></span><a href="">文件夹</a></li>
+					<li><span></span><a href="">分享</a></li>
+					<li><span></span><a href="">垃圾桶</a></li>
+				</ul>
+			</div>
+			<div class="main_gz">
+				<p class="main2_lc_p"><span></span><a>我的理财</a></p>
+				<p class="main2_lc_p_right"><a href="qb.html">昨日收益 ></a></p><br />
+			</div>
+			<div class="main_gz">
+				<p class="main2_qb_p"><span></span><a>我的钱包</a></p>
+				<p class="main2_qb_right"><a>余额：121380.00</a></p><br />
+			</div>
+		</div>
+		<div class="main3">
+			<p class="main3_p"><span></span><a>系统设置 ></a></p>
+			<ul class="main3_ul">
+				<li><span></span><a href="">定时</a></li>
+				<li><span></span><a href="">闹铃</a></li>
+				<li><span></span><a href="">分类</a></li>
+				<li><span></span><a href="">简洁模式</a></li>
+				<li><span></span><a href="index.html">退出</a></li>
+			</ul>
+		</div>
+		<footer class="ft">
+			<ul class="ft_ul">
+				<li><span></span><p><a href="index.html">首页</a></p></li>
+				<li><span></span><p><a href="work.html">分类</a></p></li>
+				<li><span></span><p><a href="qb.html">记账</a></p></li>
+				<li><span></span><p><a href="surf.html">聊天</a></p></li>
+				<li><span></span><p><a href="#">我的</a></p><li>
+			</ul>
+		</footer>
+	</body>
+</html>
+<!--右侧悬浮-->
+			<div class="new_right_pendant">
+				<div class="new_right_list">
+					<a title="电话咨询">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-dianhua"></span>
+						</div>
+						<span class="txt1">13548809860</span>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="https://www.baidu.com" title="百度一下">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-wangzhan1"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="#" title="刷新页面">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-keji1"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a target="_blank" href="customer.html" title="客户服务">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-ziyuan"></span>
+						</div>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a>
+						<div class="ysUtilIco">
+							<span class="iconfont icon-haipaikeicon-"></span>
+						</div>
+						<span class="txt1 txt2">
+							<img src="./images/wx.jpg" alt="微信咨询">
+						</span>
+					</a>
+				</div>
+				<div class="new_right_list">
+					<a href="" class="totop" title="回到顶部">
+						<div class="ysUtilIco">
+							<span class="iconfont icon-fanhuidingbu1"></span>
+						</div>
+					</a>
+				</div>
+			</div>
